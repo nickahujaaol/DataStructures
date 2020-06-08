@@ -1,7 +1,7 @@
-package com.learning.ds.tree;
+package com.learning.ds;
 
-public class BinaryTree {
-	public TreeNode root;
+public class BinaryTree<T> {
+	public TreeNode<T> root;
 
 	public BinaryTree() {
 		root = null;

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
+/*
+Given a list of items, the goal is to find all of the permutations of that list. For example,
+Given a list like: [0, 1, 2]
+Permutations: [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]]
+ */
 //https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
 public class ListPermutationsOfArray {
 	public static void main(String[] args) {
