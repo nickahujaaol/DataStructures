@@ -40,6 +40,7 @@ public class BinaryTree<T> {
 		root.right.right.left = new TreeNode(12);
 		root.right.right.right = new TreeNode(14);
 
+
 		return tree;
 	}
 }
