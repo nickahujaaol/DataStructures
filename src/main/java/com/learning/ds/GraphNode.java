@@ -1,12 +1,15 @@
 package com.learning.ds;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GraphNode<T> {
     public T value;
     public boolean visited;
     public List<GraphNode<T>> neighbours = new ArrayList<>();
+    public Map<GraphNode<T>, Integer> weightedAdjNodes = new HashMap<>();
 
     public GraphNode(T value) {
         this.value = value;
@@ -20,6 +23,16 @@ public class GraphNode<T> {
     }
     public void setNeighbours(List<GraphNode<T>> neighbours) {
         this.neighbours = neighbours;
+    }
+
+    public void addWeightedAdjNode(GraphNode<T> newNode, int weight) {
+        this.neighbours.add(newNode);
+        this.weightedAdjNodes.put(newNode, weight);
+        return;
+    }
+
+    public Map<GraphNode<T>, Integer> getWeightedAdjNodesMap() {
+        return weightedAdjNodes;
     }
 
     /*
