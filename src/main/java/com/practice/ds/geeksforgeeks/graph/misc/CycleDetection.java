@@ -1,8 +1,6 @@
-package com.learning.ds.geeksforgeeks.graph.misc;
+package com.practice.ds.geeksforgeeks.graph.misc;
 
 import com.learning.ds.Graph;
-
-import java.util.LinkedList;
 
 // https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
 
@@ -23,33 +21,11 @@ public class CycleDetection {
     public static void main(String[] args) {
         boolean[] visited = new boolean[4];
 
-        for(int i = 0; i < 4; i++) {
-            // Select a vertex and keep a track of all the nodes visited from his vertex.
-            // If we encounter that there was a node already visited then we have a cycle.
-
-            if(!visited[i]) {
-                boolean[] currentDfsStack = new boolean[4];
-                boolean isCycle = detectCycle(createGraph(), i, visited, currentDfsStack);
-                System.out.println("Cycle detected at " + i + " : " + isCycle);
-            }
-        }
 
     }
 
     private static boolean detectCycle(Graph graph, int vertex, boolean[] visited, boolean[] currentDfsStack) {
-        visited[vertex] = true;
-        currentDfsStack[vertex] = true;
 
-        LinkedList<Integer> neighbors = graph.adjacencyList[vertex];
-        for(int i = 0; i < neighbors.size(); i++) {
-            int tempVertex = neighbors.get(i);
-            if(!visited[tempVertex] && detectCycle(graph, tempVertex, visited, currentDfsStack)) {
-                return true;
-            } else if(currentDfsStack[tempVertex]) {
-                return true;
-            }
-        }
-        currentDfsStack[vertex] = false; // Take it out from the stack now
         return false;
     }
 
