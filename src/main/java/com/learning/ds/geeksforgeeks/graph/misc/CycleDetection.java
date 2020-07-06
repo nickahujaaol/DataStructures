@@ -21,46 +21,45 @@ import java.util.LinkedList;
  */
 public class CycleDetection {
     public static void main(String[] args) {
-        boolean[] visited = new boolean[4];
-
-        for(int i = 0; i < 4; i++) {
-            // Select a vertex and keep a track of all the nodes visited from his vertex.
-            // If we encounter that there was a node already visited then we have a cycle.
-
-            if(!visited[i]) {
-                boolean[] currentDfsStack = new boolean[4];
-                boolean isCycle = detectCycle(createGraph(), i, visited, currentDfsStack);
-                System.out.println("Cycle detected at " + i + " : " + isCycle);
-            }
-        }
-
+        boolean[] visited = new boolean[6];
+        boolean[] currentDfsStack = new boolean[6];
+        boolean cycleDetected = detectCycle(createGraph(), 4, visited, currentDfsStack);
+        System.out.println("Cycle: " + cycleDetected);
     }
 
     private static boolean detectCycle(Graph graph, int vertex, boolean[] visited, boolean[] currentDfsStack) {
+        boolean cycleDetected = false;
+
+        if(currentDfsStack[vertex] == true) {
+            return true;
+        }
+        if(visited[vertex]) {
+            return false;
+        }
+
         visited[vertex] = true;
         currentDfsStack[vertex] = true;
 
         LinkedList<Integer> neighbors = graph.adjacencyList[vertex];
         for(int i = 0; i < neighbors.size(); i++) {
-            int tempVertex = neighbors.get(i);
-            if(!visited[tempVertex] && detectCycle(graph, tempVertex, visited, currentDfsStack)) {
-                return true;
-            } else if(currentDfsStack[tempVertex]) {
-                return true;
-            }
+            int tempNode = neighbors.get(i);
+            cycleDetected = detectCycle(graph, tempNode, visited, currentDfsStack);
         }
-        currentDfsStack[vertex] = false; // Take it out from the stack now
-        return false;
+        currentDfsStack[vertex] = false;
+
+        return cycleDetected;
     }
 
     private static Graph createGraph() {
-        Graph graph = new Graph(4);
+        Graph graph = new Graph(6);
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
         graph.addEdge(1, 2);
         graph.addEdge(2, 0);
         graph.addEdge(2, 3);
         graph.addEdge(3, 3);
+        graph.addEdge(3, 4);
+        graph.addEdge(4, 5);
 
         return graph;
     }

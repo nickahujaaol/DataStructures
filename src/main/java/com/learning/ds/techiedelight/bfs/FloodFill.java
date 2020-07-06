@@ -6,6 +6,9 @@ import java.util.Queue;
 
 // https://www.techiedelight.com/flood-fill-algorithm/
 public class FloodFill {
+    private static final int[] row = { -1, -1, -1, 0, 0, 1, 1, 1 };
+    private static final int[] col = { -1, 0, 1, -1, 1, -1, 0, 1 };
+
     public static void main(String[] args) {
         char[][] matrix = {
                 "YYYGGGGGGG".toCharArray(),
@@ -33,40 +36,28 @@ public class FloodFill {
     }
 
     private static void floodFill(char[][] matrix, int targetRow, int targetCol, char replacementColor) {
-        char targetColor = matrix[targetRow][targetCol];
         Queue<Pair> queue = new LinkedList<>();
         queue.add(new Pair(targetRow, targetCol));
+        boolean[][] visited = new boolean[matrix.length][matrix.length];
+        char targetColor = matrix[targetRow][targetCol];
 
         while (!queue.isEmpty()) {
-            Pair tempPair = queue.remove();
-            int row = tempPair.x;
-            int col = tempPair.y;
-            matrix[tempPair.x][tempPair.y] = replacementColor;
-
-            if(isValid(matrix, row - 1, col - 1, targetColor))
-                queue.add(new Pair(row - 1, col - 1));
-            if(isValid(matrix, row - 1, col, targetColor))
-                queue.add(new Pair(row - 1, col));
-            if(isValid(matrix, row - 1, col + 1, targetColor))
-                queue.add(new Pair(row - 1, col + 1));
-            if(isValid(matrix, row, col - 1, targetColor))
-                queue.add(new Pair(row, col - 1));
-            if(isValid(matrix, row, col + 1, targetColor))
-                queue.add(new Pair(row, col + 1));
-            if(isValid(matrix, row + 1, col - 1, targetColor))
-                queue.add(new Pair(row + 1, col - 1));
-            if(isValid(matrix, row - 1, col - 1, targetColor))
-                queue.add(new Pair(row - 1, col - 1));
-            if(isValid(matrix, row + 1, col + 1, targetColor))
-                queue.add(new Pair(row + 1, col + 1));
+            Pair removedPair = queue.poll();
+            visited[removedPair.x][removedPair.y] = true;
+            matrix[removedPair.x][removedPair.y] = replacementColor;
+            for(int i = 0; i < row.length; i++) {
+                if(isValid(matrix, removedPair.x + row[i], removedPair.y + col[i], targetColor, visited)) {
+                    queue.add(new Pair(removedPair.x + row[i], removedPair.y + col[i]));
+                }
+            }
         }
-
     }
 
-    private static boolean isValid(char[][] matrix, int targetRow, int targetCol, char targetColor) {
+    private static boolean isValid(char[][] matrix, int targetRow, int targetCol, char targetColor, boolean[][] visited) {
         if(targetRow >= 0 && targetRow < matrix.length &&
-        targetCol >= 0 && targetCol < matrix[0].length &&
-                matrix[targetRow][targetCol] == targetColor) {
+                targetCol >= 0 && targetCol < matrix.length &&
+                matrix[targetRow][targetCol] == targetColor &&
+                !visited[targetRow][targetCol]) {
             return true;
         } else {
             return false;

@@ -2,15 +2,40 @@ package com.practice.ds.techiedelight.bfs;
 
 import com.learning.ds.GraphNode;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 // https://www.techiedelight.com/least-cost-path-digraph-source-destination-m-edges/
 // Too much work, read the description
 public class LeastCostSourceToDestination {
     public static void main(String[] args) {
-        findShortestPath(createGraph(), 3);
+        findShortestPath(createGraph(), 4);
     }
 
     private static void findShortestPath(GraphNode<Integer> node, int targetValue) {
+        int[] minCost = new int[8];
+        Arrays.fill(minCost, Integer.MAX_VALUE);
+        minCost[node.value] = 0;
 
+        Queue<GraphNode<Integer>> queue = new LinkedList<>();
+        queue.add(node);
+
+        while (!queue.isEmpty()) {
+            GraphNode<Integer> removedNode = queue.poll();
+
+            List<GraphNode<Integer>> neighbors = removedNode.neighbours;
+            for(int i = 0; i < neighbors.size(); i++) {
+                GraphNode<Integer> tempNode = neighbors.get(i);
+                int costToNode = removedNode.weightedAdjNodes.get(tempNode);
+                minCost[tempNode.value] = Math.min(costToNode + minCost[removedNode.value],
+                                                    minCost[tempNode.value]);
+                queue.add(tempNode);
+            }
+        }
+        System.out.println(Arrays.toString(minCost));
+        System.out.println("Minimum cost is: " + minCost[targetValue]);
     }
 
     private static GraphNode<Integer> createGraph() {

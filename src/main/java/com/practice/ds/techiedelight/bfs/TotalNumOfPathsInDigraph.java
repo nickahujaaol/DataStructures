@@ -2,21 +2,37 @@ package com.practice.ds.techiedelight.bfs;
 
 import com.learning.ds.Graph;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 // https://www.techiedelight.com/total-paths-in-digraph-from-source-to-destination-m-edges/
 // I am no considering edges here
 public class TotalNumOfPathsInDigraph {
     public static void main(String[] args) {
-        findMinWithoutCountingEges(createGraph(), 3);
         findMinWithCountingEdges(createGraph(), 3, 4);
     }
 
     private static void findMinWithCountingEdges(Graph graph, int target, int numOfEdges) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(new Node(0, 0));
+        int numOfPaths = 0;
 
+        while (!queue.isEmpty()) {
+            Node removedNode = queue.poll();
+            if(removedNode.vertex == target && removedNode.depth == numOfEdges) {
+                numOfPaths++;
+            }
+            LinkedList<Integer> neighbors = graph.adjacencyList[removedNode.vertex];
+            for(int i = 0; i < neighbors.size(); i++) {
+                int tempNode = neighbors.get(i);
+                queue.add(new Node(tempNode, removedNode.depth + 1));
+            }
+        }
+
+        System.out.println("Number of Paths are: " + numOfPaths);
     }
 
-    private static void findMinWithoutCountingEges(Graph graph, int target) {
 
-    }
     private static Graph createGraph() {
         Graph g = new Graph(8);
         g.addEdge(0,6);

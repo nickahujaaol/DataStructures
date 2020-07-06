@@ -2,15 +2,25 @@ package com.practice.ds.geeksforgeeks.graph.traversal;
 
 import com.learning.ds.Graph;
 
+import java.util.LinkedList;
+
 // https://www.geeksforgeeks.org/count-possible-paths-two-vertices/
 public class PossiblePathsBetween2Vertices {
     public static void main(String[] args) {
-        int minMumOfPaths = findPaths(createGraph(), 0, 1, 0);
+        int minMumOfPaths = findPaths(createGraph(), 0, 4, 0);
         System.out.println(minMumOfPaths);
     }
 
     private static int findPaths(Graph graph, int startVertex, int endVertex, int numOfPaths) {
-        return 0;
+        if(startVertex == endVertex) {
+            return numOfPaths + 1;
+        }
+
+        LinkedList<Integer> neighbors = graph.adjacencyList[startVertex];
+        for(int i = 0; i < neighbors.size(); i++) {
+            numOfPaths = findPaths(graph, neighbors.get(i), endVertex, numOfPaths);
+        }
+        return numOfPaths;
     }
 
     private static Graph createGraph() {
