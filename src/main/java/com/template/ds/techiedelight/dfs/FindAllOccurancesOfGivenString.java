@@ -15,15 +15,6 @@ public class FindAllOccurancesOfGivenString {
                         "CPYEN".toCharArray()
                 };
         String searchWord = "CODE";
-        findWords(matrix, searchWord);
-    }
-
-    private static void findWords(char[][] matrix, String searchWord) {
-
-    }
-
-    private static void search(char[][] matrix, String searchWord, int row, int column, LinkedList<Node> path, int index) {
-
     }
 
     private static boolean isValid(char[][] matrix, int row, int column) {
@@ -31,14 +22,16 @@ public class FindAllOccurancesOfGivenString {
     }
 
     private static class Node {
+        public char c;
         public int x, y;
-        public Node(int x, int y) {
+        public Node(char c, int x, int y) {
+            this.c = c;
             this.x = x;
             this.y = y;
         }
 
         public String toString() {
-            return "(" + x + ", " + y + ")";
+            return "(" + c +", "+ x + ", " + y + ")";
         }
     }
 }

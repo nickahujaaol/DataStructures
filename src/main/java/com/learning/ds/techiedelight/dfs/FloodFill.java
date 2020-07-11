@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 // https://www.techiedelight.com/flood-fill-algorithm/
 public class FloodFill {
+    private static final int[] rows = { -1, -1, -1, 0, 0, 1, 1, 1 };
+    private static final int[] cols = { -1, 0, 1, -1, 1, -1, 0, 1 };
+
     public static void main(String[] args) {
         // matrix showing portion of the screen having different colors
         char[][] matrix = {
@@ -30,29 +33,17 @@ public class FloodFill {
 
     private static void floodFill(char[][] matrix, int row, int col, char targetChar, char replacementChar) {
         matrix[row][col] = replacementChar;
-
-        if(isValid(matrix, row - 1, col - 1, targetChar))
-            floodFill(matrix, row - 1, col - 1, targetChar, replacementChar);
-        if(isValid(matrix, row - 1, col, targetChar))
-            floodFill(matrix, row - 1, col, targetChar, replacementChar);
-        if(isValid(matrix, row - 1, col + 1, targetChar))
-            floodFill(matrix, row - 1, col + 1, targetChar, replacementChar);
-        if(isValid(matrix, row, col - 1, targetChar))
-            floodFill(matrix, row, col - 1, targetChar, replacementChar);
-        if(isValid(matrix, row, col + 1, targetChar))
-            floodFill(matrix, row, col + 1, targetChar, replacementChar);
-        if(isValid(matrix, row + 1, col - 1, targetChar))
-            floodFill(matrix, row + 1, col - 1, targetChar, replacementChar);
-        if(isValid(matrix, row - 1, col - 1, targetChar))
-            floodFill(matrix, row - 1, col - 1, targetChar, replacementChar);
-        if(isValid(matrix, row + 1, col + 1, targetChar))
-            floodFill(matrix, row + 1, col + 1, targetChar, replacementChar);
+        for(int i = 0; i < rows.length; i++) {
+            if(isValid(matrix, row + rows[i], col + cols[i], targetChar)) {
+                floodFill(matrix, row + rows[i], col + cols[i], targetChar, replacementChar);
+            }
+        }
     }
 
     private static boolean isValid(char[][] matrix, int row, int col, char targetChar) {
         if(row >= 0 && row < matrix.length &&
-            col >= 0 && col < matrix[0].length &&
-            matrix[row][col] == targetChar) {
+                col >= 0 && col < matrix.length &&
+                matrix[row][col] == targetChar) {
             return true;
         } else {
             return false;

@@ -9,36 +9,28 @@ public class ArrivalAndDepartureTimes {
     public static void main(String[] args) {
         Graph graph = createGraph();
         boolean[] visited = new boolean[8];
-        int[] arrivalTimes = new int[8];
-        int[] departureTimes = new int[8];
 
         int time = -1;
         for(int i = 0; i < 8; i++) {
             if(!visited[i]) {
-                time = findTimes(graph, i, arrivalTimes, departureTimes, visited, time);
+                time = findTimes(graph, i, visited, time + 1);
             }
-        }
-
-        for(int i = 0; i < 8; i++) {
-            System.out.println("" + i + " : (" + arrivalTimes[i]+", "+ departureTimes[i]+")");
         }
     }
 
-    private static int findTimes(Graph graph, int vertex,
-                                  int[] arrivalTimes, int[] departureTimes, boolean[] visited, int time) {
-        visited[vertex] = true;
-        arrivalTimes[vertex] = ++time;
+    private static int findTimes(Graph graph, int vertex, boolean[] visited, int time) {
 
+        visited[vertex] = true;
+        int arrivalTime = time;
         LinkedList<Integer> neighbors = graph.adjacencyList[vertex];
         for(int i = 0; i < neighbors.size(); i++) {
-            int tempVertex = neighbors.get(i);
-            if(!visited[tempVertex]) {
-                time = findTimes(graph, tempVertex, arrivalTimes, departureTimes, visited, time);
+            int tempNode = neighbors.get(i);
+            if(!visited[tempNode]) {
+                time = findTimes(graph, tempNode, visited, time + 1);
             }
         }
-
-        departureTimes[vertex] = ++time;
-        return time;
+        System.out.println("Node: " + vertex + " ( " + arrivalTime + ", " + (time + 1) + ")");
+        return time + 1;
     }
 
     private static Graph createGraph() {

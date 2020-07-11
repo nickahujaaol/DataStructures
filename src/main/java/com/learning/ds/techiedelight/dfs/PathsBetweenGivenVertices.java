@@ -3,31 +3,27 @@ package com.learning.ds.techiedelight.dfs;
 import com.learning.ds.Graph;
 
 import java.util.LinkedList;
+import java.util.List;
 
 //https://www.techiedelight.com/find-path-between-vertices-directed-graph/
 public class PathsBetweenGivenVertices {
 
     public static void main(String[] args) {
         boolean[] visited = new boolean[8];
-        findPaths(createGraph(), 0, 7, new StringBuilder(), visited);
+        findPaths(createGraph(), 0, 7, new LinkedList<Integer>(), visited);
     }
 
-    private static void findPaths(Graph graph, int vertex, int endVertex, StringBuilder builder, boolean[] visited) {
-        builder.append(vertex);
-        visited[vertex] = true;
+    private static void findPaths(Graph graph, int vertex, int endVertex, LinkedList<Integer> pathsList, boolean[] visited) {
+        pathsList.add(vertex);
         if(vertex == endVertex) {
-            System.out.println(builder.toString());
-            //builder.deleteCharAt(builder.length() - 1);
+            System.out.println(pathsList.toString());
             return;
         }
-
-        LinkedList<Integer> neighbors = graph.adjacencyList[vertex];
+        List<Integer> neighbors = graph.adjacencyList[vertex];
         for(int i = 0; i < neighbors.size(); i++) {
-            int tempVertex = neighbors.get(i);
-            //if(!visited[tempVertex]) {
-            findPaths(graph, tempVertex, endVertex, builder, visited);
-            builder.deleteCharAt(builder.length() - 1);
-            //}
+            int tempNode = neighbors.get(i);
+            findPaths(graph, tempNode, endVertex, pathsList, visited);
+            pathsList.removeLast();
         }
     }
 

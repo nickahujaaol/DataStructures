@@ -21,6 +21,7 @@ public class RootToLeafPaths {
         if(node.left == null && node.right == null) {
             System.out.println(pathsList);
             pathsList.remove(pathsList.size() - 1);
+            //pathsList.remove(node);
             return;
         }
 
@@ -28,5 +29,6 @@ public class RootToLeafPaths {
         getPaths(node.left, pathsList);
         getPaths(node.right, pathsList);
         pathsList.remove(pathsList.size() - 1);
+        // pathsList.remove(node);
     }
 }

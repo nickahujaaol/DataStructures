@@ -12,11 +12,18 @@ public class SumTree {
     }
 
     private static boolean isSumTree(TreeNode<Integer> node) {
-        return false;
+        if(node == null || (node.left == null && node.right == null)) return true;
+
+        return (node.value == sum(node.left) + sum(node.right)) &&
+                isSumTree(node.left) && isSumTree(node.right);
     }
 
     private static int sum(TreeNode<Integer> node) {
-        return 0;
+        if(node == null) return 0;
+        if(node.left == null && node.right == null) {
+            return node.value;
+        }
+        return sum(node.left) + sum(node.right) + node.value;
     }
 
     private static BinaryTree createSumTree() {

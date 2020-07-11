@@ -12,7 +12,11 @@ public class FindDepth {
     }
 
     private static int findDepth(TreeNode<Integer> node) {
-        return 0;
+        if(node == null) {
+            return 0;
+        }
+
+        return Math.max(findDepth(node.left), findDepth(node.right)) + 1;
 
     }
 }

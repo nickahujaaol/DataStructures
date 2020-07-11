@@ -8,6 +8,7 @@ import java.util.List;
 // https://www.techiedelight.com/lexicographic-sorting-given-set-of-keys/
 // JUST READ THE EXPLANATION. REMEMBER HERE THAT YOU ARE STORING CHARACTERS IN AN ARRAY AND NOT IN MAP
 // AND YOU ITERATE ON CHARACTER SEQUENCE AND HENCE WORDS WILL BE SORTED.
+//TRIE
 public class LexicographicSorting {
     public static void main(String[] args) {
         // given set of keys
@@ -23,18 +24,11 @@ public class LexicographicSorting {
 
         TrieNode head = new TrieNode();
 
-        // insert all keys of dictionary into trie
-        for (String word: dict) {
-            insert(head, word);
-        }
+        dict.stream().forEach(word -> head.insert(head, word));
     }
 
     private static void traversePreOrder(TrieNode node) {
 
     }
 
-
-    public static void insert(TrieNode node, String key) {
-
-    }
 }
