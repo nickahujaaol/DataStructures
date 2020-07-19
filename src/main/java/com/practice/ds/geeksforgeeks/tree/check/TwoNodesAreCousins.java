@@ -38,19 +38,13 @@ public class TwoNodesAreCousins {
 
     private static boolean isSibling(TreeNode<Integer> node, int num1, int num2) {
         if(node == null) return false;
-
-        if(node != null && node.left != null && node.right != null &&
+        System.out.println(node);
+        if(node.left!= null && node.right != null &&
                 ((node.left.value == num1 && node.right.value == num2) ||
-                        (node.left.value == num2 && node.right.value == num1))) {
+                        (node.right.value == num1 && node.left.value == num2))) {
             return true;
         }
-
-        boolean found = isSibling(node.left, num1, num2);
-        if(found) {
-            return true;
-        } else {
-            return isSibling(node.right, num1, num2);
-        }
+        return isSibling(node.left, num1, num2) || isSibling(node.right, num1, num2);
     }
 
 }

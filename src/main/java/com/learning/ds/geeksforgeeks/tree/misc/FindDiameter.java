@@ -15,8 +15,6 @@ public class FindDiameter {
     }
 
     private static int findDiameter(TreeNode<Integer> node) {
-        int leftHeight = findHeight(node.left);
-        int rightHeight = findHeight(node.right);
         return findHeight(node.left) + findHeight(node.right) + 1;
     }
 

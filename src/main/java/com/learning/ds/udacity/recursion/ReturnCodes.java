@@ -2,7 +2,8 @@ package com.learning.ds.udacity.recursion;
 
 /*
 Problem statement
-In an encryption system where ASCII lower case letters represent numbers in the pattern a=1, b=2, c=3... and so on, find out all the codes that are possible for a given input number.
+In an encryption system where ASCII lower case letters represent numbers in the pattern a=1, b=2, c=3... and so on,
+ find out all the codes that are possible for a given input number.
 
 Example 1
 

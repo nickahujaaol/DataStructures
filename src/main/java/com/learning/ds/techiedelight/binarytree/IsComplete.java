@@ -1,5 +1,69 @@
 package com.learning.ds.techiedelight.binarytree;
 
+import com.learning.ds.TreeNode;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 // https://www.techiedelight.com/check-given-binary-tree-complete-binary-tree-not/
 public class IsComplete {
+    public static void main(String[] args) {
+        TreeNode<Integer> root = createTree();
+        boolean isComplete = isComplete(root);
+        System.out.println("Is Complete Tree: " + isComplete);
+    }
+
+    private static boolean isComplete(TreeNode<Integer> node) {
+        boolean isComplete = true;
+        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+        queue.add(node);
+
+        while (!queue.isEmpty() && isComplete) {
+            int qSize = queue.size();
+            boolean noOtherChildFlag = false;
+            for(int i = 0; i < qSize; i++) {
+                TreeNode<Integer> tempNode = queue.poll();
+
+                if(noOtherChildFlag && (tempNode.left != null || tempNode.right != null)){
+                    isComplete = false;
+                    break;
+                }
+
+                if (tempNode.left == null && tempNode.right != null && tempNode.right.left == null && tempNode.right.right == null) {
+                    isComplete = false;
+                    break;
+                }
+                if (tempNode.left != null) {
+                    queue.add(tempNode.left);
+                }
+
+                if (tempNode.right != null) {
+                    queue.add(tempNode.right);
+                } else {
+                    noOtherChildFlag = true;
+                }
+            }
+        }
+
+        return isComplete;
+    }
+
+    private static TreeNode<Integer> createTree() {
+        TreeNode<Integer> root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+        root.left.left.left = new TreeNode(8);
+        root.left.left.right = new TreeNode(9);
+
+        root.left.right.left = new TreeNode(10);
+        //root.left.right.right = new TreeNode(11);
+        root.right.left.left = new TreeNode(12);
+
+
+        return root;
+    }
 }
