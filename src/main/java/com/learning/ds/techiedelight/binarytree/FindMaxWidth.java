@@ -13,12 +13,13 @@ public class FindMaxWidth {
         //find max value now...
     }
 
-    private static void findMaxWidthRecursive(TreeNode<Integer> node, int level, HashMap<Integer, Integer> nodeToLevelMap) {
+    private static void findMaxWidthRecursive(TreeNode<Integer> node, int level, HashMap<Integer, Integer> levelToNumMap) {
         if(node == null) return;
 
-        nodeToLevelMap.put(node.value, level);
-        findMaxWidthRecursive(node.left, level + 1, nodeToLevelMap);
-        findMaxWidthRecursive(node.right, level + 1, nodeToLevelMap);
+        levelToNumMap.putIfAbsent(level, 0);
+        levelToNumMap.replace(level, levelToNumMap.get(level) + 1);
+        findMaxWidthRecursive(node.left, level + 1, levelToNumMap);
+        findMaxWidthRecursive(node.right, level + 1, levelToNumMap);
     }
 
     private static TreeNode<Integer> createTree() {

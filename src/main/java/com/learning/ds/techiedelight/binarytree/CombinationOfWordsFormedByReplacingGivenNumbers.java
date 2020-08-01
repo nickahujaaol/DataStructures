@@ -5,7 +5,7 @@ public class CombinationOfWordsFormedByReplacingGivenNumbers {
     private static final String alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public static void main(String[] args) {
-        int[] digits = {1,2,2};
+        int[] digits = {1,2,2, 2};
         findCombinations(digits, 0, "");
     }
 

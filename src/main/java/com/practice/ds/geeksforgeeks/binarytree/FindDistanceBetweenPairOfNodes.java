@@ -8,12 +8,31 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class FindDistanceBetweenPairOfNodes {
     public static void main(String[] args) {
         AtomicInteger distance = new AtomicInteger();
-        findDistance(createTree(), distance, 7, 6);
+        findDistance(createTree(), distance, 4, 7);
         System.out.println("Distance is: " + distance.get());
     }
 
     private static boolean findDistance(TreeNode<Integer> node, AtomicInteger distance, int node1, int node2) {
-        return false;
+        if(node == null) return false;
+
+        if(node.value == node1 || node.value == node2)
+            return true;
+
+        boolean leftFound = findDistance(node.left, distance, node1, node2);
+        if(leftFound) {
+            distance.set(distance.get() + 1);
+        }
+        boolean rightFound = findDistance(node.right, distance, node1, node2);
+        if(rightFound) {
+            distance.set(distance.get() + 1);
+        }
+
+        if(leftFound && rightFound) {
+            leftFound = false;
+            rightFound = false;
+        }
+
+        return leftFound || rightFound;
     }
 
     private static TreeNode<Integer> createTree(){
@@ -24,7 +43,7 @@ public class FindDistanceBetweenPairOfNodes {
         root.right.left = new TreeNode(5);
         root.right.right = new TreeNode(6);
         root.right.left.left = new TreeNode(7);
-        root.right.right.right = new TreeNode(8);
+        root.right.left.right = new TreeNode(8);
 
         return root;
     }

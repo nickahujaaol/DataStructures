@@ -14,12 +14,26 @@ public class FindAllNodesAtGivenDistanceFromLeaf {
         List<Integer> rootToLeafPath = new ArrayList<>();
         Set<Integer> nodesAtDistance = new HashSet<>();
 
-        findNodes(root, rootToLeafPath, nodesAtDistance, 3);
+        findNodes(root, rootToLeafPath, nodesAtDistance, 1);
         System.out.println(nodesAtDistance);
     }
 
-    private static void findNodes(TreeNode<Integer> node, List<Integer> rootToLeafPath, Set<Integer> nodesAtDistance, int distance) {
+    private static int findNodes(TreeNode<Integer> node, List<Integer> rootToLeafPath, Set<Integer> nodesAtDistance, int distance) {
+        if(node == null) return 0;
+        if(node.left == null && node.right == null) return 1;
 
+        int leftDistance = findNodes(node.left, rootToLeafPath, nodesAtDistance, distance);
+        if(leftDistance == distance) {
+            System.out.print(" " + node.value);
+        }
+        int rightDistance = findNodes(node.right, rootToLeafPath, nodesAtDistance, distance);
+        if(rightDistance == distance) {
+            System.out.print(" " + node.value);
+        }
+
+        if(leftDistance > 0) return leftDistance + 1;
+        if(rightDistance > 0) return rightDistance + 1;
+        return 0;
     }
 
     private static TreeNode<Integer> createTree() {

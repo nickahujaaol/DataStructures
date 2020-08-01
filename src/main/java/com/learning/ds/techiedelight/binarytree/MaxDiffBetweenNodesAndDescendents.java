@@ -14,16 +14,16 @@ public class MaxDiffBetweenNodesAndDescendents {
         System.out.println("Max diff is: " + maxSum.get());
     }
 
-    private static int findMaxDiff(TreeNode<Integer> node, AtomicInteger maxSum) {
-        if(node == null) return 0;
+    private static int findMaxDiff(TreeNode<Integer> node, AtomicInteger maxDiff) {
+        if(node == null) return Integer.MAX_VALUE;
 
-        int leftSum = findMaxDiff(node.left, maxSum);
-        int rightSum = findMaxDiff(node.right, maxSum);
+        int leftMin = findMaxDiff(node.left, maxDiff);
+        int rightMin = findMaxDiff(node.right, maxDiff);
 
-        int maxSumAtNode = Math.max(node.value - leftSum, node.value - rightSum);
-        maxSum.set(Math.max(maxSum.get(), maxSumAtNode));
+        int maxDifference = node.value - Math.min(leftMin, rightMin);
+        maxDiff.set(Math.max(maxDiff.get(), maxDifference));
 
-        return maxSumAtNode;
+        return Math.min(Math.min(leftMin, rightMin), node.value);
     }
 
     private static TreeNode<Integer> createTree() {

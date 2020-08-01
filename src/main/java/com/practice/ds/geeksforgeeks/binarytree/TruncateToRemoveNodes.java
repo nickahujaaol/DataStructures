@@ -12,11 +12,7 @@ public class TruncateToRemoveNodes {
         preOrder(root);
     }
 
-    /*
-     * If we reach leaf and the sum is less than required, delete that leaf from the parent - left or right
-     * If both the leaves are removed that means we need to remove the parent also and
-     * hence the return is left delete + right delete.
-     */
+
     private static boolean truncate(TreeNode<Integer> node, int sum, int sumSoFar) {
         return false;
     }

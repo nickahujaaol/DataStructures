@@ -6,24 +6,23 @@ import com.learning.ds.TreeNode;
 public class ConvertToMirror {
     public static void main(String[] args) {
         TreeNode<Integer> root = createTree();
-        TreeNode<Integer> newRoot = new TreeNode<>(root.value);
-        convertNew(root, newRoot);
         print(root);
-        System.out.println();
-        print(newRoot);
-
         convertInPlace(root);
         System.out.println();
         print(root);
     }
 
     private static void convertInPlace(TreeNode<Integer> node) {
+        if(node == null) return;
 
+        TreeNode<Integer> tempNode = node.left;
+        node.left = node.right;
+        node.right = tempNode;
+        convertInPlace(node.left);
+        convertInPlace(node.right);
     }
 
-    private static void convertNew(TreeNode<Integer> node, TreeNode<Integer> newNode) {
 
-    }
 
     private static void print(TreeNode<Integer> node) {
         if(node == null) return;

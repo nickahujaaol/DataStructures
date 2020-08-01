@@ -13,7 +13,16 @@ public class FindMaxSumRootToLeafPath {
     }
 
     private static void findMaxSum(TreeNode<Integer> node, int maxSoFar, AtomicInteger maxSum) {
+        if(node == null) return;
 
+        maxSoFar += node.value;
+        if(node.left == null && node.right == null) {
+            maxSum.set(Math.max(maxSum.get(), maxSoFar));
+        }
+
+        findMaxSum(node.left, maxSoFar, maxSum);
+        findMaxSum(node.right, maxSoFar, maxSum);
+        maxSoFar -= node.value;
     }
 
     private static TreeNode<Integer> createTree() {

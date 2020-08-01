@@ -3,6 +3,8 @@ package com.practice.ds.geeksforgeeks.binarytree;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
 
+import java.util.Stack;
+
 //https://www.techiedelight.com/convert-binary-tree-into-doubly-linked-list/
 // READ THE EXPLANATION... IT IS GOOD :-)
 
@@ -12,6 +14,36 @@ public class ConvertToListInSpiralOrder {
     }
 
     private static void convert(TreeNode<Integer> node) {
+        Stack<TreeNode<Integer>> leftToRightStack = new Stack<>();
+        Stack<TreeNode<Integer>> rightToLeftStack = new Stack<>();
+        leftToRightStack.push(node);
+        boolean isOddLevel = true;
+        while (!leftToRightStack.isEmpty() || !rightToLeftStack.isEmpty()) {
+            if(isOddLevel) {
+                if (!leftToRightStack.isEmpty()) {
+                    TreeNode<Integer> tempNode = leftToRightStack.pop();
+                    System.out.print(" " + tempNode.value);
+                    if (tempNode.left != null)
+                        rightToLeftStack.push(tempNode.left);
+                    if (tempNode.right != null)
+                        rightToLeftStack.push(tempNode.right);
+                    if(leftToRightStack.isEmpty()) isOddLevel = !isOddLevel;
+                }
+            }
+
+            if(!isOddLevel) {
+                if (!rightToLeftStack.isEmpty()) {
+                    TreeNode<Integer> tempNode = rightToLeftStack.pop();
+                    System.out.print(" " + tempNode.value);
+                    if (tempNode.right != null)
+                        leftToRightStack.push(tempNode.right);
+                    if (tempNode.left != null) {
+                        leftToRightStack.push(tempNode.left);
+                    }
+                    if (rightToLeftStack.isEmpty()) isOddLevel = !isOddLevel;
+                }
+            }
+        }
     }
 
     private static BinaryTree<Integer> createTree() {
