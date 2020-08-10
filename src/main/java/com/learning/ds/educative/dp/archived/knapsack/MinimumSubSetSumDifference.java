@@ -1,4 +1,4 @@
-package com.learning.ds.educative.dp.knapsack;
+package com.learning.ds.educative.dp.archived.knapsack;
 
 public class MinimumSubSetSumDifference {
     public static void main(String[] args) {

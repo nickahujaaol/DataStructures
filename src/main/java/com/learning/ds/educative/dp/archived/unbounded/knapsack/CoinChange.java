@@ -1,4 +1,4 @@
-package com.learning.ds.educative.dp.unbounded.knapsack;
+package com.learning.ds.educative.dp.archived.unbounded.knapsack;
 
 import java.util.Arrays;
 
@@ -27,7 +27,6 @@ public class CoinChange {
                 } else {
                     int waysIncluding = dp[coin][currAmt - coins[coin - 1]];
                     int wayExcluding = dp[coin - 1][currAmt];
-                    System.out.println(String.format("%d,%d,%d,%d", coin, currAmt, waysIncluding, wayExcluding));
                     dp[coin][currAmt] = waysIncluding + wayExcluding;
                 }
             }

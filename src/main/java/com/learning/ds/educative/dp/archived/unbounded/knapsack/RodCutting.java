@@ -1,4 +1,4 @@
-package com.learning.ds.educative.dp.unbounded.knapsack;
+package com.learning.ds.educative.dp.archived.unbounded.knapsack;
 
 import java.util.Arrays;
 
