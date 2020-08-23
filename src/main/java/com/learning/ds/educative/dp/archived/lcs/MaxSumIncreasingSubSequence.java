@@ -10,20 +10,20 @@ public class MaxSumIncreasingSubSequence {
         int[][] dp = new int[inArray.length][inArray.length + 1];
         for(int i = 0; i < dp.length; i++)
             Arrays.fill(dp[i], -1);
-        int maxSeq = findLISRecursive(inArray, 0, -1, 0);
+        int maxSeq = findLISRecursive(inArray, 0, -1);
         System.out.println("Max LIS is: " + maxSeq);
 
     }
 
-    private static int findLISRecursive(int[] inArray, int currIndex, int prevIndex, int sum) {
+    private static int findLISRecursive(int[] inArray, int currIndex, int prevIndex) {
         if(currIndex == inArray.length)
-            return sum;
+            return 0;
 
-        int includingSum = sum;
+        int includingSum = 0;
         if(prevIndex == -1 || inArray[currIndex] > inArray[prevIndex])
-            includingSum = findLISRecursive(inArray, currIndex + 1, currIndex, inArray[currIndex] + sum);
+            includingSum = inArray[currIndex] + findLISRecursive(inArray, currIndex + 1, currIndex);
 
-        int excludingSum = findLISRecursive(inArray, currIndex + 1, prevIndex, sum);
+        int excludingSum = findLISRecursive(inArray, currIndex + 1, prevIndex);
         return Math.max(includingSum, excludingSum);
     }
 

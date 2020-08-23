@@ -8,7 +8,10 @@ public class RodCutting {
         int[] prices = {2, 6, 7, 10, 13};
         int rodLength = 5;
 
-        int maxProfit = getMaxProfitRecursive(lengths, prices, rodLength, 0, 0);
+        int[][] dp = new int[lengths.length + 1][rodLength + 1];
+        for(int i = 0; i < dp.length; i++)
+            Arrays.fill(dp[i], -1);
+        int maxProfit = getMaxProfitRecursive(lengths, prices, rodLength, 0, dp);
         System.out.println("Max Profit is: " + maxProfit);
 
         maxProfit = getMaxProfitBottomUp(lengths, prices, rodLength);
@@ -33,16 +36,19 @@ public class RodCutting {
         return dp[lengths.length][rodLength];
     }
 
-    private static int getMaxProfitRecursive(int[] lengths, int[] prices, int rodLength, int index, int currRodLength) {
-        if(currRodLength == rodLength || index >= lengths.length)
+    private static int getMaxProfitRecursive(int[] lengths, int[] prices, int rodLength, int index, int[][] dp) {
+        if(rodLength == 0 || index >= lengths.length)
             return 0;
 
-        if(lengths[index] + currRodLength <= rodLength) {
-            int profitIncluding = prices[index] + getMaxProfitRecursive(lengths, prices, rodLength, index, currRodLength + lengths[index]);
-            int profitExcluding = getMaxProfitRecursive(lengths, prices, rodLength, index + 1, currRodLength);
-            return Math.max(profitIncluding, profitExcluding);
+        if(dp[index][rodLength] != -1)
+            return dp[index][rodLength];
+
+        if(lengths[index] <= rodLength) {
+            int profitIncluding = prices[index] + getMaxProfitRecursive(lengths, prices, rodLength - lengths[index], index, dp);
+            int profitExcluding = getMaxProfitRecursive(lengths, prices, rodLength, index + 1, dp);
+            return dp[index][rodLength] = Math.max(profitIncluding, profitExcluding);
         } else {
-            return getMaxProfitRecursive(lengths, prices, rodLength, index + 1, currRodLength);
+            return dp[index][rodLength] = getMaxProfitRecursive(lengths, prices, rodLength, index + 1, dp);
         }
     }
 }

@@ -28,8 +28,8 @@ public class LongestCommonSubstring {
             count = getLCSRecursive(str1, str2, index1 - 1, index2 - 1, count + 1);
         }
 
-        int leftMax = getLCSRecursive(str1, str2, index1 - 1, index2, 0);
-        int rightMax = getLCSRecursive(str1, str2, index1, index2 - 1, 0);
+        int leftMax = getLCSRecursiveMemoization(str1, str2, index1 - 1, index2, dp,0);
+        int rightMax = getLCSRecursiveMemoization(str1, str2, index1, index2 - 1, dp,0);
 
         dp[index1][index2] = Math.max(count, Math.max(leftMax, rightMax));
         return dp[index1][index2];
