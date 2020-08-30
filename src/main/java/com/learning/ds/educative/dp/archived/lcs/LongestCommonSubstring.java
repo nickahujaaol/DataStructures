@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class LongestCommonSubstring {
     public static void main(String[] args) {
-        String str1 = "passport";
-        String str2 = "ppsspt";
+        String str1 = "abcxabcd";
+        String str2 = "abcyabcd";
         int max = getLCSRecursive(str1, str2, str1.length() - 1, str2.length() - 1, 0);
         System.out.println("Max is: " + max);
 
@@ -37,7 +37,7 @@ public class LongestCommonSubstring {
 
     private static int getLCSRecursive(String str1, String str2, int index1, int index2, int count) {
         if(index1 < 0 || index2 < 0)
-            return 0;
+            return count;
 
         if(str1.charAt(index1) == str2.charAt(index2)) {
             count = getLCSRecursive(str1, str2, index1 - 1, index2 - 1, count + 1);

@@ -1,7 +1,5 @@
 package com.learning.ds;
 
-import sun.awt.image.ImageWatched;
-
 public class LinkedList<T> {
 	public Node<T> head;
 	public Node<T> tail;
