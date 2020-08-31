@@ -4,8 +4,6 @@ package com.practice.ds.geeksforgeeks.tree.traversals;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 //https://www.geeksforgeeks.org/level-order-traversal-in-spiral-form/
@@ -33,25 +31,25 @@ public class LevelOrderInSpiralForm {
         leftToRightStack.push(node);
 
         while (!leftToRightStack.isEmpty() || !rightToLeftStack.isEmpty()) {
-            if(level % 2 == 0) {
+            if (level % 2 == 0) {
                 TreeNode<Integer> tempNode = leftToRightStack.pop();
-                System.out.print(" "+ tempNode.value);
-                if(tempNode.left != null)
+                System.out.print(" " + tempNode.value);
+                if (tempNode.left != null)
                     rightToLeftStack.push(tempNode.left);
-                if(tempNode.right != null)
+                if (tempNode.right != null)
                     rightToLeftStack.push(tempNode.right);
 
-                if(leftToRightStack.isEmpty()) level++;
+                if (leftToRightStack.isEmpty()) level++;
             } else {
                 TreeNode<Integer> tempNode = rightToLeftStack.pop();
-                System.out.print(" "+ tempNode.value);
+                System.out.print(" " + tempNode.value);
 
-                if(tempNode.right != null)
+                if (tempNode.right != null)
                     leftToRightStack.push(tempNode.right);
-                if(tempNode.left != null)
+                if (tempNode.left != null)
                     leftToRightStack.push(tempNode.left);
 
-                if(rightToLeftStack.isEmpty()) level++;
+                if (rightToLeftStack.isEmpty()) level++;
             }
         }
 

@@ -12,12 +12,12 @@ public class PossiblePathsBetween2Vertices {
     }
 
     private static int findPaths(Graph graph, int startVertex, int endVertex, int numOfPaths) {
-        if(startVertex == endVertex) {
+        if (startVertex == endVertex) {
             return numOfPaths + 1;
         }
 
         LinkedList<Integer> neighbors = graph.adjacencyList[startVertex];
-        for(int i = 0; i < neighbors.size(); i++) {
+        for (int i = 0; i < neighbors.size(); i++) {
             numOfPaths = findPaths(graph, neighbors.get(i), endVertex, numOfPaths);
         }
         return numOfPaths;

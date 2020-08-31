@@ -25,13 +25,13 @@ public class TruncateToRemoveNodes {
         root.right.right = new TreeNode(2);
         root.right.left.left = new TreeNode(1);
         root.right.left.right = new TreeNode(7);
-        root.right.right.right  = new TreeNode(3);
+        root.right.right.right = new TreeNode(3);
 
         return root;
     }
 
     private static void preOrder(TreeNode node) {
-        if(node == null) return;
+        if (node == null) return;
         System.out.print(" " + node.value);
         preOrder(node.left);
         preOrder(node.right);

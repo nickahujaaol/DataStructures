@@ -27,7 +27,7 @@ public class FindMaxSumRootToLeafPath {
         root.left.right.left = new TreeNode(10);
         root.right.left.left = new TreeNode(7);
         root.right.left.right = new TreeNode(9);
-        root.right.right.right  = new TreeNode(5);
+        root.right.right.right = new TreeNode(5);
 
         return root;
     }

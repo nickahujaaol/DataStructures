@@ -10,13 +10,13 @@ public class IsBST {
     }
 
     private static boolean isBST(TreeNode<Integer> node, int minKey, int maxKey) {
-        if(node == null) return true;
+        if (node == null) return true;
 
-        if(node.value < minKey || node.value > maxKey) {
+        if (node.value < minKey || node.value > maxKey) {
             return false;
         }
 
-        if((node.left != null && node.left.value > node.value) ||
+        if ((node.left != null && node.left.value > node.value) ||
                 (node.right != null && node.right.value < node.value)) {
             return false;
         }

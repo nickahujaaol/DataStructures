@@ -19,13 +19,13 @@ public class FloodFill {
         };
 
         // start node
-        int x = 3, y = 9;	// target color = "X"
+        int x = 3, y = 9;    // target color = "X"
         // replacement color
         char replacement = 'C';
         // replace target color with replacement color
         floodFill(matrix, x, y, replacement);
 
-        for(int i = 0; i < matrix.length; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             System.out.println(Arrays.toString(matrix[i]));
         }
     }
@@ -41,6 +41,7 @@ public class FloodFill {
     public static class Pair {
         private int x;
         private int y;
+
         public Pair(int x, int y) {
             this.x = x;
             this.y = y;

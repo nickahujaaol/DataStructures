@@ -13,6 +13,7 @@ public class FindAncestorsOfGivenNode {
     private static boolean findAncestors(TreeNode<Integer> node, int nodeToFind) {
         return false;
     }
+
     private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);

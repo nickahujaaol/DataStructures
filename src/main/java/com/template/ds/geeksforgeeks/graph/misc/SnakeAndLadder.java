@@ -31,9 +31,11 @@ public class SnakeAndLadder {
     private static class QueueEntry {
         int vertex;
         int distance;
+
         public QueueEntry() {
 
         }
+
         public QueueEntry(int vertex, int distance) {
             this.distance = distance;
             this.vertex = vertex;

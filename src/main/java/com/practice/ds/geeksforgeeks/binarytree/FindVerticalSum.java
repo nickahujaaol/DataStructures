@@ -15,7 +15,7 @@ public class FindVerticalSum {
     }
 
     private static void findSum(TreeNode<Integer> node, int level, HashMap<Integer, Integer> levelToSumMap) {
-        if(node == null) return;
+        if (node == null) return;
 
         levelToSumMap.putIfAbsent(level, 0);
         levelToSumMap.replace(level, levelToSumMap.get(level) + node.value);

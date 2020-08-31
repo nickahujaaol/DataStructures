@@ -2,17 +2,17 @@ package com.template.ds.techiedelight.dfs;
 
 // https://www.techiedelight.com/find-length-longest-path-matrix-consecutive-characters/
 public class LongestPathWithConsecutiveCharacters {
-    static int xCoord[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
-    static int yCoord[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+    static int xCoord[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+    static int yCoord[] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
     public static void main(String[] args) {
         char[][] matrix =
                 {
-                        { 'D', 'E', 'H', 'X', 'B' },
-                        { 'A', 'O', 'G', 'P', 'E' },
-                        { 'D', 'D', 'C', 'F', 'D' },
-                        { 'E', 'B', 'E', 'A', 'S' },
-                        { 'C', 'D', 'Y', 'E', 'N' }
+                        {'D', 'E', 'H', 'X', 'B'},
+                        {'A', 'O', 'G', 'P', 'E'},
+                        {'D', 'D', 'C', 'F', 'D'},
+                        {'E', 'B', 'E', 'A', 'S'},
+                        {'C', 'D', 'Y', 'E', 'N'}
                 };
         findMaxLength(matrix, 'C');
     }

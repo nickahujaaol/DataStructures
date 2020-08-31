@@ -22,18 +22,19 @@ public class ReverseLevelOrderTraversal {
         while (!queue.isEmpty()) {
             TreeNode<Integer> tempNode = queue.poll();
             stack.push(tempNode.value);
-            if(tempNode.right != null) {
+            if (tempNode.right != null) {
                 queue.add(tempNode.right);
             }
-            if(tempNode.left != null) {
+            if (tempNode.left != null) {
                 queue.add(tempNode.left);
             }
         }
 
         while (!stack.isEmpty()) {
-            System.out.print(" "+stack.pop());
+            System.out.print(" " + stack.pop());
         }
     }
+
     private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);

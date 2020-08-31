@@ -6,13 +6,13 @@ import java.util.Arrays;
 // https://www.youtube.com/watch?v=0DeznFqrgAI
 public class NQueens {
     public static void main(String[] args) {
-        int board[][] = { { 0, 0, 0, 0 },
-                            { 0, 0, 0, 0 },
-                            { 0, 0, 0, 0 },
-                            { 0, 0, 0, 0 } };
+        int board[][] = {{0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}};
 
         placeQueens(board, 0);
-        for(int i = 0; i < board.length; i++) {
+        for (int i = 0; i < board.length; i++) {
             System.out.println(Arrays.toString(board[i]));
         }
     }

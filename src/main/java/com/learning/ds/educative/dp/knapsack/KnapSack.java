@@ -11,13 +11,13 @@ public class KnapSack {
     }
 
     private static int getMaxProfit(int[] profits, int[] weights, int capacity, int index, int[][] dp) {
-        if(index < 0)
+        if (index < 0)
             return 0;
 
-        if(dp[index][capacity] != 0)
+        if (dp[index][capacity] != 0)
             return dp[index][capacity];
 
-        if(weights[index] <= capacity) {
+        if (weights[index] <= capacity) {
             int includingMax = profits[index] + getMaxProfit(profits, weights, capacity - weights[index], index - 1, dp);
             int excludingMax = getMaxProfit(profits, weights, capacity, index - 1, dp);
             return dp[index][capacity] = Math.max(includingMax, excludingMax);

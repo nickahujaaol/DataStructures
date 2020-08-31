@@ -19,11 +19,11 @@ public class TotalNumOfPathsInDigraph {
 
         while (!queue.isEmpty()) {
             Node removedNode = queue.poll();
-            if(removedNode.vertex == target && removedNode.depth == numOfEdges) {
+            if (removedNode.vertex == target && removedNode.depth == numOfEdges) {
                 numOfPaths++;
             }
             LinkedList<Integer> neighbors = graph.adjacencyList[removedNode.vertex];
-            for(int i = 0; i < neighbors.size(); i++) {
+            for (int i = 0; i < neighbors.size(); i++) {
                 int tempNode = neighbors.get(i);
                 queue.add(new Node(tempNode, removedNode.depth + 1));
             }
@@ -35,25 +35,26 @@ public class TotalNumOfPathsInDigraph {
 
     private static Graph createGraph() {
         Graph g = new Graph(8);
-        g.addEdge(0,6);
-        g.addEdge(0,1);
-        g.addEdge(1,6);
-        g.addEdge(1,5);
-        g.addEdge(1,2);
-        g.addEdge(2,3);
-        g.addEdge(3,4);
-        g.addEdge(5,2);
-        g.addEdge(5,3);
-        g.addEdge(5,4);
-        g.addEdge(6,5);
-        g.addEdge(7,6);
-        g.addEdge(7,1);
+        g.addEdge(0, 6);
+        g.addEdge(0, 1);
+        g.addEdge(1, 6);
+        g.addEdge(1, 5);
+        g.addEdge(1, 2);
+        g.addEdge(2, 3);
+        g.addEdge(3, 4);
+        g.addEdge(5, 2);
+        g.addEdge(5, 3);
+        g.addEdge(5, 4);
+        g.addEdge(6, 5);
+        g.addEdge(7, 6);
+        g.addEdge(7, 1);
 
         return g;
     }
 
     public static class Node {
         int vertex, depth;
+
         public Node(int vertex, int depth) {
             this.vertex = vertex;
             this.depth = depth;

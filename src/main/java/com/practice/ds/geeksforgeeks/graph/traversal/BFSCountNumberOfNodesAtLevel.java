@@ -25,9 +25,9 @@ public class BFSCountNumberOfNodesAtLevel {
             GraphNode<Integer> removedNode = queue.poll();
             int parentLevel = nodeToLevelMap.get(removedNode);
             List<GraphNode<Integer>> neighbors = removedNode.getNeighbours();
-            for(int i = 0; i < neighbors.size(); i++) {
+            for (int i = 0; i < neighbors.size(); i++) {
                 GraphNode<Integer> tempNode = neighbors.get(i);
-                if(!tempNode.visited) {
+                if (!tempNode.visited) {
                     if (level == parentLevel + 1) {
                         nodesAtGivenLevel++;
                     }

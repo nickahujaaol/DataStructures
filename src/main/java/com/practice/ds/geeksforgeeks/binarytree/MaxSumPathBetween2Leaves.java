@@ -2,7 +2,6 @@ package com.practice.ds.geeksforgeeks.binarytree;
 
 import com.learning.ds.TreeNode;
 
-import java.text.MessageFormat;
 import java.util.concurrent.atomic.AtomicInteger;
 
 // https://www.techiedelight.com/find-maximum-sum-path-between-two-leaves-in-a-binary-tree/
@@ -15,7 +14,7 @@ public class MaxSumPathBetween2Leaves {
     }
 
     private static int findMaxPath(TreeNode<Integer> node, AtomicInteger maxSum) {
-        if(node == null) return 0;
+        if (node == null) return 0;
 
         int leftSum = findMaxPath(node.left, maxSum);
         int rightSum = findMaxPath(node.right, maxSum);

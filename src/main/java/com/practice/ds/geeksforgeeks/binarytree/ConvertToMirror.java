@@ -13,7 +13,7 @@ public class ConvertToMirror {
     }
 
     private static void convertInPlace(TreeNode<Integer> node) {
-        if(node == null) return;
+        if (node == null) return;
 
         TreeNode<Integer> tempNode = node.left;
         node.left = node.right;
@@ -23,13 +23,13 @@ public class ConvertToMirror {
     }
 
 
-
     private static void print(TreeNode<Integer> node) {
-        if(node == null) return;
+        if (node == null) return;
         System.out.print(" " + node.value);
         print(node.left);
         print(node.right);
     }
+
     private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);

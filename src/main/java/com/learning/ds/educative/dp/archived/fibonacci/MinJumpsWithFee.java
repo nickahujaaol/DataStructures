@@ -1,10 +1,8 @@
 package com.learning.ds.educative.dp.archived.fibonacci;
 
-import java.util.Arrays;
-
 public class MinJumpsWithFee {
     public static void main(String[] args) {
-        int[] fee = {1,2,5,2,1,2};
+        int[] fee = {1, 2, 5, 2, 1, 2};
         int minCost = getMinRecursive(fee, 0);
         System.out.println("Min Fee is: " + minCost);
 
@@ -18,7 +16,7 @@ public class MinJumpsWithFee {
         dp[1] = fee[0];
         dp[2] = dp[3] = fee[0];
 
-        for(int i = 4; i <= fee.length; i++) {
+        for (int i = 4; i <= fee.length; i++) {
             int jump3Fee = dp[i - 3] + fee[i - 3];
             int jump2Fee = dp[i - 2] + fee[i - 2];
             int jump1Fee = dp[i - 1] + fee[i - 1];
@@ -29,7 +27,7 @@ public class MinJumpsWithFee {
     }
 
     private static int getMinRecursive(int[] fee, int index) {
-        if(index >= fee.length)
+        if (index >= fee.length)
             return 0;
 
         int step1 = getMinRecursive(fee, index + 1);

@@ -16,9 +16,9 @@ public class EqualSubsetSum {
             dp[i][0] = true;
         }
 
-        for(int row = 1; row <= inSet.length; row++) {
-            for(int sum = 1; sum <= givenSum; sum++) {
-                if(sum < inSet[row - 1]) {
+        for (int row = 1; row <= inSet.length; row++) {
+            for (int sum = 1; sum <= givenSum; sum++) {
+                if (sum < inSet[row - 1]) {
                     dp[row][sum] = dp[row - 1][sum];
                 } else {
                     dp[row][sum] = dp[row - 1][sum - inSet[row - 1]];
@@ -30,15 +30,15 @@ public class EqualSubsetSum {
     }
 
     private static boolean isEqualSubsetPresent(int[] inSet, int sum, int index, int currSum) {
-        if(sum == currSum) {
+        if (sum == currSum) {
             return true;
         }
 
-        if(index == inSet.length || currSum >= sum) {
+        if (index == inSet.length || currSum >= sum) {
             return false;
         }
 
-        if(currSum + inSet[index] <= sum) {
+        if (currSum + inSet[index] <= sum) {
             return isEqualSubsetPresent(inSet, sum, index + 1, inSet[index] + currSum) ||
                     isEqualSubsetPresent(inSet, sum, index + 1, currSum);
         } else {

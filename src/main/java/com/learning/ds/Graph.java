@@ -9,7 +9,7 @@ public class Graph {
     public Graph(int numOfVertices) {
         this.numOfVertices = numOfVertices;
         adjacencyList = new LinkedList[numOfVertices];
-        for(int i = 0; i < numOfVertices; i++) {
+        for (int i = 0; i < numOfVertices; i++) {
             adjacencyList[i] = new LinkedList<>();
         }
     }

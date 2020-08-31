@@ -12,7 +12,7 @@ public class LongestCommonSubsequence {
         if (index1 < 0 || index2 < 0)
             return 0;
 
-        if(str1.charAt(index1) == str2.charAt(index2)) {
+        if (str1.charAt(index1) == str2.charAt(index2)) {
             return 1 + findLCS(str1, str2, index1 - 1, index2 - 1);
         } else {
             return Math.max(findLCS(str1, str2, index1 - 1, index2),

@@ -17,14 +17,14 @@ public class DiagonalTraversal {
     }
 
     private static void diagonalTraverse(TreeNode<Integer> node, HashMap<Integer, List<Integer>> diagMap, int diagonal) {
-        if(node == null) return;
+        if (node == null) return;
 
         addElement(node, diagMap, diagonal);
         diagonalTraverse(node.left, diagMap, diagonal + 1);
         diagonalTraverse(node.right, diagMap, diagonal);
     }
 
-    private static void addElement(TreeNode<Integer> node, HashMap<Integer, List<Integer>> diagMap, int diagonal){
+    private static void addElement(TreeNode<Integer> node, HashMap<Integer, List<Integer>> diagMap, int diagonal) {
         diagMap.putIfAbsent(diagonal, new ArrayList<>());
         diagMap.get(diagonal).add(node.value);
     }

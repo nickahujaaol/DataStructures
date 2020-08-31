@@ -9,7 +9,7 @@ public class TrieNode {
     public Map<Character, TrieNode> charToNodeMap = new HashMap<>();
 
     public void insert(TrieNode node, String key) {
-        for(int i = 0; i < key.length(); i++) {
+        for (int i = 0; i < key.length(); i++) {
             node.charToNodeMap.putIfAbsent(key.charAt(i), new TrieNode());
             node = node.charToNodeMap.get(key.charAt(i));
         }

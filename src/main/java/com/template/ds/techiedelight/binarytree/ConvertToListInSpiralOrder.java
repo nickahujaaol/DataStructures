@@ -3,8 +3,6 @@ package com.template.ds.techiedelight.binarytree;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
 
-import java.util.Stack;
-
 //https://www.techiedelight.com/convert-binary-tree-into-doubly-linked-list/
 // READ THE EXPLANATION... IT IS GOOD :-)
 

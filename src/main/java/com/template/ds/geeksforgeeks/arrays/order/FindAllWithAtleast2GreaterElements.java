@@ -1,7 +1,5 @@
 package com.template.ds.geeksforgeeks.arrays.order;
 
-import java.util.Arrays;
-
 //https://www.geeksforgeeks.org/find-elements-array-least-two-greater-elements/
 public class FindAllWithAtleast2GreaterElements {
     public static void find1(int data[]) {

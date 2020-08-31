@@ -7,13 +7,13 @@ public class NumberFactors {
     }
 
     private static int getFactors(int number) {
-        if(number == 0)
+        if (number == 0)
             return 1;
-        if(number == 1)
+        if (number == 1)
             return 1;
-        if(number == 2)
+        if (number == 2)
             return 1;
-        if(number == 3)
+        if (number == 3)
             return 2;
 
         return getFactors(number - 1) +

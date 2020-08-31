@@ -29,19 +29,19 @@ public class SnakeAndLadder {
 
     private static void findMinNumberOfMoves(int[] moves) {
         Queue<QueueEntry> queue = new LinkedList<>();
-        queue.add(new QueueEntry(0,0));
+        queue.add(new QueueEntry(0, 0));
         QueueEntry lastEntry = null;
         boolean[] visited = new boolean[moves.length];
         visited[0] = true;
 
         while (!queue.isEmpty()) {
             QueueEntry removedEntry = queue.poll();
-            if(removedEntry.vertex >= moves.length - 1) {
+            if (removedEntry.vertex >= moves.length - 1) {
                 break;
             }
 
-            for(int i = removedEntry.vertex; i <= removedEntry.vertex + 6 && i < moves.length; i++) {
-                if(!visited[i]) {
+            for (int i = removedEntry.vertex; i <= removedEntry.vertex + 6 && i < moves.length; i++) {
+                if (!visited[i]) {
                     visited[i] = true;
                     QueueEntry newEntry = null;
                     if (moves[i] != -1) {
@@ -61,9 +61,11 @@ public class SnakeAndLadder {
     private static class QueueEntry {
         int vertex;
         int distance;
+
         public QueueEntry() {
 
         }
+
         public QueueEntry(int vertex, int distance) {
             this.distance = distance;
             this.vertex = vertex;

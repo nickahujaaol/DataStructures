@@ -2,7 +2,6 @@ package com.learning.ds.geeksforgeeks.tree.misc;
 
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
-import org.omg.CORBA.PRIVATE_MEMBER;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -22,7 +21,7 @@ public class MaximumPathSum {
     The return value of the method is the max path value from leaf to the given node.
      */
     private static int findMaxSumPath(TreeNode<Integer> node, AtomicInteger maxSum) {
-        if(node == null)
+        if (node == null)
             return 0;
 
         int leftPathSum = findMaxSumPath(node.left, maxSum);
@@ -39,7 +38,6 @@ public class MaximumPathSum {
 
         return Math.max(leftPathSum, rightPathSum) + node.value;
     }
-
 
 
     private static BinaryTree createSumTree() {

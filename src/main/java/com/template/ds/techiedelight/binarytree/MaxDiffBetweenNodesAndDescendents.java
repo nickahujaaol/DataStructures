@@ -14,7 +14,7 @@ public class MaxDiffBetweenNodesAndDescendents {
     }
 
     private static int findMaxDiff(TreeNode<Integer> node, AtomicInteger maxSum) {
-       return 0;
+        return 0;
     }
 
     private static TreeNode<Integer> createTree() {

@@ -16,10 +16,10 @@ public class KnapSack {
     private static int knapSackBottomUp(int[] weights, int[] profits, int capacity) {
         int[][] memoizationMatrix = new int[weights.length + 1][capacity + 1];
 
-        for(int row = 1; row <= weights.length; row++) {
-            for(int col = 1; col <= capacity; col++) {
+        for (int row = 1; row <= weights.length; row++) {
+            for (int col = 1; col <= capacity; col++) {
                 System.out.println(String.format("%d, %d, %d", row, col, weights[row - 1]));
-                if(col < weights[row - 1]) {
+                if (col < weights[row - 1]) {
                     memoizationMatrix[row][col] = memoizationMatrix[row - 1][col];
                 } else {
                     int capacityIncluding = profits[row - 1] + memoizationMatrix[row - 1][col - weights[row - 1]];
@@ -33,11 +33,11 @@ public class KnapSack {
     }
 
     private static int knapSackRecursive(int[] weights, int[] profits, int capacity, int index, int currCapacity) {
-        if(index == weights.length || currCapacity >= capacity) {
+        if (index == weights.length || currCapacity >= capacity) {
             return 0;
         }
-        if(currCapacity + weights[index] <= capacity) {
-            int leftProfit =  profits[index] + knapSackRecursive(weights, profits, capacity, index + 1, currCapacity + weights[index]);
+        if (currCapacity + weights[index] <= capacity) {
+            int leftProfit = profits[index] + knapSackRecursive(weights, profits, capacity, index + 1, currCapacity + weights[index]);
             int rightProfit = knapSackRecursive(weights, profits, capacity, index + 1, currCapacity);
             return Math.max(leftProfit, rightProfit);
         } else {

@@ -24,10 +24,10 @@ public class ReverseLevelOrderTraversal {
         while (!queue.isEmpty()) {
             TreeNode<Integer> tempNode = queue.poll();
             stack.add(tempNode.value);
-            if(tempNode.left != null) {
+            if (tempNode.left != null) {
                 queue.add(tempNode.left);
             }
-            if(tempNode.right != null) {
+            if (tempNode.right != null) {
                 queue.add(tempNode.right);
             }
         }

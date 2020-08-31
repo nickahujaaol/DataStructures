@@ -1,10 +1,8 @@
 package com.learning.ds.educative.dp.archived.unbounded.knapsack;
 
-import com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest;
-
 public class MinCoinChange {
     public static void main(String[] args) {
-        int[] coins = {1,2,3};
+        int[] coins = {1, 2, 3};
         int amount = 5;
         int minCoins = getMinRecursive(coins, amount, 0, 0);
         System.out.println("Min coins: " + minCoins);
@@ -14,19 +12,19 @@ public class MinCoinChange {
     }
 
     private static int getMinBottomUp(int[] coins, int amount) {
-        int[][] dp = new int[coins.length+1][amount+1];
+        int[][] dp = new int[coins.length + 1][amount + 1];
 
-        for(int i=0; i < coins.length; i++)
-            for(int j=0; j <= amount; j++)
+        for (int i = 0; i < coins.length; i++)
+            for (int j = 0; j <= amount; j++)
                 dp[i][j] = Integer.MAX_VALUE;
 
         // populate the total=0 columns, as we don't need any coin to make zero total
-        for(int i=0; i < coins.length; i++)
+        for (int i = 0; i < coins.length; i++)
             dp[i][0] = 0;
 
-        for(int row = 1; row <= coins.length; row++) {
-            for( int col = 1; col <= amount; col++) {
-                if(col < coins[row - 1]) {
+        for (int row = 1; row <= coins.length; row++) {
+            for (int col = 1; col <= amount; col++) {
+                if (col < coins[row - 1]) {
                     dp[row][col] = dp[row - 1][col];
                 } else {
                     int excludeCoin = dp[row - 1][col];
@@ -42,17 +40,17 @@ public class MinCoinChange {
     }
 
     private static int getMinRecursive(int[] coins, int amount, int index, int currAmt) {
-        if(currAmt == amount)
+        if (currAmt == amount)
             return 0;
 
-        if(index >= coins.length)
+        if (index >= coins.length)
             return Integer.MAX_VALUE;
 
-        if(currAmt + coins[index] <= amount) {
+        if (currAmt + coins[index] <= amount) {
             // If you assign 0 , then it may become minimum value. There was no sum found and it will override value from rightSum.
             int leftSum = Integer.MAX_VALUE;
             int tempSum = getMinRecursive(coins, amount, index, currAmt + coins[index]);
-            if(tempSum != Integer.MAX_VALUE) {
+            if (tempSum != Integer.MAX_VALUE) {
                 leftSum = tempSum + 1;
             }
 

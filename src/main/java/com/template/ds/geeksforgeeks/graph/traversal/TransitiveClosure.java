@@ -10,7 +10,7 @@ public class TransitiveClosure {
         int[][] transClosure = new int[4][4];
         transitiveClosure(createGraph(), transClosure);
 
-        for(int i = 0; i < transClosure.length; i++) {
+        for (int i = 0; i < transClosure.length; i++) {
             System.out.println(Arrays.toString(transClosure[i]));
         }
     }

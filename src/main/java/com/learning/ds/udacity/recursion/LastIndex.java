@@ -17,8 +17,8 @@ public class LastIndex {
     }
 
     private static int getIndex(int[] inArray, int target, int start, int index) {
-        if(start == inArray.length) return index;
-        if(inArray[start] == target) {
+        if (start == inArray.length) return index;
+        if (inArray[start] == target) {
             index = start;
         }
         return getIndex(inArray, target, start + 1, index);

@@ -3,9 +3,6 @@ package com.practice.ds.geeksforgeeks.tree.misc;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 //https://www.geeksforgeeks.org/width-binary-tree-set-1/
 public class VerticalWidth {
     private static int minVal = 0;
@@ -19,7 +16,7 @@ public class VerticalWidth {
     }
 
     private static void findVerticalWidth(TreeNode<Integer> node, int min, int max) {
-        if(node == null) return;
+        if (node == null) return;
 
         minVal = Math.min(minVal, min);
         maxVal = Math.max(maxVal, max);

@@ -1,8 +1,6 @@
 package com.template.ds.techiedelight.dfs;
 
 
-import java.util.LinkedList;
-
 // https://www.techiedelight.com/find-occurrences-given-string-character-matrix/
 public class FindAllOccurancesOfGivenString {
     public static void main(String[] args) {
@@ -24,6 +22,7 @@ public class FindAllOccurancesOfGivenString {
     private static class Node {
         public char c;
         public int x, y;
+
         public Node(char c, int x, int y) {
             this.c = c;
             this.x = x;
@@ -31,7 +30,7 @@ public class FindAllOccurancesOfGivenString {
         }
 
         public String toString() {
-            return "(" + c +", "+ x + ", " + y + ")";
+            return "(" + c + ", " + x + ", " + y + ")";
         }
     }
 }

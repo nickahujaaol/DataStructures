@@ -1,6 +1,5 @@
 package com.learning.ds.techiedelight.binarytree;
 
-import com.learning.ds.Node;
 import com.learning.ds.TreeNode;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -14,21 +13,21 @@ public class FindDistanceBetweenPairOfNodes {
     }
 
     private static boolean findDistance(TreeNode<Integer> node, AtomicInteger distance, int node1, int node2) {
-        if(node == null) return false;
+        if (node == null) return false;
 
-        if(node.value == node1 || node.value == node2)
+        if (node.value == node1 || node.value == node2)
             return true;
 
         boolean leftFound = findDistance(node.left, distance, node1, node2);
-        if(leftFound) {
+        if (leftFound) {
             distance.set(distance.get() + 1);
         }
         boolean rightFound = findDistance(node.right, distance, node1, node2);
-        if(rightFound) {
+        if (rightFound) {
             distance.set(distance.get() + 1);
         }
 
-        if(leftFound && rightFound) {
+        if (leftFound && rightFound) {
             leftFound = false;
             rightFound = false;
         }
@@ -36,7 +35,7 @@ public class FindDistanceBetweenPairOfNodes {
         return leftFound || rightFound;
     }
 
-    private static TreeNode<Integer> createTree(){
+    private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);

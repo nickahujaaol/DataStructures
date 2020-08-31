@@ -8,10 +8,10 @@ public class TargetSum {
     }
 
     private static int findTargetSum(int[] inSet, int targetSum, int index, int currSum) {
-        if(currSum == targetSum && index >= inSet.length)
+        if (currSum == targetSum && index >= inSet.length)
             return 1;
 
-        if(index >= inSet.length)
+        if (index >= inSet.length)
             return 0;
 
         return findTargetSum(inSet, targetSum, index + 1, currSum + inSet[index]) +

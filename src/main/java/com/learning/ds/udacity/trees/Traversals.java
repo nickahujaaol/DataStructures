@@ -27,20 +27,21 @@ public class Traversals {
     }
 
     private static void preOrder(TreeNode node) {
-        if(node == null) return;
+        if (node == null) return;
         System.out.print(" " + node.value);
         preOrder(node.left);
         preOrder(node.right);
     }
+
     private static void inOrder(TreeNode node) {
-        if(node == null) return;
+        if (node == null) return;
         System.out.print(" " + node.value);
         preOrder(node.left);
         preOrder(node.right);
     }
 
     private static void postOrder(TreeNode node) {
-        if(node == null) return;
+        if (node == null) return;
         System.out.print(" " + node.value);
         preOrder(node.left);
         preOrder(node.right);
@@ -52,9 +53,9 @@ public class Traversals {
         while (!queue.isEmpty()) {
             TreeNode<Integer> tempNode = queue.remove();
             System.out.print(" " + tempNode.value);
-            if(tempNode.left != null)
+            if (tempNode.left != null)
                 queue.add(tempNode.left);
-            if(tempNode.right != null)
+            if (tempNode.right != null)
                 queue.add(tempNode.right);
         }
     }

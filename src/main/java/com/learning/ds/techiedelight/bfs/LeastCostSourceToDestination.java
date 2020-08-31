@@ -1,6 +1,5 @@
 package com.learning.ds.techiedelight.bfs;
 
-import com.learning.ds.Graph;
 import com.learning.ds.GraphNode;
 
 import java.util.Arrays;
@@ -26,7 +25,7 @@ public class LeastCostSourceToDestination {
             GraphNode<Integer> removedNode = queue.remove();
 
             List<GraphNode<Integer>> neighbours = removedNode.neighbours;
-            for(int i = 0; i < neighbours.size(); i++) {
+            for (int i = 0; i < neighbours.size(); i++) {
                 GraphNode<Integer> tempNode = neighbours.get(i);
                 minCostToReachNode[tempNode.value] =
                         Math.min(minCostToReachNode[tempNode.value],

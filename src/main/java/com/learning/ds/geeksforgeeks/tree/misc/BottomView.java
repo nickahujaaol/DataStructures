@@ -1,7 +1,6 @@
 package com.learning.ds.geeksforgeeks.tree.misc;
 
 
-import apple.laf.JRSUIUtils;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
 
@@ -29,12 +28,12 @@ public class BottomView {
             TreeNode<Integer> tempNode = queue.remove();
             System.out.println(tempNode);
             int index = nodeToIndexMap.get(tempNode);
-            if(tempNode.left != null) {
+            if (tempNode.left != null) {
                 queue.add(tempNode.left);
                 nodeToIndexMap.put(tempNode.left, index - 1);
                 indexToValMap.put(index - 1, tempNode.left.value);
             }
-            if(tempNode.right != null) {
+            if (tempNode.right != null) {
                 queue.add(tempNode.right);
                 nodeToIndexMap.put(tempNode.right, index + 1);
                 indexToValMap.put(index + 1, tempNode.right.value);

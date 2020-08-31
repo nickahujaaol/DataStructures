@@ -24,7 +24,7 @@ public class LexicographicSorting {
         TrieNode head = new TrieNode();
 
         // insert all keys of dictionary into trie
-        for (String word: dict) {
+        for (String word : dict) {
             insert(head, word);
         }
     }

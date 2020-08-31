@@ -11,13 +11,13 @@ public class TransitiveClosure {
         int[][] transClosure = new int[4][4];
         transitiveClosure(createGraph(), transClosure);
 
-        for(int i = 0; i < transClosure.length; i++) {
+        for (int i = 0; i < transClosure.length; i++) {
             System.out.println(Arrays.toString(transClosure[i]));
         }
     }
 
     private static void transitiveClosure(Graph graph, int[][] transClosure) {
-        for(int i = 0; i < graph.adjacencyList.length; i++) {
+        for (int i = 0; i < graph.adjacencyList.length; i++) {
             dfs(graph, i, i, transClosure);
         }
     }
@@ -25,9 +25,9 @@ public class TransitiveClosure {
     private static void dfs(Graph graph, int currVertex, int workingVertex, int[][] transClosure) {
         transClosure[currVertex][currVertex] = 1;
         LinkedList<Integer> neighbors = graph.adjacencyList[workingVertex];
-        for(int i = 0; i < neighbors.size(); i++) {
+        for (int i = 0; i < neighbors.size(); i++) {
             int tempVertex = neighbors.get(i);
-            if(transClosure[currVertex][tempVertex] == 0) {
+            if (transClosure[currVertex][tempVertex] == 0) {
                 transClosure[currVertex][tempVertex] = 1;
                 dfs(graph, currVertex, tempVertex, transClosure);
             }

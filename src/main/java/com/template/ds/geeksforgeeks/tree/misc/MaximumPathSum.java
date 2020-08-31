@@ -25,7 +25,6 @@ public class MaximumPathSum {
     }
 
 
-
     private static BinaryTree createSumTree() {
         BinaryTree tree = new BinaryTree();
         TreeNode root = new TreeNode(-15);

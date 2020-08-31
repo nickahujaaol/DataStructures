@@ -1,7 +1,5 @@
 package com.template.ds.geeksforgeeks.arrays.optimization;
 
-import java.util.Arrays;
-
 //https://www.geeksforgeeks.org/find-minimum-difference-pair/
 public class FindMinDiffBetweenAny2Elements {
     public static void find(int data[]) {

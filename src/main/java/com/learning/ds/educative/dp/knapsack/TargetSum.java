@@ -9,10 +9,10 @@ public class TargetSum {
     }
 
     private static int getNumOfWays(int[] set, int targetSum, int sum, int index) {
-        if(sum == targetSum && index < 0)
+        if (sum == targetSum && index < 0)
             return 1;
 
-        if(index < 0)
+        if (index < 0)
             return 0;
 
         int plusWays = getNumOfWays(set, targetSum, sum + set[index], index - 1);

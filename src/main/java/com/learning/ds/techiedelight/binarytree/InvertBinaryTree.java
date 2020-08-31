@@ -21,7 +21,7 @@ public class InvertBinaryTree {
     }
 
     private static void invertRecursive(TreeNode<Integer> node) {
-        if(node == null) return;
+        if (node == null) return;
 
         swap(node);
         invertRecursive(node.left);
@@ -38,19 +38,20 @@ public class InvertBinaryTree {
             MAKE SURE YOU USE VALUE IN STACK, IF YOU USE NODE, THEN REFERENCE VALUES MAY GET CORRUPT.
              */
             Stack<Integer> tempStack = new Stack<>();
-            for(int i = 0; i < qSize; i++) {
+            for (int i = 0; i < qSize; i++) {
                 TreeNode<Integer> tempNode = queue.poll();
                 if (tempNode.left != null) {
                     queue.add(tempNode.left);
                     tempStack.push(tempNode.left.value);
-                } if(tempNode.right != null) {
+                }
+                if (tempNode.right != null) {
                     queue.add(tempNode.right);
                     tempStack.push(tempNode.right.value);
                 }
             }
 
             int stackSize = tempStack.size();
-            for(int i = 0; i < stackSize; i++) {
+            for (int i = 0; i < stackSize; i++) {
                 TreeNode<Integer> tempNode = queue.poll();
                 tempNode.value = tempStack.pop();
                 queue.add(tempNode);

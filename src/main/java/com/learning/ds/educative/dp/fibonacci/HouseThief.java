@@ -8,7 +8,7 @@ public class HouseThief {
     }
 
     private static int maxProfit(int[] profits, int index) {
-        if(index >= profits.length)
+        if (index >= profits.length)
             return 0;
 
         int robMax = profits[index] + maxProfit(profits, index + 2);

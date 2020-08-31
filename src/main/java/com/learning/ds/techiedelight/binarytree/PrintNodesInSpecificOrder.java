@@ -22,19 +22,20 @@ public class PrintNodesInSpecificOrder {
         while (!leftToRightQ.isEmpty()) {
             TreeNode<Integer> leftTempNode = leftToRightQ.poll();
             System.out.print(" " + leftTempNode.value);
-            if(leftTempNode.left != null)
+            if (leftTempNode.left != null)
                 leftToRightQ.add(leftTempNode.left);
-            if(leftTempNode.right != null)
+            if (leftTempNode.right != null)
                 leftToRightQ.add(leftTempNode.right);
 
             TreeNode<Integer> rightTempNode = rightToLeftQ.poll();
             System.out.print(" " + rightTempNode.value);
-            if(rightTempNode.right != null)
+            if (rightTempNode.right != null)
                 rightToLeftQ.add(rightTempNode.right);
-            if(rightTempNode.left != null)
+            if (rightTempNode.left != null)
                 rightToLeftQ.add(rightTempNode.left);
         }
     }
+
     private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);

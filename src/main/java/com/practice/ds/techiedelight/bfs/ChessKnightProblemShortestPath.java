@@ -5,14 +5,14 @@ import java.util.Queue;
 
 // https://www.techiedelight.com/chess-knight-problem-find-shortest-path-source-destination/
 public class ChessKnightProblemShortestPath {
-    private static int[] row = { 2, 2, -2, -2, 1, 1, -1, -1 };
-    private static int[] col = { -1, 1, 1, -1, 2, -2, 2, -2 };
+    private static int[] row = {2, 2, -2, -2, 1, 1, -1, -1};
+    private static int[] col = {-1, 1, 1, -1, 2, -2, 2, -2};
 
 
     public static void main(String[] args) {
         boolean visited[][] = new boolean[8][8];
-        Node startNode = new Node(0,0);
-        Node endNode = new Node(7,0);
+        Node startNode = new Node(0, 0);
+        Node endNode = new Node(7, 0);
         findPath(startNode, endNode, visited);
     }
 
@@ -23,12 +23,12 @@ public class ChessKnightProblemShortestPath {
 
         while (!queue.isEmpty()) {
             Node removedNode = queue.poll();
-            if(removedNode.x == endNode.x && removedNode.y == endNode.y) {
+            if (removedNode.x == endNode.x && removedNode.y == endNode.y) {
                 minDistance = Math.min(minDistance, removedNode.dist);
             }
 
-            for(int i = 0; i < row.length; i++) {
-                if(isSafe(removedNode.x + row[i], removedNode.y + col[i], visited)) {
+            for (int i = 0; i < row.length; i++) {
+                if (isSafe(removedNode.x + row[i], removedNode.y + col[i], visited)) {
                     visited[removedNode.x][removedNode.y] = true;
                     queue.add(new Node(removedNode.x + row[i],
                             removedNode.y + col[i],
@@ -41,17 +41,18 @@ public class ChessKnightProblemShortestPath {
     }
 
     private static boolean isSafe(int x, int y, boolean[][] visited) {
-        if(x >= 0 && x < visited.length &&
-        y >= 0 && y < visited.length &&
-        !visited[x][y]) {
+        if (x >= 0 && x < visited.length &&
+                y >= 0 && y < visited.length &&
+                !visited[x][y]) {
             return true;
         } else {
             return false;
         }
     }
 
-    private static class Node{
+    private static class Node {
         public int x, y, dist;
+
         public Node(int x, int y) {
             this.x = x;
             this.y = y;

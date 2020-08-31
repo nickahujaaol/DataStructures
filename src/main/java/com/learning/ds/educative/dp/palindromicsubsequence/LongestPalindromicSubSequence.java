@@ -8,12 +8,12 @@ public class LongestPalindromicSubSequence {
     }
 
     private static int find(String inString, int start, int end) {
-        if(start == end)
+        if (start == end)
             return 1;
-        if(start > end)
+        if (start > end)
             return 0;
 
-        if(inString.charAt(start) == inString.charAt(end))
+        if (inString.charAt(start) == inString.charAt(end))
             return 2 + find(inString, start + 1, end - 1);
 
         int leftCount = find(inString, start + 1, end);

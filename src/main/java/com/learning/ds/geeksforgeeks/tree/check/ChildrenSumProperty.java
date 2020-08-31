@@ -12,7 +12,7 @@ public class ChildrenSumProperty {
     }
 
     private static boolean isSumTree(TreeNode<Integer> node) {
-        if(node == null || (node.left == null && node.right == null)) return true;
+        if (node == null || (node.left == null && node.right == null)) return true;
 
         int leftVal = node.left != null ? node.left.value : 0;
         int rightVal = node.right != null ? node.right.value : 0;

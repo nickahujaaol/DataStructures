@@ -12,7 +12,7 @@ public class FindDepth {
     }
 
     private static int findDepth(TreeNode<Integer> node) {
-        if(node == null) {
+        if (node == null) {
             return 0;
         }
 

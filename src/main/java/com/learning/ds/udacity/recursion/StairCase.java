@@ -23,13 +23,13 @@ public class StairCase {
     }
 
     private static int getNumOfWays(int numOfSteps) {
-        if(numOfSteps <= 0) return 1;
-        if(numOfSteps == 1) return 1;
-        if(numOfSteps == 2) return 2;
-        if(numOfSteps == 3) return 4;
+        if (numOfSteps <= 0) return 1;
+        if (numOfSteps == 1) return 1;
+        if (numOfSteps == 2) return 2;
+        if (numOfSteps == 3) return 4;
 
         else return getNumOfWays(numOfSteps - 1) +
                 getNumOfWays(numOfSteps - 2) +
-                getNumOfWays(numOfSteps-3);
+                getNumOfWays(numOfSteps - 3);
     }
 }

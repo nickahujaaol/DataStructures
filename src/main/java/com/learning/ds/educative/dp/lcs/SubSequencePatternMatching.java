@@ -10,12 +10,12 @@ public class SubSequencePatternMatching {
         // If we have reached here that means we have found a subsequence that is equal to given pattern.
         // The question is to find out how many times the pattern can be found in a given string.
         // The below IF condition says that we have found a FULL pattern so increment the count.
-        if(patIndex == pattern.length())
+        if (patIndex == pattern.length())
             return 1;
-        if(strIndex == inString.length())
+        if (strIndex == inString.length())
             return 0;
 
-        if(inString.charAt(strIndex) == pattern.charAt(patIndex)) {
+        if (inString.charAt(strIndex) == pattern.charAt(patIndex)) {
             // We are not doing +1 here as in LCS because question is to find the number of sequences
             // i.e the whole pattern has to be there in the String multiple times
             int including = findSPMCount(inString, pattern, strIndex + 1, patIndex + 1);

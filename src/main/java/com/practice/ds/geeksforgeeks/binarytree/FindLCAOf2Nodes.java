@@ -15,9 +15,9 @@ public class FindLCAOf2Nodes {
     }
 
     private static boolean findLCA(TreeNode<Integer> node, int node1, int node2) {
-        if(node == null) return false;
+        if (node == null) return false;
 
-        if(node.value == node1 || node.value == node2) {
+        if (node.value == node1 || node.value == node2) {
             return true;
         }
 
@@ -25,14 +25,14 @@ public class FindLCAOf2Nodes {
         boolean rightFound = findLCA(node.right, node1, node2);
 
 
-        if(leftFound && rightFound) {
+        if (leftFound && rightFound) {
             System.out.println("LCA is: " + node.value);
         }
         return leftFound || rightFound;
     }
 
 
-    private static TreeNode<Integer> createTree(){
+    private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);

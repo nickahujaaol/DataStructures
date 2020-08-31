@@ -6,13 +6,13 @@ import java.util.Arrays;
 // Easy: you can create a new Array. Will require extra space
 // Otherwise use shifting
 public class RearrangeInOrder {
-  public static void arrange(int data[]) {
+    public static void arrange(int data[]) {
 
-  }
+    }
 
-  public static void main(String[] args) {
-    int arr[] = {5, 8, 1, 4, 2, 9, 3, 7, 6};
-    arrange(arr);
-    System.out.println(Arrays.toString(arr));
-  }
+    public static void main(String[] args) {
+        int arr[] = {5, 8, 1, 4, 2, 9, 3, 7, 6};
+        arrange(arr);
+        System.out.println(Arrays.toString(arr));
+    }
 }

@@ -10,14 +10,14 @@ public class DFSRecursive {
     }
 
     private static void dfs(GraphNode<Integer> node) {
-        if(!node.visited) {
+        if (!node.visited) {
             node.visited = true;
             System.out.print(" " + node.value);
         }
 
         List<GraphNode<Integer>> neighbours = node.getNeighbours();
-        for(int i = 0; i < neighbours.size(); i++) {
-            if(!neighbours.get(i).visited) {
+        for (int i = 0; i < neighbours.size(); i++) {
+            if (!neighbours.get(i).visited) {
                 dfs(neighbours.get(i));
             }
         }

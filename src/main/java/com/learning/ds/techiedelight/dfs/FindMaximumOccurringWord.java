@@ -26,14 +26,15 @@ public class FindMaximumOccurringWord {
         int maxCount = traversePreOrder(head, Integer.MIN_VALUE);
         System.out.println("Max occurrence is : " + maxCount);
     }
+
     private static int traversePreOrder(TrieNode node, int count) {
-        if(node == null) {
+        if (node == null) {
             return count;
         }
-        for(Map.Entry entry : node.charToNodeMap.entrySet()) {
+        for (Map.Entry entry : node.charToNodeMap.entrySet()) {
             Character character = (Character) entry.getKey();
             TrieNode trieNode = (TrieNode) entry.getValue();
-            if(trieNode.isLeaf) {
+            if (trieNode.isLeaf) {
                 count = Math.max(count, trieNode.count);
             }
             count = traversePreOrder(trieNode, count);
@@ -42,7 +43,7 @@ public class FindMaximumOccurringWord {
     }
 
     public static void insert(TrieNode node, String key) {
-        for(int i = 0; i < key.length(); i++) {
+        for (int i = 0; i < key.length(); i++) {
             node.charToNodeMap.putIfAbsent(key.charAt(i), new TrieNode());
             node = node.charToNodeMap.get(key.charAt(i));
         }
@@ -51,9 +52,9 @@ public class FindMaximumOccurringWord {
     }
 
     public static boolean search(TrieNode node, String searchKey) {
-        for(int i = 0; i < searchKey.length(); i++) {
+        for (int i = 0; i < searchKey.length(); i++) {
             node = node.charToNodeMap.get(searchKey.charAt(i));
-            if(node == null)
+            if (node == null)
                 return false;
         }
         return node.isLeaf;

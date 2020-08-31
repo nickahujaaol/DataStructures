@@ -2,9 +2,6 @@ package com.template.ds.techiedelight.binarytree;
 
 import com.learning.ds.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 // https://www.techiedelight.com/find-next-node-in-same-level-binary-tree/
 public class FindNextNodeAtSameLevel {
     public static void main(String[] args) {

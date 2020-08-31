@@ -26,13 +26,13 @@ public class BottomView {
 
         while (!queue.isEmpty()) {
             TreeNode<Integer> tempNode = queue.poll();
-            if(tempNode.left != null) {
+            if (tempNode.left != null) {
                 queue.add(tempNode.left);
                 int parentLevel = nodeToIndexMap.get(tempNode);
                 indexToValMap.put(parentLevel - 1, tempNode.left.value);
                 nodeToIndexMap.put(tempNode.left, parentLevel - 1);
             }
-            if(tempNode.right != null) {
+            if (tempNode.right != null) {
                 queue.add(tempNode.right);
                 int parentLevel = nodeToIndexMap.get(tempNode);
                 indexToValMap.put(parentLevel + 1, tempNode.right.value);

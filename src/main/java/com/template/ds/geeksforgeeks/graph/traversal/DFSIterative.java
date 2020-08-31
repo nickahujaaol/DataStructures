@@ -15,14 +15,14 @@ public class DFSIterative {
 
         while (!stack.isEmpty()) {
             GraphNode<Integer> removedNode = stack.pop();
-            if(removedNode != null && !removedNode.visited) {
+            if (removedNode != null && !removedNode.visited) {
                 removedNode.visited = true;
                 System.out.print(" " + removedNode.value);
             }
 
-            for(int i = 0; i < removedNode.getNeighbours().size(); i++) {
+            for (int i = 0; i < removedNode.getNeighbours().size(); i++) {
                 GraphNode<Integer> tempNode = removedNode.getNeighbours().get(i);
-                if(!tempNode.visited) {
+                if (!tempNode.visited) {
                     stack.push(removedNode.getNeighbours().get(i));
                 }
             }

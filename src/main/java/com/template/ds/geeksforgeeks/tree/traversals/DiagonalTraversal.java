@@ -19,7 +19,7 @@ public class DiagonalTraversal {
 
     }
 
-    private static void addElement(TreeNode<Integer> node, HashMap<Integer, List<Integer>> diagMap, int diagonal){
+    private static void addElement(TreeNode<Integer> node, HashMap<Integer, List<Integer>> diagMap, int diagonal) {
 
     }
 }

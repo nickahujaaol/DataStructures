@@ -10,13 +10,13 @@ public class SubsetSum {
     }
 
     private static boolean isSubsetPresent(int[] set, int sum, int index) {
-        if(sum == 0 && index == 0)
+        if (sum == 0 && index == 0)
             return true;
 
-        if(index < 0)
+        if (index < 0)
             return false;
 
-        if(set[index] <= sum) {
+        if (set[index] <= sum) {
             boolean leftExists = isSubsetPresent(set, sum - set[index], index - 1);
             boolean rightExists = isSubsetPresent(set, sum, index - 1);
             return leftExists || rightExists;

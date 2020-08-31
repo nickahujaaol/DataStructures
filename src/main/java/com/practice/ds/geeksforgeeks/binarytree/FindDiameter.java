@@ -15,7 +15,7 @@ public class FindDiameter {
     }
 
     private static int findDiameter(TreeNode<Integer> node, AtomicInteger diameter) {
-        if(node == null) return 0;
+        if (node == null) return 0;
 
         int leftDiameter = findDiameter(node.left, diameter);
         int rightDiameter = findDiameter(node.right, diameter);

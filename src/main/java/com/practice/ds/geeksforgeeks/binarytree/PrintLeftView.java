@@ -24,6 +24,7 @@ public class PrintLeftView {
     private static void printRecursive(TreeNode<Integer> node, int level, HashMap<Integer, Integer> levelToNodeMap) {
 
     }
+
     private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);

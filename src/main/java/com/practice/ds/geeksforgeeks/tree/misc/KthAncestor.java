@@ -15,16 +15,16 @@ public class KthAncestor {
     }
 
     private static int findAncestor(TreeNode<Integer> node, int nodeValue, int kthAncestor) {
-        if(node == null) return -1;
-        if(node.value == nodeValue) {
+        if (node == null) return -1;
+        if (node.value == nodeValue) {
             return 0;
         }
 
         int leftFound = findAncestor(node.left, nodeValue, kthAncestor);
         int rightFound = findAncestor(node.right, nodeValue, kthAncestor);
         int value = leftFound != -1 ? leftFound : rightFound != -1 ? rightFound : -1;
-        if(value != -1 && value < kthAncestor) {
-            if(++value == kthAncestor) {
+        if (value != -1 && value < kthAncestor) {
+            if (++value == kthAncestor) {
                 System.out.println("Kth Ancestor is: " + node.value);
             }
         }

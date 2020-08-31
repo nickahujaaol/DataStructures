@@ -19,27 +19,27 @@ public class WildCardPatternMatching {
             //MEMOIZE for DP
      */
     private static boolean match(String input, String pattern, int inputIndex, int patternIndex) {
-        if(inputIndex == input.length() && patternIndex == pattern.length())
+        if (inputIndex == input.length() && patternIndex == pattern.length())
             return true;
 
-        if(patternIndex == pattern.length())
+        if (patternIndex == pattern.length())
             return false;
 
-        if(inputIndex == input.length()) {
-            for(int i = patternIndex; i < pattern.length(); i++) {
-                if(pattern.charAt(i) != '*')
+        if (inputIndex == input.length()) {
+            for (int i = patternIndex; i < pattern.length(); i++) {
+                if (pattern.charAt(i) != '*')
                     return false;
             }
             return true;
         }
 
-        if(input.charAt(inputIndex) == pattern.charAt(patternIndex))
+        if (input.charAt(inputIndex) == pattern.charAt(patternIndex))
             return match(input, pattern, inputIndex + 1, patternIndex + 1);
 
-        if(pattern.charAt(patternIndex) == '?')
+        if (pattern.charAt(patternIndex) == '?')
             return match(input, pattern, inputIndex + 1, patternIndex + 1);
 
-        if(pattern.charAt(patternIndex) == '*')
+        if (pattern.charAt(patternIndex) == '*')
             return match(input, pattern, inputIndex + 1, patternIndex) ||
                     match(input, pattern, inputIndex, patternIndex + 1);
 

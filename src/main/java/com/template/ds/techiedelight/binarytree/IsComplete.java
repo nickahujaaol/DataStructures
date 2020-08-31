@@ -2,9 +2,6 @@ package com.template.ds.techiedelight.binarytree;
 
 import com.learning.ds.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 // https://www.techiedelight.com/check-given-binary-tree-complete-binary-tree-not/
 public class IsComplete {
     public static void main(String[] args) {

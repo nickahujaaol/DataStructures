@@ -11,8 +11,8 @@ public class ArrivalAndDepartureTimes {
         boolean[] visited = new boolean[8];
 
         int time = -1;
-        for(int i = 0; i < 8; i++) {
-            if(!visited[i]) {
+        for (int i = 0; i < 8; i++) {
+            if (!visited[i]) {
                 time = findTimes(graph, i, visited, time + 1);
             }
         }
@@ -23,9 +23,9 @@ public class ArrivalAndDepartureTimes {
         visited[vertex] = true;
         int arrivalTime = time;
         LinkedList<Integer> neighbors = graph.adjacencyList[vertex];
-        for(int i = 0; i < neighbors.size(); i++) {
+        for (int i = 0; i < neighbors.size(); i++) {
             int tempNode = neighbors.get(i);
-            if(!visited[tempNode]) {
+            if (!visited[tempNode]) {
                 time = findTimes(graph, tempNode, visited, time + 1);
             }
         }
@@ -35,14 +35,14 @@ public class ArrivalAndDepartureTimes {
 
     private static Graph createGraph() {
         Graph g = new Graph(8);
-        g.addEdge(0,1);
-        g.addEdge(0,2);
-        g.addEdge(2,3);
-        g.addEdge(2,4);
-        g.addEdge(3,1);
-        g.addEdge(3,5);
-        g.addEdge(4,5);
-        g.addEdge(6,7);
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(2, 3);
+        g.addEdge(2, 4);
+        g.addEdge(3, 1);
+        g.addEdge(3, 5);
+        g.addEdge(4, 5);
+        g.addEdge(6, 7);
 
         return g;
     }

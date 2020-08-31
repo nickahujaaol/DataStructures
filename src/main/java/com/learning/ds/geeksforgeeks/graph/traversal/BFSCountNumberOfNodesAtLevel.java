@@ -22,13 +22,13 @@ public class BFSCountNumberOfNodesAtLevel {
 
         HashMap<Integer, Integer> levelMap = new HashMap<>();
         int lastLevel = 1;
-        levelMap.put(1,1);
+        levelMap.put(1, 1);
         node.visited = true;
 
         while (!queue.isEmpty()) {
             int queueSize = queue.size();
             int levelCount = 0;
-            for(int i = 0; i < queueSize; i++) {
+            for (int i = 0; i < queueSize; i++) {
                 GraphNode<Integer> removedNode = queue.remove();
 
                 for (int j = 0; j < removedNode.getNeighbours().size(); j++) {
@@ -40,7 +40,7 @@ public class BFSCountNumberOfNodesAtLevel {
                     }
                 }
             }
-            if(levelCount > 0)
+            if (levelCount > 0)
                 levelMap.put(++lastLevel, levelCount);
         }
 

@@ -21,7 +21,7 @@ public class MaximumPathSum {
     The return value of the method is the max path value from leaf to the given node.
      */
     private static int findMaxSumPath(TreeNode<Integer> node, AtomicInteger maxSum) {
-        if(node == null) return 0;
+        if (node == null) return 0;
 
         int leftSum = findMaxSumPath(node.left, maxSum);
         int rightSum = findMaxSumPath(node.right, maxSum);
@@ -30,7 +30,6 @@ public class MaximumPathSum {
 
         return Math.max(node.value + leftSum, node.value + rightSum);
     }
-
 
 
     private static BinaryTree createSumTree() {

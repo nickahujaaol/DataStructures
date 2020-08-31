@@ -19,15 +19,15 @@ public class FindNextNodeAtSameLevel {
 
         while (!queue.isEmpty()) {
             int qSize = queue.size();
-            for(int i = 0; i < qSize; i++) {
+            for (int i = 0; i < qSize; i++) {
                 TreeNode<Integer> tempNode = queue.poll();
-                if(tempNode.value == fromNode && !queue.isEmpty()) {
+                if (tempNode.value == fromNode && !queue.isEmpty()) {
                     nextNode = queue.poll();
                     return nextNode;
                 }
-                if(tempNode.left != null)
+                if (tempNode.left != null)
                     queue.add(tempNode.left);
-                if(tempNode.right != null)
+                if (tempNode.right != null)
                     queue.add(tempNode.right);
             }
         }

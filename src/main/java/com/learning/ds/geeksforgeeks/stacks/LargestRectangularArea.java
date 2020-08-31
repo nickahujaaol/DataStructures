@@ -8,7 +8,7 @@ public class LargestRectangularArea {
     }
 
     public static void main(String[] args) {
-        int data[] = {1,2,3,4,5,3,3,2};
+        int data[] = {1, 2, 3, 4, 5, 3, 3, 2};
         findArea(data);
     }
 }

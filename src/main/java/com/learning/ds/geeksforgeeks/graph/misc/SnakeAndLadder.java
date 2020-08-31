@@ -39,11 +39,11 @@ public class SnakeAndLadder {
             QueueEntry removedEntry = queue.remove();
             lastEntry = removedEntry;
 
-            if(removedEntry.vertexNumber >= moves.length - 1) {
+            if (removedEntry.vertexNumber >= moves.length - 1) {
                 break;
             }
-            for(int i = removedEntry.vertexNumber + 1; i <= removedEntry.vertexNumber + 6 && i < moves.length; i++) {
-                if(!visited[i]) {
+            for (int i = removedEntry.vertexNumber + 1; i <= removedEntry.vertexNumber + 6 && i < moves.length; i++) {
+                if (!visited[i]) {
                     QueueEntry newEntry = new QueueEntry();
                     newEntry.distance = removedEntry.distance + 1;
                     if (moves[i] != -1) {
@@ -62,9 +62,11 @@ public class SnakeAndLadder {
     private static class QueueEntry {
         int vertexNumber;
         int distance;
+
         public QueueEntry() {
 
         }
+
         public QueueEntry(int vertexNumber, int distance) {
             this.distance = distance;
             this.vertexNumber = vertexNumber;

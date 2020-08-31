@@ -19,7 +19,7 @@ public class FindLCAOf2Nodes {
     }
 
 
-    private static TreeNode<Integer> createTree(){
+    private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);

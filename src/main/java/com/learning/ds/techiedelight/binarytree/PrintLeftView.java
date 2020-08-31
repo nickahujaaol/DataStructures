@@ -4,7 +4,6 @@ import com.learning.ds.TreeNode;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 // https://www.techiedelight.com/print-left-view-of-binary-tree/
@@ -27,12 +26,12 @@ public class PrintLeftView {
 
         while (!queue.isEmpty()) {
             int qSize = queue.size();
-            for(int i = 0; i < qSize; i++) {
+            for (int i = 0; i < qSize; i++) {
                 TreeNode<Integer> tempNode = queue.poll();
                 levelToNodeMap.putIfAbsent(level, tempNode.value);
-                if(tempNode.left != null)
+                if (tempNode.left != null)
                     queue.add(tempNode.left);
-                if(tempNode.right != null)
+                if (tempNode.right != null)
                     queue.add(tempNode.right);
             }
             level++;
@@ -40,12 +39,13 @@ public class PrintLeftView {
     }
 
     private static void printRecursive(TreeNode<Integer> node, int level, HashMap<Integer, Integer> levelToNodeMap) {
-        if(node == null) return;
+        if (node == null) return;
 
         levelToNodeMap.putIfAbsent(level, node.value);
         printRecursive(node.left, level + 1, levelToNodeMap);
         printRecursive(node.right, level + 1, levelToNodeMap);
     }
+
     private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);

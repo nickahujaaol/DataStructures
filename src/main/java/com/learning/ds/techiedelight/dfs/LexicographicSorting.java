@@ -1,11 +1,9 @@
 package com.learning.ds.techiedelight.dfs;
 
-import com.learning.ds.TreeNode;
 import com.learning.ds.TrieNode;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 // https://www.techiedelight.com/lexicographic-sorting-given-set-of-keys/
 // JUST READ THE EXPLANATION. REMEMBER HERE THAT YOU ARE STORING CHARACTERS IN AN ARRAY AND NOT IN MAP
@@ -26,7 +24,7 @@ public class LexicographicSorting {
         TrieNode head = new TrieNode();
 
         // insert all keys of dictionary into trie
-        for (String word: dict) {
+        for (String word : dict) {
             insert(head, word);
         }
     }
@@ -37,7 +35,7 @@ public class LexicographicSorting {
 
 
     public static void insert(TrieNode node, String key) {
-        for(int i = 0; i < key.length(); i++) {
+        for (int i = 0; i < key.length(); i++) {
             node.charToNodeMap.putIfAbsent(key.charAt(i), new TrieNode());
             node = node.charToNodeMap.get(key.charAt(i));
         }

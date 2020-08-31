@@ -11,8 +11,8 @@ public class SubtreeWithGivenSum {
     }
 
     private static void findSum(TreeNode<Integer> node, int givenSum) {
-        if(node == null) return;
-        if(sum(node) == givenSum) {
+        if (node == null) return;
+        if (sum(node) == givenSum) {
             System.out.println("Sum found at node: " + node.value);
         }
         findSum(node.left, givenSum);
@@ -20,7 +20,7 @@ public class SubtreeWithGivenSum {
     }
 
     private static int sum(TreeNode<Integer> node) {
-        if(node == null) return 0;
+        if (node == null) return 0;
 
         return node.value + sum(node.left) + sum(node.right);
     }

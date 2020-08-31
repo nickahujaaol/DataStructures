@@ -16,8 +16,8 @@ public class NumFactors {
         dp[2] = 1;
         dp[3] = 2;
 
-        for(int i = 4; i <= number; i++ ) {
-            dp[i] = dp[i-1] + dp[i-3] + dp[i-4];
+        for (int i = 4; i <= number; i++) {
+            dp[i] = dp[i - 1] + dp[i - 3] + dp[i - 4];
         }
 
         return dp[number];
@@ -25,13 +25,13 @@ public class NumFactors {
 
     // use 1,3,4
     private static int getNumWaysRecursive(int number) {
-        if(number == 0)
+        if (number == 0)
             return 1;
-        if(number == 1)
+        if (number == 1)
             return 1;
-        if(number == 2)
+        if (number == 2)
             return 1;
-        if(number == 3)
+        if (number == 3)
             return 2;
 
         int way1 = getNumWaysRecursive(number - 1);

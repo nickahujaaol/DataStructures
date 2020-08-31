@@ -19,7 +19,7 @@ public class ConvertToListInSpiralOrder {
         leftToRightStack.push(node);
         boolean isOddLevel = true;
         while (!leftToRightStack.isEmpty() || !rightToLeftStack.isEmpty()) {
-            if(isOddLevel) {
+            if (isOddLevel) {
                 if (!leftToRightStack.isEmpty()) {
                     TreeNode<Integer> tempNode = leftToRightStack.pop();
                     System.out.print(" " + tempNode.value);
@@ -27,11 +27,11 @@ public class ConvertToListInSpiralOrder {
                         rightToLeftStack.push(tempNode.left);
                     if (tempNode.right != null)
                         rightToLeftStack.push(tempNode.right);
-                    if(leftToRightStack.isEmpty()) isOddLevel = !isOddLevel;
+                    if (leftToRightStack.isEmpty()) isOddLevel = !isOddLevel;
                 }
             }
 
-            if(!isOddLevel) {
+            if (!isOddLevel) {
                 if (!rightToLeftStack.isEmpty()) {
                     TreeNode<Integer> tempNode = rightToLeftStack.pop();
                     System.out.print(" " + tempNode.value);

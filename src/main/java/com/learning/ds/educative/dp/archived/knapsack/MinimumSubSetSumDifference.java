@@ -8,7 +8,7 @@ public class MinimumSubSetSumDifference {
     }
 
     private static int findMinDifference(int[] inSet, int index, int sum1, int sum2) {
-        if(index == inSet.length) {
+        if (index == inSet.length) {
             return Math.abs(sum1 - sum2);
         }
 

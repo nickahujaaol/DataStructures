@@ -11,21 +11,22 @@ public class FindAncestorsOfGivenNode {
     }
 
     private static boolean findAncestors(TreeNode<Integer> node, int nodeToFind) {
-        if(node == null) return false;
+        if (node == null) return false;
 
-        if(node.value == nodeToFind) return true;
+        if (node.value == nodeToFind) return true;
 
         boolean leftFound = findAncestors(node.left, nodeToFind);
         boolean rightFound = false;
-        if(!leftFound) {
+        if (!leftFound) {
             rightFound = findAncestors(node.right, nodeToFind);
         }
-        if(leftFound || rightFound) {
+        if (leftFound || rightFound) {
             System.out.print(" " + node.value);
         }
 
         return leftFound || rightFound;
     }
+
     private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);

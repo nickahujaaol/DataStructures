@@ -14,11 +14,10 @@ public class ConvertBinaryTreeToSumTree {
     }
 
     private static int convertToSumTree(TreeNode<Integer> node) {
-       return 0;
+        return 0;
     }
 
-    public static void preorder(TreeNode root)
-    {
+    public static void preorder(TreeNode root) {
         if (root == null) {
             return;
         }

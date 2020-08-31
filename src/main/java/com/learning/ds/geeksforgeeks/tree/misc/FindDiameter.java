@@ -1,9 +1,7 @@
 package com.learning.ds.geeksforgeeks.tree.misc;
 
-import apple.laf.JRSUIUtils;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
-import com.sun.org.apache.xerces.internal.dom.PSVIAttrNSImpl;
 
 //https://www.geeksforgeeks.org/diameter-of-a-binary-tree/
 public class FindDiameter {

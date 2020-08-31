@@ -11,11 +11,11 @@ public class SubtreeWithGivenSum {
     }
 
     private static void findSum(TreeNode<Integer> node, int givenSum) {
-        if(node == null)
+        if (node == null)
             return;
 
         int nodeSum = sum(node);
-        if(nodeSum == givenSum) {
+        if (nodeSum == givenSum) {
             System.out.println("Given sum exists for node with Parent: " + node.value);
         }
         findSum(node.left, givenSum);

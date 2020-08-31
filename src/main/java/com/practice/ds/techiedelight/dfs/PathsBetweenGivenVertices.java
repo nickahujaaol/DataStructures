@@ -15,12 +15,12 @@ public class PathsBetweenGivenVertices {
 
     private static void findPaths(Graph graph, int vertex, int endVertex, LinkedList<Integer> pathsList, boolean[] visited) {
         pathsList.add(vertex);
-        if(vertex == endVertex) {
+        if (vertex == endVertex) {
             System.out.println(pathsList.toString());
             return;
         }
         List<Integer> neighbors = graph.adjacencyList[vertex];
-        for(int i = 0; i < neighbors.size(); i++) {
+        for (int i = 0; i < neighbors.size(); i++) {
             int tempNode = neighbors.get(i);
             findPaths(graph, tempNode, endVertex, pathsList, visited);
             pathsList.removeLast();

@@ -4,7 +4,7 @@ package com.learning.ds.geeksforgeeks.stacks;
 //( )(( )){([( )])}
 //)(( )){([( )])}
 public class CheckBalancedParanthesis {
-  private static final String openBrackets = "[{(";
-  private static final String closeBrackets = "]})";
+    private static final String openBrackets = "[{(";
+    private static final String closeBrackets = "]})";
 
 }

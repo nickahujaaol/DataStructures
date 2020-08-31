@@ -1,7 +1,6 @@
 package com.practice.ds.geeksforgeeks.binarytree;
 
 import com.learning.ds.TreeNode;
-import com.learning.ds.techiedelight.bfs.FloodFill;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +13,10 @@ public class PrintRootToLeafPaths {
     }
 
     private static void printPaths(TreeNode<Integer> node, List<Integer> paths) {
-        if(node == null) return;
+        if (node == null) return;
 
         paths.add(node.value);
-        if(node.left == null && node.right == null) {
+        if (node.left == null && node.right == null) {
             System.out.println(paths);
         }
 

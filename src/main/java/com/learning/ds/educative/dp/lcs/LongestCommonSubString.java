@@ -9,10 +9,10 @@ public class LongestCommonSubString {
     }
 
     private static int findLCS(String str1, String str2, int index1, int index2, int count) {
-        if(index1 < 0 || index2 < 0)
+        if (index1 < 0 || index2 < 0)
             return count;
 
-        if(str1.charAt(index1) == str2.charAt(index2)) {
+        if (str1.charAt(index1) == str2.charAt(index2)) {
             count = findLCS(str1, str2, index1 - 1, index2 - 1, count + 1);
         }
 

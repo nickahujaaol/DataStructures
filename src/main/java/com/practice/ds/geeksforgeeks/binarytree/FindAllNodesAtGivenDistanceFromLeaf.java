@@ -19,20 +19,20 @@ public class FindAllNodesAtGivenDistanceFromLeaf {
     }
 
     private static int findNodes(TreeNode<Integer> node, List<Integer> rootToLeafPath, Set<Integer> nodesAtDistance, int distance) {
-        if(node == null) return 0;
-        if(node.left == null && node.right == null) return 1;
+        if (node == null) return 0;
+        if (node.left == null && node.right == null) return 1;
 
         int leftDistance = findNodes(node.left, rootToLeafPath, nodesAtDistance, distance);
-        if(leftDistance == distance) {
+        if (leftDistance == distance) {
             System.out.print(" " + node.value);
         }
         int rightDistance = findNodes(node.right, rootToLeafPath, nodesAtDistance, distance);
-        if(rightDistance == distance) {
+        if (rightDistance == distance) {
             System.out.print(" " + node.value);
         }
 
-        if(leftDistance > 0) return leftDistance + 1;
-        if(rightDistance > 0) return rightDistance + 1;
+        if (leftDistance > 0) return leftDistance + 1;
+        if (rightDistance > 0) return rightDistance + 1;
         return 0;
     }
 

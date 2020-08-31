@@ -2,7 +2,6 @@ package com.learning.ds.techiedelight.binarytree;
 
 import com.learning.ds.TreeNode;
 
-import java.util.Comparator;
 import java.util.HashMap;
 
 // https://www.techiedelight.com/find-maximum-width-given-binary-tree/
@@ -14,7 +13,7 @@ public class FindMaxWidth {
     }
 
     private static void findMaxWidthRecursive(TreeNode<Integer> node, int level, HashMap<Integer, Integer> levelToNumMap) {
-        if(node == null) return;
+        if (node == null) return;
 
         levelToNumMap.putIfAbsent(level, 0);
         levelToNumMap.replace(level, levelToNumMap.get(level) + 1);

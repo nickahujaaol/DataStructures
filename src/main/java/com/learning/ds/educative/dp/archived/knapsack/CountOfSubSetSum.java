@@ -16,9 +16,9 @@ public class CountOfSubSetSum {
             dp[i][0] = 1;
         }
 
-        for(int row = 1; row <= inSet.length; row++) {
-            for(int sum = 1; sum <= givenSum; sum++) {
-                if(sum < inSet[row - 1]) {
+        for (int row = 1; row <= inSet.length; row++) {
+            for (int sum = 1; sum <= givenSum; sum++) {
+                if (sum < inSet[row - 1]) {
                     dp[row][sum] = dp[row - 1][sum];
                 } else {
                     dp[row][sum] = dp[row - 1][sum] + dp[row - 1][sum - inSet[row - 1]];
@@ -30,12 +30,12 @@ public class CountOfSubSetSum {
     }
 
     private static int findCount(int[] inSet, int givenSum, int index, int currSum) {
-        if(currSum == givenSum)
+        if (currSum == givenSum)
             return 1;
-        if(index == inSet.length)
+        if (index == inSet.length)
             return 0;
 
-        if(currSum + inSet[index] <= givenSum) {
+        if (currSum + inSet[index] <= givenSum) {
             return findCount(inSet, givenSum, index + 1, currSum + inSet[index]) +
                     findCount(inSet, givenSum, index + 1, currSum);
         } else {

@@ -21,25 +21,26 @@ public class PrintNodesInSpecificOrder {
 
         while (!leftToRightQ.isEmpty() && !rightToLeftQ.isEmpty()) {
             int leftQSize = leftToRightQ.size();
-            for(int i = 0; i < leftQSize; i++) {
+            for (int i = 0; i < leftQSize; i++) {
                 TreeNode<Integer> leftTempQ = leftToRightQ.poll();
                 TreeNode<Integer> rightTempQ = rightToLeftQ.poll();
                 System.out.print(" " + leftTempQ.value);
                 System.out.print(" " + rightTempQ.value);
 
-                if(leftTempQ.left != null)
+                if (leftTempQ.left != null)
                     leftToRightQ.add(leftTempQ.left);
-                if(leftTempQ.right != null)
+                if (leftTempQ.right != null)
                     leftToRightQ.add(leftTempQ.right);
 
 
-                if(rightTempQ.right != null)
+                if (rightTempQ.right != null)
                     rightToLeftQ.add(rightTempQ.right);
-                if(rightTempQ.left != null)
+                if (rightTempQ.left != null)
                     rightToLeftQ.add(rightTempQ.left);
             }
         }
     }
+
     private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
         root.left = new TreeNode(2);

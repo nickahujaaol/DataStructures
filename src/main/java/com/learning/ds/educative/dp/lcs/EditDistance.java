@@ -11,10 +11,10 @@ public class EditDistance {
     private static int getDistance(String s1, String s2, int s1Index, int s2Index) {
         if (s1Index == s1.length())
             return s2.length() - s2Index;
-        if(s2Index == s2.length())
+        if (s2Index == s2.length())
             return s1.length() - s1Index;
 
-        if(s1.charAt(s1Index) == s2.charAt(s2Index))
+        if (s1.charAt(s1Index) == s2.charAt(s2Index))
             return getDistance(s1, s2, s1Index + 1, s2Index + 1);
 
         int insertCount = 1 + getDistance(s1, s2, s1Index + 1, s2Index);

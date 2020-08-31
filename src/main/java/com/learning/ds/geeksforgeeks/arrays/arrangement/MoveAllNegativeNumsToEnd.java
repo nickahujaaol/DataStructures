@@ -7,11 +7,25 @@ import java.util.Arrays;
 // If we do not do this then we get into infinite loop. See also if there are consecutive -ve numbers.
 public class MoveAllNegativeNumsToEnd {
     public static void move(int data[]) {
+        int lastIndex = data.length;
+        for (int i = 0; i < lastIndex; i++) {
+            if (data[i] < 0) {
+                rotate(data, i, data[i]);
+                lastIndex--;
+                i--;
+            }
+        }
+    }
 
+    private static void rotate(int[] data, int index, int numToRotate) {
+        for (int i = index; i < data.length - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        data[data.length - 1] = numToRotate;
     }
 
     public static void main(String[] args) {
-        int data[] = {1, -1, 3, 2, -7, -5, 11, 6 };
+        int data[] = {1, -1, 3, 2, -7, -5, 11, 6};
         move(data);
         System.out.println(Arrays.toString(data));
     }

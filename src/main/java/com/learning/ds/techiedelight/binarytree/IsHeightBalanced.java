@@ -5,7 +5,6 @@ package com.learning.ds.techiedelight.binarytree;
 import com.learning.ds.TreeNode;
 
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 
 // MAKE SURE YOUR SOLUTION IS NOT 0(N2)
 public class IsHeightBalanced {
@@ -17,12 +16,12 @@ public class IsHeightBalanced {
     }
 
     private static int isHeightBalanced(TreeNode<Integer> node, AtomicBoolean balanced) {
-        if(node == null) return 0;
+        if (node == null) return 0;
 
         int leftHeight = isHeightBalanced(node.left, balanced);
         int rightHeight = isHeightBalanced(node.right, balanced);
 
-        if(Math.abs(leftHeight - rightHeight) > 1) {
+        if (Math.abs(leftHeight - rightHeight) > 1) {
             balanced.set(false);
         }
 

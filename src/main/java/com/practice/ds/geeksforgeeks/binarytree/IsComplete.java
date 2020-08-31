@@ -21,30 +21,30 @@ public class IsComplete {
         while (!queue.isEmpty()) {
             int qSize = queue.size();
             boolean leftOnlyStarted = false;
-            for(int i = 0; i < qSize; i++) {
+            for (int i = 0; i < qSize; i++) {
                 TreeNode<Integer> tempNode = queue.poll();
-                if(leftOnlyStarted && (tempNode.left != null || tempNode.right != null)) {
+                if (leftOnlyStarted && (tempNode.left != null || tempNode.right != null)) {
                     isCompleteTree = false;
                     break;
                 }
-                if(tempNode.left == null && tempNode.right != null) {
+                if (tempNode.left == null && tempNode.right != null) {
                     isCompleteTree = false;
                     break;
                 }
 
-                if(tempNode.left != null && tempNode.right == null) {
+                if (tempNode.left != null && tempNode.right == null) {
                     leftOnlyStarted = true;
                 }
 
-                if(tempNode.left != null) {
+                if (tempNode.left != null) {
                     queue.add(tempNode.left);
                 }
-                if(tempNode.right != null) {
+                if (tempNode.right != null) {
                     queue.add(tempNode.right);
                 }
             }
 
-            if(!isCompleteTree) {
+            if (!isCompleteTree) {
                 break;
             }
         }

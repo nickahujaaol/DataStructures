@@ -6,10 +6,10 @@ import java.util.Queue;
 // https://www.geeksforgeeks.org/find-minimum-numbers-moves-needed-move-one-cell-matrix-another/
 public class MinMovesRequiredToMoveFrom1CellToAnotherInMatrix {
     public static void main(String[] args) {
-        int matrix[][] = {{   3 , 3 , 1 , 0 },
-                            { 3 , 0 , 3 , 3 },
-                            { 2 , 3 , 0 , 3 },
-                            { 0 , 3 , 3 , 3 }
+        int matrix[][] = {{3, 3, 1, 0},
+                {3, 0, 3, 3},
+                {2, 3, 0, 3},
+                {0, 3, 3, 3}
         };
         boolean[][] visited = new boolean[4][4];
         findMinPath(matrix, 0, 2, visited);
@@ -27,12 +27,12 @@ public class MinMovesRequiredToMoveFrom1CellToAnotherInMatrix {
             Node removedNode = queue.poll();
             visited[removedNode.x][removedNode.y] = true;
 
-            if(matrix[removedNode.x][removedNode.y] == 2) {
+            if (matrix[removedNode.x][removedNode.y] == 2) {
                 minDistance = Math.min(minDistance, removedNode.dist);
             }
 
-            for(int i = 0; i < row.length; i++) {
-                if(isValid(matrix, removedNode.x + row[i], removedNode.y + col[i], visited)) {
+            for (int i = 0; i < row.length; i++) {
+                if (isValid(matrix, removedNode.x + row[i], removedNode.y + col[i], visited)) {
                     queue.add(new Node(removedNode.x + row[i],
                             removedNode.y + col[i],
                             removedNode.dist + 1));
@@ -44,8 +44,8 @@ public class MinMovesRequiredToMoveFrom1CellToAnotherInMatrix {
     }
 
     public static boolean isValid(int[][] matrix, int x, int y, boolean[][] visited) {
-        if(x >= 0 && x < matrix.length &&
-        y >= 0 && y < matrix.length &&
+        if (x >= 0 && x < matrix.length &&
+                y >= 0 && y < matrix.length &&
                 matrix[x][y] != 0 && !visited[x][y]) {
             return true;
         } else {
@@ -55,6 +55,7 @@ public class MinMovesRequiredToMoveFrom1CellToAnotherInMatrix {
 
     private static class Node {
         public int x, y, dist;
+
         public Node(int x, int y, int dist) {
             this.x = x;
             this.y = y;

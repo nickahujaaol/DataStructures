@@ -2,7 +2,6 @@ package com.learning.ds.techiedelight.binarytree;
 
 import com.learning.ds.TreeNode;
 
-import java.net.Inet4Address;
 import java.util.concurrent.atomic.AtomicInteger;
 
 // https://www.techiedelight.com/find-maximum-difference-node-descendants/
@@ -15,7 +14,7 @@ public class MaxDiffBetweenNodesAndDescendents {
     }
 
     private static int findMaxDiff(TreeNode<Integer> node, AtomicInteger maxDiff) {
-        if(node == null) return Integer.MAX_VALUE;
+        if (node == null) return Integer.MAX_VALUE;
 
         int leftMin = findMaxDiff(node.left, maxDiff);
         int rightMin = findMaxDiff(node.right, maxDiff);

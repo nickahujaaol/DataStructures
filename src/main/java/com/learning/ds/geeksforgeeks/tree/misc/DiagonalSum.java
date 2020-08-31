@@ -18,7 +18,7 @@ public class DiagonalSum {
     private static void printDiagonals(TreeNode<Integer> node,
                                        HashMap<Integer, ArrayList<Integer>> diagonalToListMap,
                                        int diagonal) {
-        if(node == null) return;
+        if (node == null) return;
 
         diagonalToListMap.putIfAbsent(diagonal, new ArrayList<Integer>());
         diagonalToListMap.get(diagonal).add(node.value);

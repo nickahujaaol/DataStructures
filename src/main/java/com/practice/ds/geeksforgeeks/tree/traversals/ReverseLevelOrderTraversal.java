@@ -2,8 +2,6 @@ package com.practice.ds.geeksforgeeks.tree.traversals;
 
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
-import com.sun.java.swing.plaf.windows.WindowsTextAreaUI;
-import org.omg.CORBA.INTERNAL;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -26,10 +24,10 @@ public class ReverseLevelOrderTraversal {
         while (!queue.isEmpty()) {
             TreeNode<Integer> tempNode = queue.poll();
             stack.add(tempNode.value);
-            if(tempNode.left != null) {
+            if (tempNode.left != null) {
                 queue.add(tempNode.left);
             }
-            if(tempNode.right != null) {
+            if (tempNode.right != null) {
                 queue.add(tempNode.right);
             }
         }

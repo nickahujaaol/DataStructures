@@ -26,10 +26,10 @@ public class WeightedLeastCostPath {
             GraphNode<Integer> removedNode = queue.poll();
 
             List<GraphNode<Integer>> neighbors = removedNode.neighbours;
-            for(int i = 0; i < neighbors.size(); i++) {
+            for (int i = 0; i < neighbors.size(); i++) {
                 GraphNode<Integer> tempNode = neighbors.get(i);
                 leastCost[tempNode.value] = Math.min(leastCost[removedNode.value] + removedNode.weightedAdjNodes.get(tempNode),
-                                                        leastCost[tempNode.value]);
+                        leastCost[tempNode.value]);
                 queue.add(tempNode);
             }
         }

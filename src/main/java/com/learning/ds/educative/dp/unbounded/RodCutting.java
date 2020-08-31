@@ -10,10 +10,10 @@ public class RodCutting {
     }
 
     private static int findMax(int[] lengths, int[] prices, int rodLength, int index) {
-        if(rodLength <= 0 || index < 0)
+        if (rodLength <= 0 || index < 0)
             return 0;
 
-        if(lengths[index] <= rodLength) {
+        if (lengths[index] <= rodLength) {
             int includeLength = prices[index] + findMax(lengths, prices, rodLength - lengths[index], index);
             int excludingLength = findMax(lengths, prices, rodLength, index - 1);
             return Math.max(includeLength, excludingLength);

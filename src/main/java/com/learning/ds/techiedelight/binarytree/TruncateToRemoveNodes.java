@@ -18,17 +18,17 @@ public class TruncateToRemoveNodes {
      * hence the return is left delete + right delete.
      */
     private static boolean truncate(TreeNode<Integer> node, int sum, int sumSoFar) {
-        if(node == null) return true;
-        if(node.left == null && node.right == null){
-            if((node.value + sumSoFar) < sum) {
+        if (node == null) return true;
+        if (node.left == null && node.right == null) {
+            if ((node.value + sumSoFar) < sum) {
                 return true;
             } else return false;
         }
 
         boolean leftDelete = truncate(node.left, sum, node.value + sumSoFar);
         boolean rightDelete = truncate(node.right, sum, node.value + sumSoFar);
-        if(leftDelete) node.left = null;
-        if(rightDelete) node.right = null;
+        if (leftDelete) node.left = null;
+        if (rightDelete) node.right = null;
 
         return leftDelete && rightDelete;
     }
@@ -41,13 +41,13 @@ public class TruncateToRemoveNodes {
         root.right.right = new TreeNode(2);
         root.right.left.left = new TreeNode(1);
         root.right.left.right = new TreeNode(7);
-        root.right.right.right  = new TreeNode(3);
+        root.right.right.right = new TreeNode(3);
 
         return root;
     }
 
     private static void preOrder(TreeNode node) {
-        if(node == null) return;
+        if (node == null) return;
         System.out.print(" " + node.value);
         preOrder(node.left);
         preOrder(node.right);

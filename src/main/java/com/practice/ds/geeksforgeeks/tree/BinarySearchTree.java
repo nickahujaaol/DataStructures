@@ -34,11 +34,11 @@ public class BinarySearchTree {
     }
 
     private static int searchRecursive(TreeNode<Integer> node, int numToSearch) {
-        if(node == null) return -1;
-        if(node.value == numToSearch) {
+        if (node == null) return -1;
+        if (node.value == numToSearch) {
             return 1;
         }
-        if(node.value > numToSearch) {
+        if (node.value > numToSearch) {
             return searchRecursive(node.left, numToSearch);
         } else {
             return searchRecursive(node.right, numToSearch);
@@ -47,10 +47,10 @@ public class BinarySearchTree {
 
     private static int searchIterative(TreeNode<Integer> root, int numToSearch) {
         TreeNode<Integer> currNode = root;
-        while(currNode != null) {
-            if(currNode.value > numToSearch) {
+        while (currNode != null) {
+            if (currNode.value > numToSearch) {
                 currNode = currNode.left;
-            } else if(currNode.value < numToSearch) {
+            } else if (currNode.value < numToSearch) {
                 currNode = currNode.right;
             } else {
                 return 1;
@@ -60,7 +60,7 @@ public class BinarySearchTree {
     }
 
     private static void preOrder(TreeNode node) {
-        if(node == null) return;
+        if (node == null) return;
         System.out.print(" " + node.value);
         preOrder(node.left);
         preOrder(node.right);

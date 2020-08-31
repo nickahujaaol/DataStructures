@@ -9,6 +9,7 @@ public class NumberOfTreesInForest {
         int numOfTrees = 0;
 
     }
+
     private static void dfs(Graph graph, int vertex, boolean[] visited) {
 
     }

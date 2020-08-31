@@ -4,25 +4,25 @@ package com.template.ds.techiedelight.bfs;
 // Check LeastCostSourceToDestination also. Same concept
 public class ShortestPathInAMaze {
     // Below arrays details all 4 possible movements from a cell
-    private static final int[] row = { -1, 0, 0, 1 };
-    private static final int[] col = { 0, -1, 1, 0 };
+    private static final int[] row = {-1, 0, 0, 1};
+    private static final int[] col = {0, -1, 1, 0};
 
     public static void main(String[] args) {
         int[][] matrix =
                 {
-                        { 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 },
-                        { 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 },
-                        { 0, 0, 1, 0, 1, 1, 1, 0, 0, 1 },
-                        { 1, 0, 1, 1, 1, 0, 1, 1, 0, 1 },
-                        { 0, 0, 0, 1, 0, 0, 0, 1, 0, 1 },
-                        { 1, 0, 1, 1, 1, 0, 0, 1, 1, 0 },
-                        { 0, 0, 0, 0, 1, 0, 0, 1, 0, 1 },
-                        { 0, 1, 1, 1, 1, 1, 1, 1, 0, 0 },
-                        { 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 },
-                        { 0, 0, 1, 0, 0, 1, 1, 0, 0, 1 },
+                        {1, 1, 1, 1, 1, 0, 0, 1, 1, 1},
+                        {0, 1, 1, 1, 1, 1, 0, 1, 0, 1},
+                        {0, 0, 1, 0, 1, 1, 1, 0, 0, 1},
+                        {1, 0, 1, 1, 1, 0, 1, 1, 0, 1},
+                        {0, 0, 0, 1, 0, 0, 0, 1, 0, 1},
+                        {1, 0, 1, 1, 1, 0, 0, 1, 1, 0},
+                        {0, 0, 0, 0, 1, 0, 0, 1, 0, 1},
+                        {0, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+                        {1, 1, 1, 1, 1, 0, 0, 1, 1, 1},
+                        {0, 0, 1, 0, 0, 1, 1, 0, 0, 1},
                 };
         boolean[][] visited = new boolean[10][10];
-        findShortestPath(matrix, 0,0, 7, 5, visited);
+        findShortestPath(matrix, 0, 0, 7, 5, visited);
     }
 
     private static void findShortestPath(int[][] matrix, int startX, int startY, int endX, int endY, boolean[][] visited) {

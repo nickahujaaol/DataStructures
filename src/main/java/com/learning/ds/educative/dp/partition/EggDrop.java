@@ -9,15 +9,15 @@ public class EggDrop {
     }
 
     private static int findMin(int floors, int eggs) {
-        if(floors == 0 || floors == 1)
+        if (floors == 0 || floors == 1)
             return floors;
 
-        if(eggs == 1)
+        if (eggs == 1)
             return floors;
 
         int minAttempts = Integer.MAX_VALUE;
         for (int k = 1; k <= floors; k++) {
-            int tempMin = 1 + Math.max(findMin(k-1, eggs - 1),
+            int tempMin = 1 + Math.max(findMin(k - 1, eggs - 1),
                     findMin(floors - k, eggs));
             minAttempts = Math.min(minAttempts, tempMin);
         }

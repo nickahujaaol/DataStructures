@@ -2,10 +2,6 @@ package com.template.ds.techiedelight.binarytree;
 
 import com.learning.ds.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
-
 // https://www.techiedelight.com/invert-binary-tree-recursive-iterative/
 public class InvertBinaryTree {
     public static void main(String[] args) {

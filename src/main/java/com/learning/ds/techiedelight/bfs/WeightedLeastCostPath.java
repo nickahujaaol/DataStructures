@@ -1,7 +1,6 @@
 package com.learning.ds.techiedelight.bfs;
 
 
-import com.learning.ds.Graph;
 import com.learning.ds.GraphNode;
 
 import java.util.Arrays;
@@ -26,7 +25,7 @@ public class WeightedLeastCostPath {
             GraphNode<Integer> removedNode = queue.remove();
 
             List<GraphNode<Integer>> neighbors = removedNode.neighbours;
-            for(int i = 0; i < neighbors.size(); i++) {
+            for (int i = 0; i < neighbors.size(); i++) {
                 GraphNode<Integer> tempNode = neighbors.get(i);
 
                 minCostToReachNode[tempNode.value] =

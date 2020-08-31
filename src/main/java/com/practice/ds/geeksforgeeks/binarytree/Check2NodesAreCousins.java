@@ -11,26 +11,26 @@ public class Check2NodesAreCousins {
     }
 
     private static boolean areCousins(TreeNode<Integer> node, int num1, int num2) {
-        if(!isSibling(node, num1, num2) &&
-        getLevel(node, num1, 0) == getLevel(node, num2 , 0)) {
+        if (!isSibling(node, num1, num2) &&
+                getLevel(node, num1, 0) == getLevel(node, num2, 0)) {
             return true;
         }
         return false;
     }
 
     private static int getLevel(TreeNode<Integer> node, int num, int level) {
-        if(node == null) return 0;
-        if(node.value == num) return level;
+        if (node == null) return 0;
+        if (node.value == num) return level;
 
         int leftLevel = getLevel(node.left, num, level + 1);
-        if(leftLevel > 0) return leftLevel;
+        if (leftLevel > 0) return leftLevel;
         return getLevel(node.right, num, level + 1);
     }
 
     private static boolean isSibling(TreeNode<Integer> node, int num1, int num2) {
-        if(node == null) return false;
+        if (node == null) return false;
         System.out.println(node);
-        if(node.left!= null && node.right != null &&
+        if (node.left != null && node.right != null &&
                 ((node.left.value == num1 && node.right.value == num2) ||
                         (node.right.value == num1 && node.left.value == num2))) {
             return true;

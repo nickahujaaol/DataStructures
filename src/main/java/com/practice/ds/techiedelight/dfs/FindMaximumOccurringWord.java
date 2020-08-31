@@ -26,6 +26,7 @@ public class FindMaximumOccurringWord {
         int maxCount = traversePreOrder(head, Integer.MIN_VALUE);
         System.out.println("Max occurrence is : " + maxCount);
     }
+
     private static int traversePreOrder(TrieNode node, int count) {
         return 0;
     }
@@ -35,9 +36,9 @@ public class FindMaximumOccurringWord {
     }
 
     public static boolean search(TrieNode node, String searchKey) {
-        for(int i = 0; i < searchKey.length(); i++) {
+        for (int i = 0; i < searchKey.length(); i++) {
             node = node.charToNodeMap.get(searchKey.charAt(i));
-            if(node == null)
+            if (node == null)
                 return false;
         }
         return node.isLeaf;

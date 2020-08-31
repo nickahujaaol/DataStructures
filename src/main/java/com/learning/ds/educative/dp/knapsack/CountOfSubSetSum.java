@@ -9,13 +9,13 @@ public class CountOfSubSetSum {
     }
 
     private static int getCount(int[] set, int sum, int index) {
-        if(sum == 0 && index < 0)
+        if (sum == 0 && index < 0)
             return 1;
 
-        if(index < 0)
+        if (index < 0)
             return 0;
 
-        if(set[index] <= sum) {
+        if (set[index] <= sum) {
             int leftCount = getCount(set, sum - set[index], index - 1);
             int rightCount = getCount(set, sum, index - 1);
             return leftCount + rightCount;

@@ -26,11 +26,11 @@ public class LeastCostSourceToDestination {
             GraphNode<Integer> removedNode = queue.poll();
 
             List<GraphNode<Integer>> neighbors = removedNode.neighbours;
-            for(int i = 0; i < neighbors.size(); i++) {
+            for (int i = 0; i < neighbors.size(); i++) {
                 GraphNode<Integer> tempNode = neighbors.get(i);
                 int costToNode = removedNode.weightedAdjNodes.get(tempNode);
                 minCost[tempNode.value] = Math.min(costToNode + minCost[removedNode.value],
-                                                    minCost[tempNode.value]);
+                        minCost[tempNode.value]);
                 queue.add(tempNode);
             }
         }

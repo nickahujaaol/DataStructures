@@ -3,9 +3,6 @@ package com.template.ds.geeksforgeeks.tree.check;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 //https://www.geeksforgeeks.org/check-two-nodes-cousins-binary-tree/
 public class TwoNodesAreCousins {
     public static void main(String[] args) {

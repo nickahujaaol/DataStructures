@@ -1,7 +1,5 @@
 package com.template.ds.geeksforgeeks.stacks;
 
-import java.util.Stack;
-
 //https://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/
 //https://www.youtube.com/watch?v=vq-nUF0G4fI
 public class InfixToPostfixConversion {

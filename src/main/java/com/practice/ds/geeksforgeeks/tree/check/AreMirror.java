@@ -12,14 +12,14 @@ public class AreMirror {
     }
 
     private static boolean isMirror(TreeNode tree1, TreeNode tree2) {
-        if(tree1 == null && tree2 == null) {
+        if (tree1 == null && tree2 == null) {
             return true;
         }
 
-        if(tree1 == null || tree2 == null) {
+        if (tree1 == null || tree2 == null) {
             return false;
         }
-        if(tree1.value == tree2.value) {
+        if (tree1.value == tree2.value) {
             return true;
         }
 

@@ -12,7 +12,7 @@ public class SumTree {
     }
 
     private static boolean isSumTree(TreeNode<Integer> node) {
-        if(node == null || (node.left == null && node.right == null)) return true;
+        if (node == null || (node.left == null && node.right == null)) return true;
 
         int leftSum = sum(node.left);
         int rightSum = sum(node.right);
@@ -21,7 +21,7 @@ public class SumTree {
     }
 
     private static int sum(TreeNode<Integer> node) {
-        if(node == null) return 0;
+        if (node == null) return 0;
         return node.value + sum(node.left) + sum(node.right);
     }
 

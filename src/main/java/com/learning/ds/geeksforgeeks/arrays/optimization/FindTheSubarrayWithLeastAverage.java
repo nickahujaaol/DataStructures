@@ -7,7 +7,7 @@ public class FindTheSubarrayWithLeastAverage {
     }
 
     public static void main(String[] args) {
-        int arr[] = new int[] { 3, 7, 90, 20, 10, 50, 40 };
+        int arr[] = new int[]{3, 7, 90, 20, 10, 50, 40};
         find(arr, 3);
     }
 }

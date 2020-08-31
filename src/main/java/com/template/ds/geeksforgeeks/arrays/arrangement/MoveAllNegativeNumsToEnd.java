@@ -11,7 +11,7 @@ public class MoveAllNegativeNumsToEnd {
     }
 
     public static void main(String[] args) {
-        int data[] = {1, -1, 3, 2, -7, -5, 11, 6 };
+        int data[] = {1, -1, 3, 2, -7, -5, 11, 6};
         move(data);
         System.out.println(Arrays.toString(data));
     }

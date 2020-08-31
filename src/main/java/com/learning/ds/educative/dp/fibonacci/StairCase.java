@@ -7,11 +7,11 @@ public class StairCase {
     }
 
     private static int findWays(int numOfStairs) {
-        if(numOfStairs == 0)
+        if (numOfStairs == 0)
             return 1;
-        if(numOfStairs == 1)
+        if (numOfStairs == 1)
             return 1;
-        if(numOfStairs == 2)
+        if (numOfStairs == 2)
             return 2;
 
         return findWays(numOfStairs - 1) + findWays(numOfStairs - 2) + findWays(numOfStairs - 3);

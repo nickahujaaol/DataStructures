@@ -17,10 +17,10 @@ public class HouseThief {
         dp[0] = 0;
         dp[1] = profits[0];
 
-        for(int i = 2; i <= profits.length; i++) {
+        for (int i = 2; i <= profits.length; i++) {
             // See the similarity in recursive solution.
-            int maxProfitIfCurrentIsRobbed = profits[i-1] + dp[i-2];
-            int maxProfitIfCurrentIsNotRobbed = dp[i-1];
+            int maxProfitIfCurrentIsRobbed = profits[i - 1] + dp[i - 2];
+            int maxProfitIfCurrentIsNotRobbed = dp[i - 1];
             dp[i] = Math.max(maxProfitIfCurrentIsRobbed, maxProfitIfCurrentIsNotRobbed);
         }
 
@@ -29,7 +29,7 @@ public class HouseThief {
     }
 
     private static int getMaxProfitRecursive(int[] profits, int index) {
-        if(index >= profits.length)
+        if (index >= profits.length)
             return 0;
 
         int leftProfit = profits[index] + getMaxProfitRecursive(profits, index + 2);

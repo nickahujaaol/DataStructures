@@ -12,7 +12,7 @@ public class LongestPathBetween2Vertices {
         int maxLength = 0;
         // Loop is for illurtation only. Because create graph always return node0 otherwise
         // if we definet eh data structure properly, we should pass each node 1 by 1.
-        for(int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++) {
             int retMaxLength = findLength(createGraph(), visited, 0, 0);
             maxLength = Math.max(retMaxLength, maxLength);
         }
@@ -20,14 +20,14 @@ public class LongestPathBetween2Vertices {
     }
 
     private static int findLength(GraphNode<Integer> node, boolean[] visited, int lengthSoFar, int maxLength) {
-        if(visited[node.value] == true) {
+        if (visited[node.value] == true) {
             return maxLength;
         }
 
         List<GraphNode<Integer>> neighbors = node.neighbours;
-        for(int i = 0; i < neighbors.size(); i++) {
+        for (int i = 0; i < neighbors.size(); i++) {
             GraphNode<Integer> tempNode = neighbors.get(i);
-            if(!visited[tempNode.value]) {
+            if (!visited[tempNode.value]) {
                 lengthSoFar = node.weightedAdjNodes.get(tempNode) + lengthSoFar;
                 maxLength = Math.max(maxLength, lengthSoFar);
 
@@ -39,7 +39,7 @@ public class LongestPathBetween2Vertices {
         }
 
         return maxLength;
-     }
+    }
 
     private static GraphNode<Integer> createGraph() {
         GraphNode<Integer> node0 = new GraphNode<>(0);

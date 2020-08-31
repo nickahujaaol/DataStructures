@@ -14,7 +14,7 @@ public class StairCase {
         dp[1] = 1;
         dp[2] = 2;
 
-        for(int i = 3; i <= numOfStairs; i++) {
+        for (int i = 3; i <= numOfStairs; i++) {
             dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
         }
 
@@ -23,11 +23,11 @@ public class StairCase {
 
     // one can climb 1,2 or 3 steps at a time.
     private static int getNumWaysRecursive(int numOfStairs) {
-        if(numOfStairs == 0)
+        if (numOfStairs == 0)
             return 1;
-        if(numOfStairs == 1)
+        if (numOfStairs == 1)
             return 1;
-        if(numOfStairs == 2)
+        if (numOfStairs == 2)
             return 2;
 
         int step1Ways = getNumWaysRecursive(numOfStairs - 1);

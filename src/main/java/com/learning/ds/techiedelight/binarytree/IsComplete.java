@@ -21,10 +21,10 @@ public class IsComplete {
         while (!queue.isEmpty() && isComplete) {
             int qSize = queue.size();
             boolean noOtherChildFlag = false;
-            for(int i = 0; i < qSize; i++) {
+            for (int i = 0; i < qSize; i++) {
                 TreeNode<Integer> tempNode = queue.poll();
 
-                if(noOtherChildFlag && (tempNode.left != null || tempNode.right != null)){
+                if (noOtherChildFlag && (tempNode.left != null || tempNode.right != null)) {
                     isComplete = false;
                     break;
                 }
