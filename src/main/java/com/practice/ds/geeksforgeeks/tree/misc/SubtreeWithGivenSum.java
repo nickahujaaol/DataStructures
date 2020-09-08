@@ -7,21 +7,18 @@ import com.learning.ds.TreeNode;
 public class SubtreeWithGivenSum {
     public static void main(String[] args) {
         BinaryTree<Integer> binaryTree = BinaryTree.create();
-        findSum(binaryTree.root, 6);
+        findSum(binaryTree.root, 28);
     }
 
-    private static void findSum(TreeNode<Integer> node, int givenSum) {
-        if (node == null) return;
-        if (sum(node) == givenSum) {
-            System.out.println("Sum found at node: " + node.value);
+    private static int findSum(TreeNode<Integer> node, int givenSum) {
+        if(node == null)
+            return 0;
+        int leftSum = findSum(node.left, givenSum);
+        int rightSum = findSum(node.right, givenSum);
+        int sumAtThisNode = node.value + leftSum + rightSum;
+        if(sumAtThisNode == givenSum) {
+            System.out.println("Sum found at Tree node: " + node.value);
         }
-        findSum(node.left, givenSum);
-        findSum(node.right, givenSum);
-    }
-
-    private static int sum(TreeNode<Integer> node) {
-        if (node == null) return 0;
-
-        return node.value + sum(node.left) + sum(node.right);
+        return sumAtThisNode;
     }
 }

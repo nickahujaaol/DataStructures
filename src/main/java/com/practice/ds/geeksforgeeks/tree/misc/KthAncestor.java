@@ -11,24 +11,26 @@ public class KthAncestor {
         binaryTree.root.right.right.right.right = new TreeNode(15);
         binaryTree.root.right.right.right.right.right = new TreeNode(16);
 
-        findAncestor(binaryTree.root, 15, 3);
+        findAncestor(binaryTree.root, 16, 4);
     }
 
     private static int findAncestor(TreeNode<Integer> node, int nodeValue, int kthAncestor) {
-        if (node == null) return -1;
-        if (node.value == nodeValue) {
-            return 0;
+        if(node == null) {
+            return Integer.MIN_VALUE;
         }
+
+        if(node.value == nodeValue)
+            return 0;
 
         int leftFound = findAncestor(node.left, nodeValue, kthAncestor);
         int rightFound = findAncestor(node.right, nodeValue, kthAncestor);
-        int value = leftFound != -1 ? leftFound : rightFound != -1 ? rightFound : -1;
-        if (value != -1 && value < kthAncestor) {
-            if (++value == kthAncestor) {
+        if(leftFound != Integer.MIN_VALUE || rightFound != Integer.MIN_VALUE) {
+            int ancestor = leftFound != Integer.MIN_VALUE ? leftFound :rightFound;
+            if(++ancestor == kthAncestor) {
                 System.out.println("Kth Ancestor is: " + node.value);
             }
+            return ancestor;
         }
-
-        return value;
+        return Integer.MIN_VALUE;
     }
 }

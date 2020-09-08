@@ -13,45 +13,36 @@ public class LevelOrderInSpiralForm {
         printSpiral(binaryTree.root);
     }
 
-    /*
-											8
-								  /                 \
-								/                     \
-							4                           11
-						  /    \                     /       \
-					   2         6               9               13
-					  /  \     /   \              \            /    \
-					1     3   5      7               10      12      14
-	 */
-
     private static void printSpiral(TreeNode<Integer> node) {
+        if(node == null)
+            return;
+
         Stack<TreeNode<Integer>> leftToRightStack = new Stack<>();
         Stack<TreeNode<Integer>> rightToLeftStack = new Stack<>();
-        int level = 0;
         leftToRightStack.push(node);
 
         while (!leftToRightStack.isEmpty() || !rightToLeftStack.isEmpty()) {
-            if (level % 2 == 0) {
-                TreeNode<Integer> tempNode = leftToRightStack.pop();
-                System.out.print(" " + tempNode.value);
-                if (tempNode.left != null)
-                    rightToLeftStack.push(tempNode.left);
-                if (tempNode.right != null)
-                    rightToLeftStack.push(tempNode.right);
+            if(!leftToRightStack.isEmpty()) {
+                while (!leftToRightStack.isEmpty()) {
+                    TreeNode<Integer> tempNode = leftToRightStack.pop();
+                    System.out.print(" " + tempNode.value);
+                    if (tempNode.left != null)
+                        rightToLeftStack.push(tempNode.left);
+                    if (tempNode.right != null)
+                        rightToLeftStack.push((tempNode.right));
+                }
+            }
 
-                if (leftToRightStack.isEmpty()) level++;
-            } else {
-                TreeNode<Integer> tempNode = rightToLeftStack.pop();
-                System.out.print(" " + tempNode.value);
-
-                if (tempNode.right != null)
-                    leftToRightStack.push(tempNode.right);
-                if (tempNode.left != null)
-                    leftToRightStack.push(tempNode.left);
-
-                if (rightToLeftStack.isEmpty()) level++;
+            if(!rightToLeftStack.isEmpty()) {
+                while (!rightToLeftStack.isEmpty()) {
+                    TreeNode<Integer> tempNode = rightToLeftStack.pop();
+                    System.out.print(" " + tempNode.value);
+                    if (tempNode.right != null)
+                        leftToRightStack.push(tempNode.right);
+                    if (tempNode.left != null)
+                        leftToRightStack.push(tempNode.left);
+                }
             }
         }
-
     }
 }

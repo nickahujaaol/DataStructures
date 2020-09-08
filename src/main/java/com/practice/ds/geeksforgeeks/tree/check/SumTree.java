@@ -7,24 +7,23 @@ import com.learning.ds.TreeNode;
 public class SumTree {
     public static void main(String[] args) {
         BinaryTree<Integer> binaryTree = createSumTree();
-        boolean isSumTree = isSumTree(binaryTree.root);
-        System.out.println(isSumTree);
+        int value = isSumTree(binaryTree.root);
+        System.out.println(value == 2 * binaryTree.root.value);
     }
 
-    private static boolean isSumTree(TreeNode<Integer> node) {
-        if (node == null || (node.left == null && node.right == null)) return true;
-
-        return (node.value == sum(node.left) + sum(node.right)) &&
-                isSumTree(node.left) && isSumTree(node.right);
-    }
-
-    private static int sum(TreeNode<Integer> node) {
-        if (node == null) return 0;
-        if (node.left == null && node.right == null) {
+    private static int isSumTree(TreeNode<Integer> node) {
+        if(node == null)
+            return 0;
+        if(node.left == null && node.right == null)
             return node.value;
+
+        if(node.value == (isSumTree(node.left) + isSumTree(node.right))) {
+            return 2 * node.value;
         }
-        return sum(node.left) + sum(node.right) + node.value;
+
+        return Integer.MIN_VALUE;
     }
+
 
     private static BinaryTree createSumTree() {
         BinaryTree tree = new BinaryTree();

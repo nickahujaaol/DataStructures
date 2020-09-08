@@ -1,6 +1,7 @@
 package com.practice.ds.geeksforgeeks.tree.misc;
 
 
+import apple.laf.JRSUIUtils;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
 
@@ -21,22 +22,22 @@ public class BottomView {
                                         HashMap<Integer, Integer> indexToValMap) {
         Queue<TreeNode<Integer>> queue = new LinkedList<>();
         queue.add(node);
-        nodeToIndexMap.put(node, 0);
         indexToValMap.put(0, node.value);
+        nodeToIndexMap.put(node, 0);
 
         while (!queue.isEmpty()) {
             TreeNode<Integer> tempNode = queue.poll();
-            if (tempNode.left != null) {
+            System.out.println(tempNode.value);
+            int parentNode = nodeToIndexMap.get(tempNode);
+            if(tempNode.left != null) {
                 queue.add(tempNode.left);
-                int parentLevel = nodeToIndexMap.get(tempNode);
-                indexToValMap.put(parentLevel - 1, tempNode.left.value);
-                nodeToIndexMap.put(tempNode.left, parentLevel - 1);
+                indexToValMap.put(parentNode - 1, tempNode.left.value);
+                nodeToIndexMap.put(tempNode.left, parentNode - 1);
             }
-            if (tempNode.right != null) {
+            if(tempNode.right != null) {
                 queue.add(tempNode.right);
-                int parentLevel = nodeToIndexMap.get(tempNode);
-                indexToValMap.put(parentLevel + 1, tempNode.right.value);
-                nodeToIndexMap.put(tempNode.right, parentLevel + 1);
+                indexToValMap.put(parentNode + 1, tempNode.right.value);
+                nodeToIndexMap.put(tempNode.right, parentNode + 1);
             }
         }
     }

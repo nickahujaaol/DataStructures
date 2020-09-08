@@ -15,11 +15,11 @@ public class RootToLeafPaths {
     }
 
     private static void getPaths(TreeNode<Integer> node, List<TreeNode<Integer>> pathsList) {
-        if (node == null) return;
+        if(node == null)
+            return;
 
         pathsList.add(node);
-
-        if (node.left == null && node.right == null) {
+        if(node.left == null && node.right == null) {
             System.out.println(pathsList);
             pathsList.remove(node);
             return;

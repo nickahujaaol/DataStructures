@@ -26,7 +26,6 @@ public class BottomView {
 
         while (!queue.isEmpty()) {
             TreeNode<Integer> tempNode = queue.remove();
-            System.out.println(tempNode);
             int index = nodeToIndexMap.get(tempNode);
             if (tempNode.left != null) {
                 queue.add(tempNode.left);
