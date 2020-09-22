@@ -20,16 +20,6 @@ public class NumberOfIslands {
 
         boolean[][] visited = new boolean[matrix.length][matrix[0].length];
         int numOfIslands = 0;
-
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
-                if (matrix[i][j] == 1 && !visited[i][j]) {
-                    dfs(matrix, i, j, visited);
-                    numOfIslands++;
-                }
-            }
-        }
-
         System.out.println("Number rof Islands: " + numOfIslands);
     }
 

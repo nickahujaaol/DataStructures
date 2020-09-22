@@ -13,7 +13,25 @@ public class FindDistanceBetweenPairOfNodes {
     }
 
     private static boolean findDistance(TreeNode<Integer> node, AtomicInteger distance, int node1, int node2) {
-        return false;
+        if(node == null)
+            return false;
+
+        if(node.value == node1 || node.value == node2)
+            return true;
+
+        boolean leftFound = findDistance(node.left, distance, node1, node2);
+        if(leftFound)
+            distance.incrementAndGet();
+        boolean rightFound = findDistance(node.right, distance, node1, node2);
+        if(rightFound)
+            distance.incrementAndGet();
+
+        if(leftFound && rightFound) {
+            leftFound = false;
+            rightFound = false;
+        }
+
+        return leftFound || rightFound;
     }
 
     private static TreeNode<Integer> createTree() {

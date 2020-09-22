@@ -11,7 +11,7 @@ import com.learning.ds.TreeNode;
  */
 public class FindLCAOf2Nodes {
     public static void main(String[] args) {
-        findLCA(createTree(), 7, 3);
+        findLCA(createTree(), 5, 8);
     }
 
     private static boolean findLCA(TreeNode<Integer> node, int node1, int node2) {

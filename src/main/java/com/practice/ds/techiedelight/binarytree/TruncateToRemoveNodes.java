@@ -18,7 +18,17 @@ public class TruncateToRemoveNodes {
      * hence the return is left delete + right delete.
      */
     private static boolean truncate(TreeNode<Integer> node, int sum, int sumSoFar) {
-        return false;
+        if(node == null)
+            return sum >= sumSoFar;
+
+        boolean leftDelete = truncate(node.left, sum, node.value + sumSoFar);
+        boolean rightDelete = truncate(node.right, sum, node.value + sumSoFar);
+        if(leftDelete)
+            node.left = null;
+        if(rightDelete)
+            node.right = null;
+
+        return leftDelete && rightDelete;
     }
 
     private static TreeNode<Integer> createTree() {

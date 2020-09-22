@@ -11,7 +11,11 @@ public class IsSymmetric {
     }
 
     private static boolean isSymmetric(TreeNode<Integer> leftNode, TreeNode<Integer> rightNode) {
-        return false;
+        if (leftNode == null && rightNode == null) return true;
+        if (leftNode != null && rightNode == null || (leftNode == null && rightNode != null)) {
+            return false;
+        }
+        return isSymmetric(leftNode.left, rightNode.right) && isSymmetric(leftNode.right, rightNode.left);
     }
 
     private static TreeNode<Integer> createTree() {

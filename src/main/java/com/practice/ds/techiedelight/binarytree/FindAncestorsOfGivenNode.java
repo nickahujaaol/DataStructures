@@ -11,7 +11,17 @@ public class FindAncestorsOfGivenNode {
     }
 
     private static boolean findAncestors(TreeNode<Integer> node, int nodeToFind) {
-        return false;
+        if(node == null)
+            return false;
+        if(node.value == nodeToFind)
+            return true;
+
+        boolean leftFind = findAncestors(node.left, nodeToFind);
+        boolean rightFind = findAncestors(node.right, nodeToFind);
+        if(leftFind || rightFind) {
+            System.out.println(node.value);
+        }
+        return leftFind || rightFind;
     }
 
     private static TreeNode<Integer> createTree() {

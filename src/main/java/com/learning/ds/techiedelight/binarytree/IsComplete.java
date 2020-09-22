@@ -14,38 +14,36 @@ public class IsComplete {
     }
 
     private static boolean isComplete(TreeNode<Integer> node) {
-        boolean isComplete = true;
+        if(node == null)
+            return true;
+
         Queue<TreeNode<Integer>> queue = new LinkedList<>();
         queue.add(node);
 
-        while (!queue.isEmpty() && isComplete) {
-            int qSize = queue.size();
-            boolean noOtherChildFlag = false;
-            for (int i = 0; i < qSize; i++) {
+        while (!queue.isEmpty()) {
+            int queueSize = queue.size();
+            boolean breakFound = false;
+            for(int i = 0; i < queueSize; i++) {
                 TreeNode<Integer> tempNode = queue.poll();
 
-                if (noOtherChildFlag && (tempNode.left != null || tempNode.right != null)) {
-                    isComplete = false;
-                    break;
-                }
-
-                if (tempNode.left == null && tempNode.right != null && tempNode.right.left == null && tempNode.right.right == null) {
-                    isComplete = false;
-                    break;
-                }
-                if (tempNode.left != null) {
+                if(breakFound && tempNode.left != null){
+                    return false;
+                } else if(tempNode.left != null) {
                     queue.add(tempNode.left);
+                } else {
+                    breakFound = true;
                 }
 
-                if (tempNode.right != null) {
+                if(breakFound && tempNode.right != null) {
+                    return false;
+                } else if(tempNode.right != null){
                     queue.add(tempNode.right);
                 } else {
-                    noOtherChildFlag = true;
+                    breakFound = true;
                 }
             }
         }
-
-        return isComplete;
+        return true;
     }
 
     private static TreeNode<Integer> createTree() {

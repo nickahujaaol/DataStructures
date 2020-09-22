@@ -2,8 +2,6 @@ package com.practice.ds.geeksforgeeks.graph.misc;
 
 import com.learning.ds.Graph;
 
-import java.util.LinkedList;
-
 // https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
 
 /**
@@ -21,46 +19,24 @@ import java.util.LinkedList;
  */
 public class CycleDetection {
     public static void main(String[] args) {
-        boolean[] visited = new boolean[6];
-        boolean[] currentDfsStack = new boolean[6];
-        boolean cycleDetected = detectCycle(createGraph(), 4, visited, currentDfsStack);
-        System.out.println("Cycle: " + cycleDetected);
+        boolean[] visited = new boolean[4];
+
 
     }
 
     private static boolean detectCycle(Graph graph, int vertex, boolean[] visited, boolean[] currentDfsStack) {
-        boolean cycleDetected = false;
 
-        if (currentDfsStack[vertex] == true) {
-            return true;
-        }
-        if (visited[vertex]) {
-            return false;
-        }
-
-        visited[vertex] = true;
-        currentDfsStack[vertex] = true;
-
-        LinkedList<Integer> neighbors = graph.adjacencyList[vertex];
-        for (int i = 0; i < neighbors.size(); i++) {
-            int tempNode = neighbors.get(i);
-            cycleDetected = detectCycle(graph, tempNode, visited, currentDfsStack);
-        }
-        currentDfsStack[vertex] = false;
-
-        return cycleDetected;
+        return false;
     }
 
     private static Graph createGraph() {
-        Graph graph = new Graph(6);
+        Graph graph = new Graph(4);
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
         graph.addEdge(1, 2);
         graph.addEdge(2, 0);
         graph.addEdge(2, 3);
         graph.addEdge(3, 3);
-        graph.addEdge(3, 4);
-        graph.addEdge(4, 5);
 
         return graph;
     }

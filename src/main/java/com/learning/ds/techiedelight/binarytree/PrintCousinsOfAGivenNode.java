@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 // https://www.techiedelight.com/print-cousins-of-given-node-binary-tree/
+/*
+The idea is to find level of given node in binary tree by doing a
+pre-order traversal of the tree. Once the level is found,
+we print all nodes present in that level which is not sibling of given node or the node itself.</p>
+ */
 public class PrintCousinsOfAGivenNode {
     public static void main(String[] args) {
         TreeNode<Integer> root = createTree();

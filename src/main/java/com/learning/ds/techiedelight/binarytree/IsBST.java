@@ -31,7 +31,7 @@ public class IsBST {
         TreeNode<Integer> root = new TreeNode(20);
         root.left = new TreeNode(10);
         root.right = new TreeNode(30);
-        root.right.left = new TreeNode(5);
+        root.right.left = new TreeNode(25);
         root.right.right = new TreeNode(40);
 
         return root;
