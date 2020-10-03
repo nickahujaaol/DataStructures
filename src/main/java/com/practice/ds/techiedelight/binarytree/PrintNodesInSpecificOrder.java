@@ -2,9 +2,6 @@ package com.practice.ds.techiedelight.binarytree;
 
 import com.learning.ds.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 // https://www.techiedelight.com/print-nodes-binary-tree-specific-order/
 public class PrintNodesInSpecificOrder {
     public static void main(String[] args) {
@@ -13,17 +10,7 @@ public class PrintNodesInSpecificOrder {
     }
 
     private static void printNodes(TreeNode<Integer> node) {
-        if (node == null)
-            return;
-        System.out.println(node.value);
-        Queue<TreeNode<Integer>> leftQueue = new LinkedList<>();
-        Queue<TreeNode<Integer>> rightQueue = new LinkedList<>();
-        leftQueue.add(node.left);
-        rightQueue.add(node.right);
 
-        while (!leftQueue.isEmpty() || !rightQueue.isEmpty()) {
-
-        }
     }
 
     private static TreeNode<Integer> createTree() {

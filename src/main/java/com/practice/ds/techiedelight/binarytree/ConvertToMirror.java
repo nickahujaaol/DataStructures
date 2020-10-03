@@ -18,14 +18,7 @@ public class ConvertToMirror {
     }
 
     private static void convertInPlace(TreeNode<Integer> node) {
-        if(node == null)
-            return;
 
-        TreeNode<Integer> tempNode = node.left;
-        node.left = node.right;
-        node.right = tempNode;
-        convertInPlace(node.left);
-        convertInPlace(node.right);
     }
 
     private static void convertNew(TreeNode<Integer> node, TreeNode<Integer> newNode) {

@@ -17,18 +17,7 @@ public class InvertBinaryTree {
     }
 
     private static void invertRecursive(TreeNode<Integer> node) {
-        if(node == null)
-            return;
 
-        swap(node);
-        invertRecursive(node.left);
-        invertRecursive(node.right);
-    }
-
-    private static void swap(TreeNode<Integer> node) {
-        TreeNode<Integer> tempNode = node.left;
-        node.left = node.right;
-        node.right = tempNode;
     }
 
     private static void invertIterative(TreeNode<Integer> node) {

@@ -7,10 +7,11 @@ import java.util.Queue;
 public class MinMovesRequiredToMoveFrom1CellToAnotherInMatrix {
 
     public static void main(String[] args) {
-        int matrix[][] = {{3, 3, 1, 0},
-                {3, 0, 3, 3},
-                {2, 3, 0, 3},
-                {0, 3, 3, 3}
+        int matrix[][] = {
+                            {3, 3, 1, 0},
+                            {3, 0, 3, 3},
+                            {2, 3, 0, 3},
+                            {0, 3, 3, 3}
         };
         boolean[][] visited = new boolean[4][4];
         findMinPath(matrix, 0, 2, visited);

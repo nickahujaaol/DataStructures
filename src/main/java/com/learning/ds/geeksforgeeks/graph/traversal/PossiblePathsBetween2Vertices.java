@@ -7,7 +7,7 @@ import java.util.LinkedList;
 // https://www.geeksforgeeks.org/count-possible-paths-two-vertices/
 public class PossiblePathsBetween2Vertices {
     public static void main(String[] args) {
-        int minMumOfPaths = findPaths(createGraph(), 0, 1, 0);
+        int minMumOfPaths = findPaths(createGraph(), 0, 4, 0);
         System.out.println(minMumOfPaths);
     }
 

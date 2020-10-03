@@ -11,11 +11,7 @@ public class CalculateHeight {
     }
 
     private static int findHeight(TreeNode<Integer> node) {
-        if(node == null)
-            return 0;
-        int lefHeight = findHeight(node.left);
-        int rightHeight = findHeight(node.right);
-        return 1 + Math.max(lefHeight, rightHeight);
+        return 0;
     }
 
 

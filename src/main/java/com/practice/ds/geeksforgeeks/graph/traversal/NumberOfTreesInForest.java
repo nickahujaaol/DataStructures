@@ -7,7 +7,10 @@ public class NumberOfTreesInForest {
     public static void main(String[] args) {
         boolean visited[] = new boolean[5];
         int numOfTrees = 0;
+        Graph graph = createGraph();
+        for(int i = 0; i < graph.numOfVertices; i++) {
 
+        }
     }
 
     private static void dfs(Graph graph, int vertex, boolean[] visited) {

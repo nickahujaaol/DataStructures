@@ -19,17 +19,7 @@ public class FindAllNodesAtGivenDistanceFromLeaf {
     }
 
     private static void findNodes(TreeNode<Integer> node, List<Integer> rootToLeafPath, Set<Integer> nodesAtDistance, int distance) {
-        if(node == null)
-            return;
 
-        if (node.left == null && node.right == null && rootToLeafPath.size() >= distance) {
-            nodesAtDistance.add(rootToLeafPath.get(rootToLeafPath.size() - distance));
-        }
-
-        rootToLeafPath.add(node.value);
-        findNodes(node.left, rootToLeafPath, nodesAtDistance, distance);
-        findNodes(node.right, rootToLeafPath, nodesAtDistance, distance);
-        rootToLeafPath.remove(node.value);
     }
 
     private static TreeNode<Integer> createTree() {

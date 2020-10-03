@@ -1,43 +1,52 @@
 package com.template.ds.techiedelight.dfs;
 
-import com.learning.ds.Graph;
+import com.learning.ds.GraphNode;
+
+import java.util.ArrayList;
+import java.util.List;
 
 //https://www.techiedelight.com/arrival-departure-time-vertices-dfs/
 public class ArrivalAndDepartureTimes {
     public static void main(String[] args) {
-        Graph graph = createGraph();
-        boolean[] visited = new boolean[8];
-        int[] arrivalTimes = new int[8];
-        int[] departureTimes = new int[8];
+        List<GraphNode<Integer>> nodesList = new ArrayList<>();
+        int startTime = 0;
+        GraphNode<Integer> startNode = createGraph(nodesList);
 
-        int time = -1;
-        for (int i = 0; i < 8; i++) {
-            if (!visited[i]) {
-                time = findTimes(graph, i, arrivalTimes, departureTimes, visited, time);
-            }
-        }
-
-        for (int i = 0; i < 8; i++) {
-            System.out.println("" + i + " : (" + arrivalTimes[i] + ", " + departureTimes[i] + ")");
-        }
     }
 
-    private static int findTimes(Graph graph, int vertex,
-                                 int[] arrivalTimes, int[] departureTimes, boolean[] visited, int time) {
-        return 0;
+    private static int findTimes(GraphNode<Integer> node, int time) {
+       return 0;
     }
 
-    private static Graph createGraph() {
-        Graph g = new Graph(8);
-        g.addEdge(0, 1);
-        g.addEdge(0, 2);
-        g.addEdge(2, 3);
-        g.addEdge(2, 4);
-        g.addEdge(3, 1);
-        g.addEdge(3, 5);
-        g.addEdge(4, 5);
-        g.addEdge(6, 7);
+    private static GraphNode<Integer> createGraph(List<GraphNode<Integer>> nodesList) {
+        GraphNode<Integer> node0 = new GraphNode<>(0);
+        GraphNode<Integer> node1 = new GraphNode<>(1);
+        GraphNode<Integer> node2 = new GraphNode<>(2);
+        GraphNode<Integer> node3 = new GraphNode<>(3);
+        GraphNode<Integer> node4 = new GraphNode<>(4);
+        GraphNode<Integer> node5 = new GraphNode<>(5);
+        GraphNode<Integer> node6 = new GraphNode<>(6);
+        GraphNode<Integer> node7 = new GraphNode<>(7);
 
-        return g;
+        node0.addNeighbours(node1);
+        node0.addNeighbours(node2);
+        node2.addNeighbours(node3);
+        node2.addNeighbours(node4);
+        node3.addNeighbours(node1);
+        node3.addNeighbours(node5);
+        node4.addNeighbours(node5);
+
+        node6.addNeighbours(node7);
+
+        nodesList.add(node0);
+        nodesList.add(node1);
+        nodesList.add(node2);
+        nodesList.add(node3);
+        nodesList.add(node4);
+        nodesList.add(node5);
+        nodesList.add(node6);
+        nodesList.add(node7);
+
+        return node0;
     }
 }

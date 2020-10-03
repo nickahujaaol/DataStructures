@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 // https://www.techiedelight.com/find-maximum-occurring-word-given-set-strings/
-//TRIE
 public class FindMaximumOccurringWord {
     String wordOccurringMax = "";
 
