@@ -18,14 +18,34 @@ public class LongestPathWithConsecutiveCharacters {
     }
 
     private static void findMaxLength(char[][] matrix, char startChar) {
+        int maxLength = Integer.MIN_VALUE;
+        boolean[][] visited = new boolean[5][5];
+        for(int i = 0; i < matrix.length; i++) {
+            for(int j = 0; j < matrix.length; j++) {
+                int length = findMaxLength(matrix, startChar, i, j, 0, visited);
+                maxLength = Math.max(maxLength, length);
+            }
+        }
 
+        System.out.println("Max length is: " + maxLength);
     }
 
     private static int findMaxLength(char[][] matrix, int currChar, int row, int col, int length, boolean[][] visited) {
-        return 0;
+        visited[row][col] = true;
+        for(int i = 0; i < xCoord.length; i++) {
+            if(isValid(matrix, row + xCoord[i], col + yCoord[i], currChar, visited)) {
+                length = findMaxLength(matrix, matrix[row + xCoord[i]][col + yCoord[i]], row + xCoord[i], col + yCoord[i], length + 1, visited);
+            }
+        }
+        return length;
     }
 
     private static boolean isValid(char[][] matrix, int row, int column, int currChar, boolean[][] visited) {
+        if(row >= 0 && row < matrix.length && column >= 0 && column < matrix.length &&
+        !visited[row][column] &&
+        matrix[row][column] == currChar + 1) {
+            return true;
+        }
         return false;
     }
 }

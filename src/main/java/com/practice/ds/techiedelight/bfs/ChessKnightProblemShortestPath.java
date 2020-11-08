@@ -1,14 +1,21 @@
 package com.practice.ds.techiedelight.bfs;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 // https://www.techiedelight.com/chess-knight-problem-find-shortest-path-source-destination/
 public class ChessKnightProblemShortestPath {
     private static int[] row = {2, 2, -2, -2, 1, 1, -1, -1};
     private static int[] col = {-1, 1, 1, -1, 2, -2, 2, -2};
 
-    // Check if (x, y) is valid chess board coordinates
-    // Note that a knight cannot go out of the chessboard
-    private static boolean isValid(int x, int y, boolean[][] visited) {
-        return false;
+    private static boolean isSafe(int x, int y, boolean[][] visited) {
+        if (x >= 0 && x < visited.length &&
+                y >= 0 && y < visited.length &&
+                !visited[x][y]) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static void main(String[] args) {
@@ -19,8 +26,26 @@ public class ChessKnightProblemShortestPath {
     }
 
     private static void findPath(Node startNode, Node endNode, boolean[][] visited) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(startNode);
+        int minDistance = Integer.MAX_VALUE;
 
+        while (!queue.isEmpty()) {
+            Node removedNode = queue.poll();
+            if(removedNode.x == endNode.x && removedNode.y == endNode.y) {
+                minDistance = Math.min(minDistance, removedNode.dist + 1);
+            }
+            for(int i = 0; i < row.length; i++) {
+                if(isSafe(removedNode.x + row[i], removedNode.y + col[i], visited)) {
+                    visited[removedNode.x + row[i]][removedNode.y + col[i]] = true;
+                    queue.add(new Node(removedNode.x + row[i], removedNode.y + col[i], removedNode.dist + 1));
+                }
+            }
+        }
+
+        System.out.println("Distance is: " + minDistance);
     }
+
 
     private static class Node {
         public int x, y, dist;

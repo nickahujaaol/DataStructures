@@ -1,6 +1,12 @@
 package com.practice.ds.techiedelight.bfs;
 
 import com.learning.ds.GraphNode;
+import org.omg.CORBA.INTERNAL;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 // https://www.techiedelight.com/least-cost-path-digraph-source-destination-m-edges/
 // Too much work, read the description
@@ -10,7 +16,28 @@ public class LeastCostSourceToDestination {
     }
 
     private static void findShortestPath(GraphNode<Integer> node, int targetValue) {
+        int minCostToReachNode[] = new int[8];
+        Arrays.fill(minCostToReachNode, Integer.MAX_VALUE);
+        minCostToReachNode[0] = 0; // we are starting from node 0
+        Queue<GraphNode<Integer>> queue = new LinkedList<>();
+        queue.add(node);
 
+        int minPath = Integer.MAX_VALUE;
+
+        while (!queue.isEmpty()) {
+            GraphNode<Integer> removedNode = queue.poll();
+            if(removedNode.value == targetValue) {
+                minPath = Math.min(minPath, minCostToReachNode[removedNode.value]);
+            }
+            List<GraphNode<Integer>> neighborList =  removedNode.getNeighbours();
+            for(GraphNode<Integer> neighborNode : neighborList) {
+                int weight = minCostToReachNode[removedNode.value] + removedNode.weightedAdjNodes.get(neighborNode);
+                minCostToReachNode[neighborNode.value] = Math.min(minCostToReachNode[neighborNode.value], weight);
+                queue.add(neighborNode);
+            }
+        }
+
+        System.out.println(minPath);
     }
 
     private static GraphNode<Integer> createGraph() {

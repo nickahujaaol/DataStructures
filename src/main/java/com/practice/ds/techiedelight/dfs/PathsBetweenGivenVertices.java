@@ -2,17 +2,31 @@ package com.practice.ds.techiedelight.dfs;
 
 import com.learning.ds.Graph;
 
+import java.util.LinkedList;
+import java.util.List;
+
 //https://www.techiedelight.com/find-path-between-vertices-directed-graph/
 public class PathsBetweenGivenVertices {
 
     public static void main(String[] args) {
         boolean[] visited = new boolean[8];
-        findPaths(createGraph(), 0, 7, new StringBuilder(), visited);
+        boolean found = findPaths(createGraph(), 0, 7);
+        System.out.println(found);
     }
 
-    private static void findPaths(Graph graph, int vertex, int endVertex, StringBuilder builder, boolean[] visited) {
+    private static boolean findPaths(Graph graph, int vertex, int endVertex) {
+        if(vertex == endVertex) {
+            return true;
+        }
 
+        boolean found = false;
+        List<Integer> neighbors = graph.adjacencyList[vertex];
+        for(Integer neighbor : neighbors) {
+            found = findPaths(graph, neighbor, endVertex);
+        }
+        return found;
     }
+
 
     private static Graph createGraph() {
         Graph g = new Graph(8);

@@ -9,11 +9,10 @@ import java.util.List;
 public class PathsBetweenGivenVertices {
 
     public static void main(String[] args) {
-        boolean[] visited = new boolean[8];
-        findPaths(createGraph(), 0, 7, new LinkedList<Integer>(), visited);
+        findPaths(createGraph(), 0, 7, new LinkedList<Integer>());
     }
 
-    private static void findPaths(Graph graph, int vertex, int endVertex, LinkedList<Integer> pathsList, boolean[] visited) {
+    private static void findPaths(Graph graph, int vertex, int endVertex, LinkedList<Integer> pathsList) {
         pathsList.add(vertex);
         if (vertex == endVertex) {
             System.out.println(pathsList.toString());
@@ -22,7 +21,7 @@ public class PathsBetweenGivenVertices {
         List<Integer> neighbors = graph.adjacencyList[vertex];
         for (int i = 0; i < neighbors.size(); i++) {
             int tempNode = neighbors.get(i);
-            findPaths(graph, tempNode, endVertex, pathsList, visited);
+            findPaths(graph, tempNode, endVertex, pathsList);
             pathsList.removeLast();
         }
     }

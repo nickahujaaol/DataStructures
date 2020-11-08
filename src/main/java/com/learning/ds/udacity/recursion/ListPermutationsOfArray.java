@@ -19,7 +19,7 @@ public class ListPermutationsOfArray {
 
     private static void permutations(int[] inArray, int start, ArrayList<String> results) {
         if (start >= inArray.length) {
-            results.add(Arrays.toString(inArray.clone()) + "\n");
+            results.add(Arrays.toString(inArray.clone()));
         } else {
             for (int i = start; i < inArray.length; i++) {
                 swap(inArray, start, i);
