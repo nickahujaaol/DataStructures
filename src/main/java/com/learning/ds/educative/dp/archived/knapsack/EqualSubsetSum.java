@@ -34,7 +34,7 @@ public class EqualSubsetSum {
             return true;
         }
 
-        if (index == inSet.length || currSum >= sum) {
+        if (index == inSet.length || currSum > sum) {
             return false;
         }
 

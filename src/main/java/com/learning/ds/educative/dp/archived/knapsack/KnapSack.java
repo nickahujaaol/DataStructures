@@ -9,7 +9,7 @@ public class KnapSack {
         int maxProfit = knapSackRecursive(weights, profits, capacity, 0, 0);
         System.out.println("Max Profit: " + maxProfit);
 
-        maxProfit = knapSackBottomUp(weights, profits, capacity);
+        //maxProfit = knapSackBottomUp(weights, profits, capacity);
         System.out.println("Max Profit: " + maxProfit);
     }
 

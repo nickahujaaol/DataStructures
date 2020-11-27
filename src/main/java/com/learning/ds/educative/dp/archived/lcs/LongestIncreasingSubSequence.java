@@ -10,7 +10,7 @@ public class LongestIncreasingSubSequence {
         int[][] dp = new int[inArray.length][inArray.length + 1];
         for (int i = 0; i < dp.length; i++)
             Arrays.fill(dp[i], -1);
-        int maxSeq = findLISRecursive(inArray, 0, -1, dp);
+        int maxSeq = findLISRecursive(inArray, 0, -1);
         System.out.println("Max LIS is: " + maxSeq);
 
         maxSeq = getLISBottomUp(inArray);
@@ -35,7 +35,7 @@ public class LongestIncreasingSubSequence {
         return maxLength;
     }
 
-    private static int findLISRecursive(int[] inArray, int currIndex, int prevIndex, int[][] dp) {
+    private static int findLISRecursiveDP(int[] inArray, int currIndex, int prevIndex, int[][] dp) {
         if (currIndex == inArray.length)
             return 0;
 
@@ -45,9 +45,22 @@ public class LongestIncreasingSubSequence {
         }
         int includingCurrent = 0;
         if (prevIndex == -1 || inArray[currIndex] > inArray[prevIndex]) {
-            includingCurrent = 1 + findLISRecursive(inArray, currIndex + 1, currIndex, dp);
+            includingCurrent = 1 + findLISRecursiveDP(inArray, currIndex + 1, currIndex, dp);
         }
-        int excludingCurrent = findLISRecursive(inArray, currIndex + 1, prevIndex, dp);
+        int excludingCurrent = findLISRecursiveDP(inArray, currIndex + 1, prevIndex, dp);
         return dp[currIndex][prevIndex + 1] = Math.max(includingCurrent, excludingCurrent);
+    }
+
+
+    private static int findLISRecursive(int[] inArray, int currentIndex, int prevIndex) {
+        if (currentIndex >= inArray.length)
+            return 0;
+
+        if (prevIndex == -1 || inArray[currentIndex] > inArray[prevIndex]) {
+            int includingCurrent = 1 + findLISRecursive(inArray, currentIndex + 1, currentIndex);
+            int excludingCurrent = findLISRecursive(inArray, currentIndex + 1, prevIndex);
+            return Math.max(includingCurrent, excludingCurrent);
+        }
+        return findLISRecursive(inArray, currentIndex + 1, prevIndex);
     }
 }
