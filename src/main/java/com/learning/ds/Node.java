@@ -11,4 +11,8 @@ public class Node<T> {
     public void addNext(Node<T> nextNode) {
         this.next = nextNode;
     }
+
+    public String toString() {
+        return value.toString();
+    }
 }
