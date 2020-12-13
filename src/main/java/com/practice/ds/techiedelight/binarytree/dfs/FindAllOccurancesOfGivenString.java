@@ -1,4 +1,4 @@
-package com.practice.ds.techiedelight.dfs;
+package com.practice.ds.techiedelight.binarytree.dfs;
 
 
 // https://www.techiedelight.com/find-occurrences-given-string-character-matrix/

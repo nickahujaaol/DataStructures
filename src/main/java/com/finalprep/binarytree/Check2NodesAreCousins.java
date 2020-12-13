@@ -1,4 +1,4 @@
-package com.learning.ds.techiedelight.binarytree;
+package com.finalprep.binarytree;
 
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;

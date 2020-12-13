@@ -3,15 +3,49 @@ package com.practice.ds.techiedelight.binarytree;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 // https://www.techiedelight.com/determine-two-nodes-are-cousins/
 public class Check2NodesAreCousins {
     public static void main(String[] args) {
         BinaryTree<Integer> binaryTree = createTree();
-        System.out.println("Are Cousins: " + areCousins(binaryTree.root, 5, 4));
+        System.out.println("Are Cousins: " + areCousins(binaryTree.root, 5, 3));
     }
 
     private static boolean areCousins(TreeNode<Integer> node, int num1, int num2) {
-        return false;
+
+        return isSibling(node, num1, num2) &&
+                getLevel(node, num1, 0) == getLevel(node, num2, 0);
+    }
+
+    private static int getLevel(TreeNode<Integer> node, int num, int level) {
+        if(node == null)
+            return 0;
+
+        if(node.value == num)
+            return level;
+
+        int leftLevel = getLevel(node.left, num, level + 1);
+        if(leftLevel > 0)
+            return leftLevel;
+        int rightLevel = getLevel(node.right, num, level + 1);
+        if(rightLevel > 0)
+            return rightLevel;
+
+        return 0;
+    }
+
+    private static boolean isSibling(TreeNode<Integer> node, int num1, int num2) {
+        if(node == null)
+            return false;
+
+        if(node != null && node.left != null && node.right != null &&
+                ((node.left.value == num1 && node.right.value == num2) ||
+                        (node.left.value == num2 && node.right.value == num1))) {
+            return true;
+        }
+        return isSibling(node.left, num1, num2) || isSibling(node.right, num1, num2);
     }
 
 

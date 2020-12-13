@@ -10,7 +10,15 @@ public class IsBST {
     }
 
     private static boolean isBST(TreeNode<Integer> node, int minKey, int maxKey) {
-        return true;
+        if(node == null)
+            return true;
+
+        if(node.value < minKey || node.value > maxKey)
+            return false;
+
+        boolean leftTree = isBST(node.left, minKey, node.value);
+        boolean rightTree = isBST(node.right, node.value, maxKey);
+        return leftTree && rightTree;
     }
 
     private static TreeNode<Integer> createTree() {

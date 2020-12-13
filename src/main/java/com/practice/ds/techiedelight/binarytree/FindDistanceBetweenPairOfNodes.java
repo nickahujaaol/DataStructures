@@ -7,13 +7,28 @@ import java.util.concurrent.atomic.AtomicInteger;
 // https://www.techiedelight.com/distance-between-given-pairs-of-nodes-binary-tree/
 public class FindDistanceBetweenPairOfNodes {
     public static void main(String[] args) {
-        AtomicInteger distance = new AtomicInteger();
-        findDistance(createTree(), distance, 7, 6);
-        System.out.println("Distance is: " + distance.get());
+        int d = findDistance(createTree(), 7, 6);
+        System.out.println(d);
     }
 
-    private static boolean findDistance(TreeNode<Integer> node, AtomicInteger distance, int node1, int node2) {
-        return false;
+    private static int findDistance(TreeNode<Integer> node, int node1, int node2) {
+        if(node == null)
+            return -1;
+
+        if(node.value == node1 || node.value == node2)
+            return 0;
+
+        int leftDistance = findDistance(node.left, node1, node2);
+        int rightDistance = findDistance(node.right, node1, node2);
+        if(leftDistance >= 0 && rightDistance >= 0) {
+            return leftDistance + rightDistance + 1;
+        }
+
+        if(leftDistance >= 0)
+            return leftDistance + 1;
+        if(rightDistance >= 0)
+            return rightDistance + 1;
+        return -1;
     }
 
     private static TreeNode<Integer> createTree() {

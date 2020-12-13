@@ -2,6 +2,9 @@ package com.practice.ds.techiedelight.binarytree;
 
 import com.learning.ds.TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 // https://www.techiedelight.com/check-given-binary-tree-complete-binary-tree-not/
 public class IsComplete {
     public static void main(String[] args) {
@@ -11,9 +14,35 @@ public class IsComplete {
     }
 
     private static boolean isComplete(TreeNode<Integer> node) {
+        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+        queue.add(node);
 
+        while (!queue.isEmpty()) {
+            int qSize = queue.size();
+            boolean breakFound = false;
 
-        return false;
+            for(int i = 0; i < qSize; i++) {
+                TreeNode<Integer> tempNode = queue.poll();
+                if(breakFound && tempNode.left != null) {
+                    return false;
+                } else if(tempNode.left != null){
+                    queue.add(tempNode.left);
+                } else {
+                    breakFound = true;
+                }
+
+                if(breakFound && tempNode.right != null) {
+                    return false;
+                } else if(tempNode.right != null){
+                    queue.add(tempNode.right);
+                } else {
+                    breakFound = true;
+                }
+
+            }
+        }
+
+        return true;
     }
 
     private static TreeNode<Integer> createTree() {

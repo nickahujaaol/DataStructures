@@ -10,19 +10,17 @@ public class CombinationOfWordsFormedByReplacingGivenNumbers {
     }
 
     private static void findCombinations(int[] digits, int index, String combSoFar) {
-        if (index == digits.length) {
+        if(index > digits.length - 1) {
             System.out.println(combSoFar);
             return;
         }
 
         int sum = 0;
-        for (int i = index; i <= Math.min(index + 1, digits.length - 1); i++) {
+        for(int i = index; i < digits.length; i++) {
             sum = sum * 10 + digits[i];
-            if (sum > 0 && sum <= 26) {
-                char charToAdd = alphabets.charAt(sum - 1);
-                findCombinations(digits, i + 1, combSoFar + charToAdd);
-            }
 
+            if(sum < 26)
+                findCombinations(digits, i + 1, combSoFar + alphabets.charAt(sum - 1));
         }
     }
 }

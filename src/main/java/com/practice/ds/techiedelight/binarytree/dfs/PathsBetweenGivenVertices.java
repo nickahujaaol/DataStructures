@@ -1,4 +1,4 @@
-package com.practice.ds.techiedelight.dfs;
+package com.practice.ds.techiedelight.binarytree.dfs;
 
 import com.learning.ds.Graph;
 

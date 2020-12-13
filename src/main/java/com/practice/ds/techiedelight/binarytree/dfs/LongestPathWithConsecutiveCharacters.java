@@ -1,4 +1,4 @@
-package com.practice.ds.techiedelight.dfs;
+package com.practice.ds.techiedelight.binarytree.dfs;
 
 // https://www.techiedelight.com/find-length-longest-path-matrix-consecutive-characters/
 public class LongestPathWithConsecutiveCharacters {

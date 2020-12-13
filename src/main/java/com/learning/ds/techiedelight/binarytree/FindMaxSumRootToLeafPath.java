@@ -12,13 +12,12 @@ public class FindMaxSumRootToLeafPath {
     }
 
     private static int findMaxSum(TreeNode<Integer> node) {
-        if(node == null) {
+        if(node == null)
             return 0;
-        }
 
-        int leftMax = node.value + findMaxSum(node.left);
-        int rightMax = node.value + findMaxSum(node.right);
-        return Math.max(leftMax, rightMax);
+        int leftSum = findMaxSum(node.left);
+        int rightSum = findMaxSum(node.right);
+        return node.value + Math.max(leftSum, rightSum);
     }
 
     private static TreeNode<Integer> createTree() {

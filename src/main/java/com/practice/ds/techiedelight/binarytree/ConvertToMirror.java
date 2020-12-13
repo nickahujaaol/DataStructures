@@ -1,16 +1,17 @@
 package com.practice.ds.techiedelight.binarytree;
 
+import apple.laf.JRSUIUtils;
 import com.learning.ds.TreeNode;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 // https://www.techiedelight.com/convert-binary-tree-to-its-mirror/
 public class ConvertToMirror {
     public static void main(String[] args) {
         TreeNode<Integer> root = createTree();
-        TreeNode<Integer> newRoot = new TreeNode<>(root.value);
-        convertNew(root, newRoot);
         print(root);
         System.out.println();
-        print(newRoot);
 
         convertInPlace(root);
         System.out.println();
@@ -18,12 +19,29 @@ public class ConvertToMirror {
     }
 
     private static void convertInPlace(TreeNode<Integer> node) {
+        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+        queue.add(node);
 
+        while (!queue.isEmpty()) {
+            int qSize = queue.size();
+
+            for(int i = 0; i < qSize; i++) {
+                TreeNode<Integer> removedNOde = queue.poll();
+                if (removedNOde.left != null || removedNOde.right != null) {
+                    TreeNode<Integer> tempNode = removedNOde.left;
+                    removedNOde.left = removedNOde.right;
+                    removedNOde.right = tempNode;
+                }
+
+                if (removedNOde.left != null)
+                    queue.add(removedNOde.left);
+
+                if (removedNOde.right != null)
+                    queue.add(removedNOde.right);
+            }
+        }
     }
 
-    private static void convertNew(TreeNode<Integer> node, TreeNode<Integer> newNode) {
-
-    }
 
     private static void print(TreeNode<Integer> node) {
         if (node == null) return;

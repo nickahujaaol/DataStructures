@@ -1,4 +1,4 @@
-package com.practice.ds.techiedelight.dfs;
+package com.practice.ds.techiedelight.binarytree.dfs;
 
 import com.learning.ds.GraphNode;
 
@@ -11,22 +11,11 @@ public class ArrivalAndDepartureTimes {
         List<GraphNode<Integer>> nodesList = new ArrayList<>();
         int startTime = 0;
         GraphNode<Integer> startNode = createGraph(nodesList);
-        findTimes(startNode, startTime);
+
     }
 
     private static int findTimes(GraphNode<Integer> node, int time) {
-        node.visited = true;
-        int arrivalTime = time;
-
-        List<GraphNode<Integer>> neighbours = node.getNeighbours();
-        for(int i = 0; i < neighbours.size(); i++) {
-            if(neighbours.get(i).visited == false) {
-                time = findTimes(neighbours.get(i), time + 1);
-            }
-        }
-
-        System.out.println("Node at:" + node.value + "      (" + arrivalTime + ", " +( time + 1) + ")");
-        return time + 1;
+       return 0;
     }
 
     private static GraphNode<Integer> createGraph(List<GraphNode<Integer>> nodesList) {
