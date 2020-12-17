@@ -13,15 +13,7 @@ public class L110_BalancedBinaryTree {
     }
 
     private static int isBalanced(TreeNode<Integer> node, AtomicBoolean balanced) {
-        if(node == null)
-            return 0;
-
-        int leftHeight = isBalanced(node.left, balanced);
-        int rightHeight = isBalanced(node.right, balanced);
-        if(Math.abs(leftHeight - rightHeight) > 1)
-            balanced.set(false);
-
-        return 1 + Math.max(leftHeight, rightHeight);
+        return 0;
     }
 
     private static TreeNode<Integer> createTree() {

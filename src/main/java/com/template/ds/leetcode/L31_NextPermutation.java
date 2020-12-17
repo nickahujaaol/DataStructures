@@ -9,28 +9,7 @@ public class L31_NextPermutation {
     }
 
     private static void findNextPermutation(int[] nums) {
-        int highPointer = 0;
-        int nextHighPointer = 0;
-        for(int i = nums.length - 1; i > 0; i--) {
-            if(i > 0) {
-                if (nums[i] < nums[i - 1]) {
-                    highPointer = nums[i - 1];
-                    nextHighPointer = nums[i];
-                    break;
-                }
-            }
-        }
 
-        swap(nums, nextHighPointer, highPointer);
-        reverse(nums, highPointer);
-    }
-
-    private static void reverse(int[] nums, int start) {
-        int counter = 1;
-        for(int i = start; i < (nums.length / 2) + 1; i++) {
-            System.out.println(i);
-            swap(nums, i, nums.length - counter++);
-        }
     }
 
     private static void swap(int[] nums, int i, int j) {

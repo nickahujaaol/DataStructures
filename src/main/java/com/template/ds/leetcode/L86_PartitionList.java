@@ -10,21 +10,6 @@ public class L86_PartitionList {
     }
 
     private static void rearrange(LinkedList<Integer> origList, int target) {
-        LinkedList<Integer> smallerList = new LinkedList<>();
-        LinkedList<Integer> largerList = new LinkedList<>();
-        Node<Integer> prevNode = null;
-        Node<Integer> currNode = origList.head;
 
-        while (currNode != null) {
-            if(currNode.value < target) {
-                smallerList.add(currNode.value);// you can refer also
-            } else {
-                largerList.add(currNode.value);
-            }
-            prevNode = currNode;
-            currNode = currNode.next;
-        }
-        smallerList.print();// Ideally you should combine these 2 lists into 1.
-        largerList.print();
     }
 }

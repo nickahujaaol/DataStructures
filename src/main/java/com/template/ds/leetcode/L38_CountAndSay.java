@@ -17,18 +17,6 @@ public class L38_CountAndSay {
     private static String justSay(String number) {
         int frequency = 1;
         String result = "";
-        char prevChar = number.charAt(0);
-
-        for(int i = 1; i < number.length(); i++) {
-            if(number.charAt(i) != prevChar) {
-                result = result + frequency + prevChar;
-                frequency = 1;
-                prevChar = number.charAt(i);
-            } else {
-                frequency++;
-            }
-        }
-        result = result + frequency + prevChar;
 
         return result;
     }

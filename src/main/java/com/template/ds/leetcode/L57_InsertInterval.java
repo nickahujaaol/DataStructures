@@ -16,22 +16,7 @@ public class L57_InsertInterval {
     }
 
     private static void insert(Stack<Interval> stack, Interval insertInterval) {
-        if(stack.isEmpty())
-            return;
 
-        Interval removedInterval = stack.pop();
-        if(removedInterval.x <= insertInterval.x && removedInterval.y >= insertInterval.x) {
-            stack.push(new Interval(removedInterval.x, insertInterval.y));
-        } else {
-            insert(stack, insertInterval);
-            Interval topInterval = stack.peek();
-            if(topInterval.x <= removedInterval.x && topInterval.y >= removedInterval.x) {
-                stack.pop();
-                stack.push(new Interval(topInterval.x, Math.max(topInterval.y, removedInterval.y)));
-            } else {
-                stack.push(removedInterval);
-            }
-        }
     }
 
     private static class Interval {

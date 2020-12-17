@@ -7,16 +7,6 @@ public class L53_MaxSubArray {
     }
 
     private static void findMaxSun(int[] nums) {
-        int maxSum = Integer.MIN_VALUE;
-        int maxSoFar = 0;
-        for(int i = 0; i < nums.length; i++) {
-            maxSoFar += nums[i];
-            maxSum = Math.max(maxSum, maxSoFar);
-            if(maxSoFar < 0) {
-                maxSoFar = 0;
-            }
-        }
 
-        System.out.println(maxSum);
     }
 }

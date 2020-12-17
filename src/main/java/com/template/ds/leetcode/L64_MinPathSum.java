@@ -28,47 +28,18 @@ public class L64_MinPathSum {
     }
 
     private static void minPathSum(int[][] matrix, int row, int col, int sumSoFar, int[][] dp) {
-        if(!isValid(matrix, row, col))
-            return;
 
-        if(dp[row][col] == Integer.MAX_VALUE) {
-            dp[row][col] = sumSoFar + matrix[row][col];
-            minPathSum(matrix, row, col + 1, sumSoFar + matrix[row][col], dp);
-            minPathSum(matrix, row + 1, col, sumSoFar + matrix[row][col], dp);
-        } else {
-            dp[row][col] = Math.min(dp[row][col], sumSoFar + matrix[row][col]);
-        }
     }
 
     private static void minPathSum(int[][] matrix, int row, int col, int sumSoFar) {
-        if(row == matrix.length - 1 && col == matrix.length - 1)
-            minSum = Math.min(minSum, sumSoFar + matrix[matrix.length - 1][matrix.length - 1]);
 
-        if(!isValid(matrix, row , col))
-            return;
-
-        minPathSum(matrix, row + 1, col, sumSoFar + matrix[row][col]);
-        minPathSum(matrix, row, col + 1, sumSoFar + matrix[row][col]);
     }
 
     /*
     Create a Tree then you can visualize
      */
     private static int minPathSumTreeWay(int[][] matrix, int row, int col) {
-        if(row == matrix.length - 1 && col == matrix.length - 1) {
-            return matrix[row][col];
-        }
-
-        if(!isValid(matrix, row, col))
-            return 0;
-
-        int rMin = minPathSumTreeWay(matrix, row, col + 1);
-        int dMin = minPathSumTreeWay(matrix, row + 1, col);
-
-        if(rMin == 0 || dMin == 0)
-            return matrix[row][col] + rMin + dMin;
-        else
-            return matrix[row][col] + Math.min(rMin, dMin);
+        return 0;
     }
 
     private static boolean isValid(int[][] matrix, int row, int col) {

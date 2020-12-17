@@ -12,16 +12,6 @@ public class L88_MergeSortedArray {
     }
 
     private static void merge(int[] array1, int length1, int[] array2, int length2) {
-        int end = length1 + length2 - 1;
-        int end1 = length1 - 1;
-        int end2 = length2 - 1;
 
-        while (end2 >= 0) {
-            if(end1 >= 0) {
-                array1[end--] = array1[end1] > array2[end2] ? array1[end1--] : array2[end2--];
-            } else {
-                array1[end--] = array2[end2--];
-            }
-        }
     }
 }

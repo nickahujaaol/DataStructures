@@ -12,9 +12,6 @@ public class L104_MaximumDepthOfBinaryTree {
     }
 
     private static int findDepth(TreeNode<Integer> node) {
-        if (node == null)
-            return 0;
-
-        return 1 + Math.max(findDepth(node.left), findDepth(node.right));
+        return 0;
     }
 }

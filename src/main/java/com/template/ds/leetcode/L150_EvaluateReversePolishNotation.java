@@ -11,25 +11,6 @@ public class L150_EvaluateReversePolishNotation {
     }
 
     private static int solve(String[] input) {
-        Stack<Integer> stack = new Stack<>();
-        for (String inStr : input) {
-            if(operators.indexOf(inStr) == -1) {
-                stack.push(Integer.parseInt(inStr));
-            } else {
-                int num2 = stack.pop();
-                int num1 = stack.pop();
-                if(inStr.equals("+")) {
-                    stack.push(num1 + num2);
-                } else if(inStr.equals("-")) {
-                    stack.push(num1 - num2);
-                } else if(inStr.equals("*")) {
-                    stack.push(num1 * num2);
-                } else if(inStr.equals("/")) {
-                    stack.push(num1 / num2);
-                }
-            }
-        }
-
-        return stack.pop();
+        return 0;
     }
 }

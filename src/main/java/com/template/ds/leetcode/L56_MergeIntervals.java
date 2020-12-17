@@ -1,7 +1,6 @@
 package com.template.ds.leetcode;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 public class L56_MergeIntervals {
     public static void main(String[] args) {
@@ -15,22 +14,7 @@ public class L56_MergeIntervals {
     }
 
     private static void merge(ArrayList<Interval> origList) {
-        Stack<Interval> stack = new Stack<>();
-        for(Interval interval : origList) {
-            if(stack.isEmpty()) {
-                stack.push(interval);
-                continue;
-            }
-            Interval removedInterval = stack.pop();
-            if(interval.x > removedInterval.x && interval.x < removedInterval.y) {
-                stack.push(new Interval(removedInterval.x, interval.y));
-            } else {
-                stack.push(removedInterval);
-                stack.push(interval);
-            }
-        }
 
-        System.out.println(stack);
     }
 
     private static class Interval {

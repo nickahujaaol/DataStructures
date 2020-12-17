@@ -12,17 +12,6 @@ public class L122_BestTimeToBuyAndSellStock {
         int maxSoFar = -1;
         int maxProfit = 0;
 
-        for(int i = 0; i < stockPrices.length; i++) {
-            minSoFar = Math.min(minSoFar, stockPrices[i]);
-            maxSoFar = Math.max(maxSoFar, stockPrices[i] - minSoFar);
-            if(maxSoFar != 0 && i < stockPrices.length - 1 && stockPrices[i + 1] < stockPrices[i]) {
-                maxProfit += stockPrices[i] - minSoFar;
-                minSoFar = Integer.MAX_VALUE;
-                maxSoFar = -1;
-            } else if(maxSoFar != 0 && i == stockPrices.length - 1) {
-                maxProfit = maxSoFar;
-            }
-        }
 
         return maxProfit;
     }

@@ -13,16 +13,7 @@ public class L129_SumRootToLeafNumbers {
     }
 
     private static void findSum(TreeNode<Integer> node, int workingSum, AtomicInteger finalSum) {
-        if(node == null)
-            return;
 
-        if(node.left == null && node.right == null) {
-            finalSum.addAndGet(node.value + workingSum * 10);
-            return;
-        }
-
-        findSum(node.left, workingSum * 10 + node.value, finalSum);
-        findSum(node.right, workingSum * 10 + node.value, finalSum);
     }
     private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(4);

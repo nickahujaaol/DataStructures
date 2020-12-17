@@ -11,20 +11,6 @@ public class L83_RemoveDuplicateFromSortedList {
     }
 
     private static void removeDuplicates(LinkedList<Integer> list) {
-        Node<Integer> prevNode = list.head;
-        Node<Integer> currNode = list.head.next;
 
-        LinkedList<Integer> newList = new LinkedList<>();
-        newList.head = prevNode;
-
-        while (currNode != null) {
-            if(currNode.value == prevNode.value) {
-                currNode = currNode.next;
-            } else {
-                prevNode.next = currNode;
-                prevNode = prevNode.next;
-                currNode = currNode.next;
-            }
-        }
     }
 }

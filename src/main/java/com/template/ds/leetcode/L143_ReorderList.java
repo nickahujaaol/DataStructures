@@ -20,21 +20,7 @@ public class L143_ReorderList {
     }
 
     private static Node<Integer> reorder(Node<Integer> nodeFwd, Node<Integer> nodeBack) {
-        if(nodeBack == null)
-            return nodeFwd;
 
-        nodeFwd = reorder(nodeFwd, nodeBack.next);
-        if(nodeFwd != null) {
-            if (nodeFwd == nodeBack || nodeFwd.next == nodeBack) {
-                nodeBack.next = null;
-                return null;
-            } else {
-                Node<Integer> tempNextNode = nodeFwd.next;
-                nodeFwd.next = nodeBack;
-                nodeBack.next = tempNextNode;
-                return tempNextNode;
-            }
-        }
         return null;
     }
 }

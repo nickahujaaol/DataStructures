@@ -20,24 +20,7 @@ public class L113_PathSum {
                                   ArrayList<Integer> workingList,
                                   ArrayList<ArrayList<Integer>> resultsList,
                                   AtomicInteger workingSum) {
-        if(node == null)
-            return;
 
-        workingSum.addAndGet(node.value);
-        workingList.add(node.value);
-        if(node.left == null && node.right == null) {
-            if(workingSum.get() == sum) {
-                resultsList.add((ArrayList<Integer>) workingList.clone());
-            }
-        }
-
-        findPaths(node.left, sum, workingList, resultsList, workingSum);
-        findPaths(node.right, sum, workingList, resultsList, workingSum);
-
-        if(workingList.size() > 0) {
-            workingSum.addAndGet(-node.value);
-            workingList.remove(workingList.size() - 1);
-        }
     }
 
 

@@ -8,16 +8,6 @@ public class L77_Combinations {
     }
 
     private static void findCombinations(int n, int k, int index, ArrayList<Integer> list) {
-        if(list.size() == k) {
-            System.out.println(list);
-            return;
-        }
 
-
-        for(int i = index; i <= n; i++) {
-            list.add(i);
-            findCombinations(n, k , i + 1, list);
-            list.remove(list.size() - 1);
-        }
     }
 }

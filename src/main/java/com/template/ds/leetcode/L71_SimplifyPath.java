@@ -11,23 +11,6 @@ public class L71_SimplifyPath {
     }
 
     private static String simplify(String dir) {
-        StringTokenizer tokenizer = new StringTokenizer(dir, "/");
-        Stack<String> stack = new Stack<>();
-        while (tokenizer.hasMoreElements()) {
-            String nextToken = tokenizer.nextToken();
-            if(nextToken.equals("."))
-                continue;
-            else if(!stack.isEmpty() && nextToken.equals(".."))
-                stack.pop();
-            else
-                stack.push(nextToken);
-        }
-
-        StringBuilder builder = new StringBuilder();
-        while (!stack.isEmpty()) {
-            builder.insert(0, stack.pop());
-            builder.insert(0, "/");
-        }
-        return builder.toString();
+        return null;
     }
 }

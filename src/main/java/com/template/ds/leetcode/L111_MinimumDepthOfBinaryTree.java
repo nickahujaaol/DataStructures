@@ -10,9 +10,7 @@ public class L111_MinimumDepthOfBinaryTree {
     }
 
     private static int findDepth(TreeNode<Integer> node) {
-        if(node == null)
-            return 0;
-        return 1 + Math.min(findDepth(node.left), findDepth(node.right));
+        return 0;
     }
 
     private static TreeNode<Integer> createTree() {
