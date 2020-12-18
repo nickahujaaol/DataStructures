@@ -1,6 +1,7 @@
 package com.practice.ds.leetcode;
 
 import com.learning.ds.LinkedList;
+import com.learning.ds.Node;
 
 public class L24_SwapNodes {
     public static void main(String[] args) {
@@ -10,5 +11,8 @@ public class L24_SwapNodes {
     }
 
     private static void swapNodes(LinkedList list) {
+        Node<Integer> prevNode = null;
+        Node<Integer> currNode = list.head;
+        Node<Integer> nxtNode = list.head.next;
     }
 }

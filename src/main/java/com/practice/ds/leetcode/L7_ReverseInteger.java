@@ -10,7 +10,10 @@ public class L7_ReverseInteger {
     private static int reverse(int num) {
         int reverseInt = 0;
 
-
+        while (num > 0) {
+            reverseInt = reverseInt * 10 + num % 10;
+            num = num / 10;
+        }
         return reverseInt;
     }
 }
