@@ -14,6 +14,23 @@ public class L79_WordSearch {
     }
 
     private static boolean search(char[][] matrix, int row, int col, String workingString, int workingCounter, String target) {
+        if(workingCounter >= target.length())
+            return false;
+
+        if(target.charAt(workingCounter) == matrix[row][col]) {
+            workingString = workingString + target.charAt(workingCounter);
+        }
+
+        if(workingString.equals(target))
+            return true;
+
+        for(int i = 0; i < rows.length; i++) {
+            if(isValid(matrix, row + rows[i], col + cols[i], target.charAt(workingCounter + 1))) {
+                return search(matrix, row + rows[i], col + cols[i],
+                        workingString, workingCounter + 1,
+                        target);
+            }
+        }
 
         return false;
     }

@@ -9,12 +9,41 @@ public class L79_WordSearch {
                             {'A', 'B', 'C', 'E'},
                             {'S', 'F', 'C', 'S'},
                             {'A', 'D', 'E', 'E'}};
-        boolean found = search(matrix, 0, 0, "", 0, "ABCCED");
+        boolean found = search(matrix, 0, 0, 0, "ABCCED");
         System.out.println(found);
     }
 
-    private static boolean search(char[][] matrix, int row, int col, String workingString, int workingCounter, String target) {
+    private static boolean search(char[][] matrix, int row, int col, int workingCounter, String target) {
 
+        if(matrix[row][col] != target.charAt(workingCounter))
+            return false;
+
+        if(workingCounter == target.length() - 1)
+            return true;
+
+        for(int i = 0; i < rows.length; i++) {
+            if(workingCounter < target.length()-1 &&
+                    isValid(matrix, row + rows[i], col + cols[i], target.charAt(workingCounter + 1))) {
+                return search(matrix, row + rows[i], col + cols[i], workingCounter + 1, target);
+            }
+        }
+        return false;
+    }
+
+    private static boolean searchOld(char[][] matrix, int row, int col, String workingString, int workingCounter, String target) {
+
+        if(target.charAt(workingCounter) == matrix[row][col])
+            workingString += target.charAt(workingCounter);
+
+        if(workingString.equals(target))
+            return true;
+
+        for(int i = 0; i < rows.length; i++) {
+            if(workingCounter < target.length()-1 &&
+                    isValid(matrix, row + rows[i], col + cols[i], target.charAt(workingCounter + 1))) {
+                return searchOld(matrix, row + rows[i], col + cols[i], workingString, workingCounter + 1, target);
+            }
+        }
         return false;
     }
 

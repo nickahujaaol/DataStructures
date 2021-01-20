@@ -11,8 +11,19 @@ public class L80_RemoveDuplicates {
     }
 
     private static int removeDuplicates(int[] nums) {
+        int counter = 1;
+        int position = 0;
 
+        for(int i = 1; i < nums.length; i++) {
+            if(nums[i] == nums[i-1]) {
+                counter++;
+            } else
+                counter = 1;
 
-        return 0;
+            if(counter <= 2)
+                nums[++position] = nums[i];
+        }
+
+        return position;
     }
 }

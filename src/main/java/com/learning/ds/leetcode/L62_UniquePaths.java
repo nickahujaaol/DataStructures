@@ -10,18 +10,15 @@ public class L62_UniquePaths {
     }
 
     private static int uniquePaths(int[][] matrix, int row, int col, int numOfPaths) {
-        if(matrix[row][col] == 2)
+        if(row == matrix.length - 1 && col == matrix[0].length - 1) {
             return 1 + numOfPaths;
-
-        if(isValid(matrix, row + 1, col)) {
-            numOfPaths = uniquePaths(matrix, row + 1, col, numOfPaths);
         }
+        if(!isValid(matrix, row, col))
+            return 0;
 
-        if(isValid(matrix, row, col + 1)) {
-            numOfPaths = uniquePaths(matrix, row, col + 1, numOfPaths);
-        }
-
-        return numOfPaths;
+        int rightPaths = uniquePaths(matrix, row + 1, col, numOfPaths);
+        int downPaths = uniquePaths(matrix, row, col + 1, numOfPaths);
+        return rightPaths + downPaths;
     }
 
     private static boolean isValid(int[][] matrix, int row, int col) {
