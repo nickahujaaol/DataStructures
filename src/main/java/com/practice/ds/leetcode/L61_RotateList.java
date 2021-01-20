@@ -1,7 +1,6 @@
 package com.practice.ds.leetcode;
 
 import com.learning.ds.LinkedList;
-import com.learning.ds.Node;
 
 public class L61_RotateList {
     public static void main(String[] args) {

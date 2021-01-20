@@ -7,18 +7,6 @@ public class L69_SquareRoot {
     }
 
     private static int binarySearch(int givenNum, int low, int high) {
-        if(low > high)
-            return 0;
-
-        int mid = (low + high) / 2;
-        int square = mid * mid;
-
-        if(givenNum >= square && givenNum < (mid + 1) * (mid + 1))
-            return mid;
-
-        if(square < givenNum)
-            return binarySearch(givenNum, mid + 1, high);
-        else
-            return binarySearch(givenNum, low, mid - 1);
+        return 0;
     }
 }

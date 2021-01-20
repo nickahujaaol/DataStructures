@@ -18,16 +18,6 @@ public class L38_CountAndSay {
         int frequency = 1;
         String result = "";
 
-        char startChar = number.charAt(0);
-        for(int i = 0; i < number.length(); i++) {
-            startChar = number.charAt(i);
-            if(i < number.length() - 1 && number.charAt(i) == number.charAt(i + 1)) {
-                frequency++;
-            } else {
-                result = result + frequency + startChar;
-                frequency = 1;
-            }
-        }
         return result;
     }
 }

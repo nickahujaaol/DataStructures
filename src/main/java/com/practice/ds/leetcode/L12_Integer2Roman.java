@@ -12,17 +12,9 @@ public class L12_Integer2Roman {
 
     private static String getRoman(int num) {
         String retString = "";
-        StringBuilder builder = new StringBuilder();
 
-        for(int i = values.length - 1; i >= 0; i--) {
-            int valueAtIndex = num / values[i];
-            num = num % values[i];
-            for(int j = 0; j < valueAtIndex; j++) {
-                builder.append(roman[i]);
-            }
-        }
 
-        return builder.toString();
+        return retString;
     }
 
 }

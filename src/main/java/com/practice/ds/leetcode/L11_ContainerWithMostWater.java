@@ -8,17 +8,6 @@ public class L11_ContainerWithMostWater {
     }
 
     private static int maxCapacity(int[] heights) {
-        int fwdCounter = 0;
-        int backCounter = heights.length - 1;
-        int max = 0;
-        while (fwdCounter <= backCounter) {
-            int capacity = Math.min(heights[fwdCounter], heights[backCounter]) * (backCounter - fwdCounter);
-            max = Math.max(max, capacity);
-            if(heights[fwdCounter] < heights[backCounter])
-                fwdCounter++;
-            else
-                backCounter--;
-        }
-        return max;
+        return 0;
     }
 }

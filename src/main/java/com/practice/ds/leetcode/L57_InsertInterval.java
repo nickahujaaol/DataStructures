@@ -16,28 +16,6 @@ public class L57_InsertInterval {
     }
 
     private static void insert(Stack<Interval> stack, Interval insertInterval) {
-        if(stack.isEmpty())
-            return;
-
-        Interval topIntervalForInsert = stack.peek();
-        if(topIntervalForInsert.x <= insertInterval.x && topIntervalForInsert.y > insertInterval.x) {
-            stack.pop();
-            stack.push(new Interval(topIntervalForInsert.x, insertInterval.y));
-        }
-        Interval poppedInterval = stack.pop();
-        insert(stack, insertInterval);
-
-        if(!stack.isEmpty()) {
-            Interval topInterval = stack.peek();
-            if(topInterval.x <= poppedInterval.x && topInterval.y >= poppedInterval.x) {
-                stack.pop();
-                stack.push(new Interval(topInterval.x, Math.max(poppedInterval.y, topInterval.y)));
-            } else {
-                stack.push(poppedInterval);
-            }
-        } else {
-            stack.push(poppedInterval);
-        }
 
     }
 

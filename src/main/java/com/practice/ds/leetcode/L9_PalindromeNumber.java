@@ -1,6 +1,6 @@
 package com.practice.ds.leetcode;
 
-// just reverse the number
+// ust reverse the number
 public class L9_PalindromeNumber {
     public static void main(String[] args) {
         int num = 121;

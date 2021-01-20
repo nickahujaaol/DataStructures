@@ -1,7 +1,6 @@
 package com.practice.ds.leetcode;
 
 import com.learning.ds.LinkedList;
-import com.learning.ds.Node;
 
 public class L83_RemoveDuplicateFromSortedList {
     public static void main(String[] args) {
@@ -11,14 +10,6 @@ public class L83_RemoveDuplicateFromSortedList {
     }
 
     private static void removeDuplicates(LinkedList<Integer> list) {
-        Node<Integer> node = list.head;
 
-        while (node != null) {
-            if(node.next != null && node.value == node.next.value) {
-                node.next = node.next.next;
-            } else {
-                node = node.next;
-            }
-        }
     }
 }

@@ -9,14 +9,6 @@ public class L78_SubSets {
     }
 
     private static void findSubsets(int[] nums, int index, ArrayList<Integer> list) {
-        if(index > nums.length)
-            return;
 
-        System.out.println(list);
-        for(int i = index; i < nums.length; i++) {
-            list.add(nums[i]);
-            findSubsets(nums, i + 1, list);
-            list.remove(list.size() - 1);
-        }
     }
 }

@@ -1,4 +1,4 @@
-package com.practice.ds.leetcode;
+package com.practice.ds.leetcode.revise;
 
 public class L62_UniquePaths {
     public static void main(String[] args) {
@@ -10,6 +10,16 @@ public class L62_UniquePaths {
     }
 
     private static int uniquePaths(int[][] matrix, int row, int col, int numOfPaths) {
+        if(matrix[row][col] == 2)
+            return 1 + numOfPaths;
+
+        if(isValid(matrix, row + 1, col)) {
+            numOfPaths = uniquePaths(matrix, row + 1, col, numOfPaths);
+        }
+
+        if(isValid(matrix, row, col + 1)) {
+            numOfPaths = uniquePaths(matrix, row, col + 1, numOfPaths);
+        }
 
         return numOfPaths;
     }

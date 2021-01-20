@@ -1,7 +1,6 @@
 package com.practice.ds.leetcode;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 public class L56_MergeIntervals {
     public static void main(String[] args) {

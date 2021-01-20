@@ -10,15 +10,8 @@ public class L63_UniquePaths {
     }
 
     private static int uniquePaths(int[][] matrix, int row, int col, int numOfPaths) {
-        if(row == matrix.length - 1 && col == matrix.length)
-            return 1 + numOfPaths;
 
-        if(!isValid(matrix, row, col))
-            return 0;
-        int rightPaths = uniquePaths(matrix, row + 1, col, numOfPaths);
-        int downPaths = uniquePaths(matrix, row, col + 1, numOfPaths);
-
-        return rightPaths + downPaths;
+        return numOfPaths;
     }
 
     private static boolean isValid(int[][] matrix, int row, int col) {
