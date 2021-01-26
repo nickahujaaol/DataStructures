@@ -31,6 +31,7 @@ public class CalculateHeight {
         root.left.right = new TreeNode(12);
         root.right.left = new TreeNode(16);
         root.right.right = new TreeNode(25);
+        root.right.right.right = new TreeNode(26);
 
         return binaryTree;
     }

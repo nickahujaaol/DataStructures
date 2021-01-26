@@ -22,12 +22,7 @@ public class PrintLeftView {
     }
 
     private static void printRecursive(TreeNode<Integer> node, int level, HashMap<Integer, Integer> levelToNodeMap) {
-        if(node == null)
-            return;
 
-        levelToNodeMap.putIfAbsent(level, node.value);
-        printRecursive(node.left, level + 1, levelToNodeMap);
-        printRecursive(node.right, level + 1, levelToNodeMap);
     }
 
     private static TreeNode<Integer> createTree() {

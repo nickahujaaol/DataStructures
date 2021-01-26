@@ -7,18 +7,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 // https://www.techiedelight.com/find-maximum-sum-root-to-leaf-path-binary-tree/
 public class FindMaxSumRootToLeafPath {
     public static void main(String[] args) {
-        //AtomicInteger maxSum = new AtomicInteger();
-        int maxSum = findMaxSum(createTree());
-        System.out.println("Max Sum is : " + maxSum);
+        AtomicInteger maxSum = new AtomicInteger();
+        findMaxSum(createTree(), 0, maxSum);
+        System.out.println("Max Sum is : " + maxSum.get());
     }
 
-    private static int findMaxSum(TreeNode<Integer> node) {
-        if(node == null)
-            return 0;
+    private static void findMaxSum(TreeNode<Integer> node, int maxSoFar, AtomicInteger maxSum) {
 
-        int leftSum = findMaxSum(node.left);
-        int rightSum = findMaxSum(node.right);
-        return node.value + Math.max(leftSum, rightSum);
     }
 
     private static TreeNode<Integer> createTree() {
