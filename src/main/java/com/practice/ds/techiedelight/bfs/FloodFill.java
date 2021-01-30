@@ -1,14 +1,9 @@
 package com.practice.ds.techiedelight.bfs;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
 
 // https://www.techiedelight.com/flood-fill-algorithm/
 public class FloodFill {
-    private static final int[] row = {-1, -1, -1, 0, 0, 1, 1, 1};
-    private static final int[] col = {-1, 0, 1, -1, 1, -1, 0, 1};
-
     public static void main(String[] args) {
         char[][] matrix = {
                 "YYYGGGGGGG".toCharArray(),
@@ -36,26 +31,10 @@ public class FloodFill {
     }
 
     private static void floodFill(char[][] matrix, int targetRow, int targetCol, char replacementColor) {
-        Queue<Pair> queue = new LinkedList<>();
-        queue.add(new Pair(targetRow, targetCol));
 
-        while (!queue.isEmpty()) {
-            Pair removedPair = queue.poll();
-            matrix[removedPair.x][removedPair.y] = replacementColor;
-            for(int i = 0; i < row.length; i++) {
-                if(isValid(matrix, removedPair.x + row[i], removedPair.y + col[i], 'X')) {
-                    queue.add(new Pair(removedPair.x + row[i], removedPair.y + col[i]));
-                }
-            }
-        }
     }
 
-
     private static boolean isValid(char[][] matrix, int targetRow, int targetCol, char targetColor) {
-        if(targetRow >= 0 && targetRow < matrix.length &&
-                targetCol >= 0 && targetCol < matrix.length &&
-                matrix[targetRow][targetCol] == targetColor)
-            return true;
         return false;
     }
 
