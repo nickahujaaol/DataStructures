@@ -3,7 +3,6 @@ package com.practice.ds.geeksforgeeks.tree.traversals;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,19 +16,10 @@ public class DiagonalTraversal {
     }
 
     private static void diagonalTraverse(TreeNode<Integer> node, HashMap<Integer, List<Integer>> diagMap, int diagonal) {
-        if(node == null)
-            return;
-        addElement(node, diagMap, diagonal);
-        diagonalTraverse(node.left, diagMap, diagonal + 1);
-        diagonalTraverse(node.right, diagMap, diagonal);
+
     }
 
     private static void addElement(TreeNode<Integer> node, HashMap<Integer, List<Integer>> diagMap, int diagonal) {
-        List<Integer> list = diagMap.get(diagonal);
-        if(list == null) {
-            list = new ArrayList<>();
-            diagMap.put(diagonal, list);
-        }
-        list.add(node.value);
+
     }
 }

@@ -14,7 +14,15 @@ public class ConvertBinaryTreeToSumTree {
     }
 
     private static int convertToSumTree(TreeNode<Integer> node) {
-        return 0;
+        if(node == null)
+            return 0;
+
+
+        int currValue = node.value;
+        int leftSum = convertToSumTree(node.left);
+        int rightSum = convertToSumTree(node.right);
+        node.value = leftSum + rightSum;
+        return leftSum + rightSum + currValue;
     }
 
     public static void preorder(TreeNode root) {

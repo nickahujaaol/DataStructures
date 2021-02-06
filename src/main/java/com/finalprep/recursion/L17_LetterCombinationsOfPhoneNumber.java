@@ -1,6 +1,7 @@
 package com.finalprep.recursion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class L17_LetterCombinationsOfPhoneNumber {
@@ -13,7 +14,17 @@ public class L17_LetterCombinationsOfPhoneNumber {
     }
 
     private static void findCombinations(char inNumber[], int index, char[] tempArray, List<String> results) {
+        if(index == inNumber.length) {
+            results.add(Arrays.toString(tempArray));
+            return;
+        }
 
+        int indexNum = Integer.parseInt("" + inNumber[index]);
+        char[] charsForNumber = getCharacters(indexNum).toCharArray();
+        for(int i = 0; i < charsForNumber.length; i++) {
+            tempArray[index] = charsForNumber[i];
+            findCombinations(inNumber, index + 1, tempArray, results);
+        }
     }
 
     private static String getCharacters(int number) {

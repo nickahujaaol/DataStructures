@@ -22,17 +22,6 @@ public class L2_Add2Numbers {
 
     private static List<Integer> add(List<Integer> number1, List<Integer> number2) {
         List<Integer> retList = new LinkedList<>();
-        int carryOver = 0;
-
-        for(int i = 0; i < number1.size(); i++) {
-            int tempSum = number1.get(i) + number2.get(i) + carryOver;
-            retList.add(tempSum % 10);
-            carryOver = tempSum / 10;
-        }
-
-        if(carryOver > 0) {
-            retList.add(carryOver);
-        }
         return retList;
     }
 }

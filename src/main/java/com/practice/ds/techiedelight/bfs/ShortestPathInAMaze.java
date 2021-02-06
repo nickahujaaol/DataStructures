@@ -1,5 +1,8 @@
 package com.practice.ds.techiedelight.bfs;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 // https://www.techiedelight.com/lee-algorithm-shortest-path-in-a-maze/
 // Check LeastCostSourceToDestination also. Same concept
 public class ShortestPathInAMaze {
@@ -26,10 +29,32 @@ public class ShortestPathInAMaze {
     }
 
     private static void findShortestPath(int[][] matrix, int startX, int startY, int endX, int endY, boolean[][] visited) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(new Node(startX, startY, 0));
+        int minDistance = Integer.MAX_VALUE;
 
+        while (!queue.isEmpty()) {
+            Node tempNode = queue.poll();
+            visited[tempNode.x][tempNode.y] = true;
+            if(tempNode.x == endX && tempNode.y == endY) {
+                minDistance = Math.min(minDistance, tempNode.distance);
+            }
+
+            for(int i = 0; i < row.length; i++) {
+                if(isValid(matrix, tempNode.x + row[i], tempNode.y + col[i], visited)) {
+                    queue.add(new Node(tempNode.x + row[i], tempNode.y + col[i], tempNode.distance + 1));
+                }
+            }
+        }
+
+        System.out.println("Min: " + minDistance);
     }
 
     private static boolean isValid(int[][] matrix, int x, int y, boolean[][] visited) {
+        if(x >= 0 && x < matrix.length &&
+        y >= 0 && y < matrix.length &&
+        !visited[x][y])
+            return true;
         return false;
     }
 

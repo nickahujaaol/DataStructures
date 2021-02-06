@@ -14,7 +14,7 @@ public class FindAllNodesAtGivenDistanceFromLeaf {
         List<Integer> rootToLeafPath = new ArrayList<>();
         Set<Integer> nodesAtDistance = new HashSet<>();
 
-        findNodes(root, rootToLeafPath, nodesAtDistance, 3);
+        findNodes(root, rootToLeafPath, nodesAtDistance, 1);
         System.out.println(nodesAtDistance);
     }
 
@@ -22,7 +22,7 @@ public class FindAllNodesAtGivenDistanceFromLeaf {
         if (node == null) return;
 
         if (node.left == null && node.right == null && rootToLeafPath.size() >= distance) {
-            nodesAtDistance.add(rootToLeafPath.get(rootToLeafPath.size() - distance));
+                nodesAtDistance.add(rootToLeafPath.get(rootToLeafPath.size() - distance));
         }
 
         rootToLeafPath.add(node.value);

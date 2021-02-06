@@ -15,22 +15,7 @@ public class KthAncestor {
     }
 
     private static int findAncestor(TreeNode<Integer> node, int nodeValue, int kthAncestor) {
-        if(node == null) {
-            return Integer.MIN_VALUE;
-        }
 
-        if(node.value == nodeValue)
-            return 0;
-
-        int leftFound = findAncestor(node.left, nodeValue, kthAncestor);
-        int rightFound = findAncestor(node.right, nodeValue, kthAncestor);
-        if(leftFound != Integer.MIN_VALUE || rightFound != Integer.MIN_VALUE) {
-            int ancestor = leftFound != Integer.MIN_VALUE ? leftFound :rightFound;
-            if(++ancestor == kthAncestor) {
-                System.out.println("Kth Ancestor is: " + node.value);
-            }
-            return ancestor;
-        }
-        return Integer.MIN_VALUE;
+        return -1;
     }
 }

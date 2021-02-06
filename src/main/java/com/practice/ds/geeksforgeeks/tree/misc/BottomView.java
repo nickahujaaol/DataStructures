@@ -1,13 +1,10 @@
 package com.practice.ds.geeksforgeeks.tree.misc;
 
 
-import apple.laf.JRSUIUtils;
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;
 
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
 
 // https://www.geeksforgeeks.org/bottom-view-binary-tree/
 public class BottomView {
@@ -20,26 +17,7 @@ public class BottomView {
 
     private static void printBottomView(TreeNode<Integer> node, HashMap<TreeNode<Integer>, Integer> nodeToIndexMap,
                                         HashMap<Integer, Integer> indexToValMap) {
-        Queue<TreeNode<Integer>> queue = new LinkedList<>();
-        queue.add(node);
-        indexToValMap.put(0, node.value);
-        nodeToIndexMap.put(node, 0);
 
-        while (!queue.isEmpty()) {
-            TreeNode<Integer> tempNode = queue.poll();
-            System.out.println(tempNode.value);
-            int parentNode = nodeToIndexMap.get(tempNode);
-            if(tempNode.left != null) {
-                queue.add(tempNode.left);
-                indexToValMap.put(parentNode - 1, tempNode.left.value);
-                nodeToIndexMap.put(tempNode.left, parentNode - 1);
-            }
-            if(tempNode.right != null) {
-                queue.add(tempNode.right);
-                indexToValMap.put(parentNode + 1, tempNode.right.value);
-                nodeToIndexMap.put(tempNode.right, parentNode + 1);
-            }
-        }
     }
 
 

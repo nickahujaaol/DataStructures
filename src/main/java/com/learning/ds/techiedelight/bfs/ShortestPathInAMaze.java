@@ -40,6 +40,7 @@ public class ShortestPathInAMaze {
 
             if (removedNode.x == endX && removedNode.y == endY) {
                 minDistance = Math.min(minDistance, removedNode.distance);
+                break;
             }
 
             for (int i = 0; i < row.length; i++) {

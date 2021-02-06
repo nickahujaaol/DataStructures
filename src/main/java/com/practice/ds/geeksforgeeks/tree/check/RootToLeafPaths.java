@@ -15,18 +15,6 @@ public class RootToLeafPaths {
     }
 
     private static void getPaths(TreeNode<Integer> node, List<TreeNode<Integer>> pathsList) {
-        if(node == null)
-            return;
 
-        pathsList.add(node);
-        if(node.left == null && node.right == null) {
-            System.out.println(pathsList);
-            pathsList.remove(node);
-            return;
-        }
-
-        getPaths(node.left, pathsList);
-        getPaths(node.right, pathsList);
-        pathsList.remove(node);
     }
 }

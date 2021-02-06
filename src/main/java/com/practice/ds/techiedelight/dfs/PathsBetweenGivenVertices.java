@@ -10,25 +10,25 @@ public class PathsBetweenGivenVertices {
 
     public static void main(String[] args) {
         boolean[] visited = new boolean[8];
-        findPaths(createGraph(), 7, new LinkedList<Integer>());
+        findPaths(createGraph(), 7, new LinkedList<Integer>(), visited);
     }
 
-    private static void findPaths(GraphNode<Integer> node, int endVertex, LinkedList<Integer> pathsList) {
-        if(node.visited)
-            return;
-
+    private static void findPaths(GraphNode<Integer> node, int endVertex, LinkedList<Integer> pathsList, boolean[] visited) {
         pathsList.add(node.value);
-        if(node.value == endVertex) {
-            System.out.println("Path Exists..." + pathsList.toString());
+        if(endVertex == node.value) {
+            System.out.println(pathsList);
             return;
         }
 
-        node.visited = true;
+        if(visited[node.value])
+            return;
+
+        visited[node.value] = true;
         List<GraphNode<Integer>> neighbours = node.getNeighbours();
         for(int i = 0; i < neighbours.size(); i++) {
-            findPaths(neighbours.get(i), endVertex, pathsList);
+            findPaths(neighbours.get(i), endVertex, pathsList, visited);
+            pathsList.removeLast();
         }
-        pathsList.removeLast();
     }
 
     private static GraphNode<Integer> createGraph() {

@@ -2,6 +2,8 @@ package com.practice.ds.techiedelight.binarytree;
 
 import com.learning.ds.TreeNode;
 
+import java.util.function.Supplier;
+
 // https://www.techiedelight.com/truncate-given-binary-tree-remove-nodes-lie-path-sum-less-k/
 public class TruncateToRemoveNodes {
     public static void main(String[] args) {
@@ -18,7 +20,23 @@ public class TruncateToRemoveNodes {
      * hence the return is left delete + right delete.
      */
     private static boolean truncate(TreeNode<Integer> node, int sum, int sumSoFar) {
-        return false;
+        if(node == null)
+            return false;
+
+        sumSoFar = sumSoFar + node.value;
+        if(node.left == null && node.right == null && sumSoFar < sum) {
+            return true;
+        }
+
+        boolean deleteLeft = truncate(node.left, sum, sumSoFar);
+        if(deleteLeft)
+            node.left = null;
+
+        boolean deleteRight = truncate(node.right, sum, sumSoFar);
+        if(deleteRight)
+            node.right = null;
+
+        return deleteLeft && deleteRight;
     }
 
     private static TreeNode<Integer> createTree() {

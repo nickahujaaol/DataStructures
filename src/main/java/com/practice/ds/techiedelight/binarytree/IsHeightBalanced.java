@@ -16,7 +16,15 @@ public class IsHeightBalanced {
     }
 
     private static int isHeightBalanced(TreeNode<Integer> node, AtomicBoolean balanced) {
-        return 0;
+        if(node == null)
+            return 0;
+
+        int leftHeight = isHeightBalanced(node.left, balanced);
+        int rightHeight = isHeightBalanced(node.right, balanced);
+        if(Math.abs(leftHeight - rightHeight) > 1)
+            balanced.set(false);
+
+        return 1 + Math.max(leftHeight, rightHeight);
     }
 
     private static TreeNode<Integer> createTree() {

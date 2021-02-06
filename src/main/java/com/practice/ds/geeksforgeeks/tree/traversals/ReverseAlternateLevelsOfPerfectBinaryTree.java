@@ -5,7 +5,6 @@ import com.learning.ds.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 //https://www.geeksforgeeks.org/reverse-alternate-levels-binary-tree/
 
@@ -21,42 +20,13 @@ public class ReverseAlternateLevelsOfPerfectBinaryTree {
         BinaryTree<Integer> binaryTree = BinaryTree.create();
 
         printLevelOrder(binaryTree.root);
-        System.out.println();
         reverse(binaryTree.root);
         System.out.println();
         printLevelOrder(binaryTree.root);
     }
 
     private static void reverse(TreeNode<Integer> node) {
-        if(node == null)
-            return;
 
-        Queue<TreeNode<Integer>> queue = new LinkedList<>();
-        queue.add(node);
-
-        while (!queue.isEmpty()) {
-            int queueSize = queue.size();
-
-            Stack<Integer> stack = new Stack<>();
-            for(int i = 0; i < queueSize; i++) {
-                TreeNode<Integer> tempNode = queue.poll();
-                if(tempNode.left != null) {
-                    queue.add(tempNode.left);
-                    stack.push(tempNode.left.value);
-                }
-                if(tempNode.right != null) {
-                    queue.add(tempNode.right);
-                    stack.push(tempNode.right.value);
-                }
-            }
-
-            while (!stack.isEmpty()) {
-                int poppedValue = stack.pop();
-                TreeNode<Integer> tempNode = queue.poll();
-                tempNode.value = poppedValue;
-                queue.add(tempNode);
-            }
-        }
     }
 
     private static void printLevelOrder(TreeNode<Integer> node) {

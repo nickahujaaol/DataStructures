@@ -19,9 +19,10 @@ public class Traversals {
  */
     public static void main(String[] args) {
         BinaryTree<Integer> binaryTree = BinaryTree.create();
-        preOrder(binaryTree.root);
+        //preOrder(binaryTree.root);
+        System.out.println();
         inOrder(binaryTree.root);
-        postOrder(binaryTree.root);
+        //postOrder(binaryTree.root);
         System.out.println();
         levelOrder(binaryTree.root);
     }
@@ -35,16 +36,18 @@ public class Traversals {
 
     private static void inOrder(TreeNode node) {
         if (node == null) return;
+
+        inOrder(node.left);
         System.out.print(" " + node.value);
-        preOrder(node.left);
-        preOrder(node.right);
+        inOrder(node.right);
     }
 
     private static void postOrder(TreeNode node) {
         if (node == null) return;
+
+        postOrder(node.left);
+        postOrder(node.right);
         System.out.print(" " + node.value);
-        preOrder(node.left);
-        preOrder(node.right);
     }
 
     private static void levelOrder(TreeNode<Integer> node) {

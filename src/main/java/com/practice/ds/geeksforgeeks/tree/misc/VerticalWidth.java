@@ -16,11 +16,6 @@ public class VerticalWidth {
     }
 
     private static void findVerticalWidth(TreeNode<Integer> node, int min, int max) {
-        if(node == null)
-            return;
-        minVal = Math.min(minVal, min);
-        maxVal = Math.max(maxVal, max);
-        findVerticalWidth(node.left, min - 1, max);
-        findVerticalWidth(node.right, min, max + 1);
+
     }
 }

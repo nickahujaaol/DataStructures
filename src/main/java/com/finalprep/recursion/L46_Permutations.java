@@ -9,15 +9,15 @@ public class L46_Permutations {
     }
 
     private static void permutate(int[] nums, int index) {
-        if(index == nums.length) {
+        if(index >= nums.length) {
             System.out.println(Arrays.toString(nums));
             return;
         }
 
         for(int i = index; i < nums.length; i++) {
-            swap(nums, index, i);
+            swap(nums, i, index);
             permutate(nums, index + 1);
-            swap(nums, index, i);
+            swap(nums, i, index);
         }
     }
 

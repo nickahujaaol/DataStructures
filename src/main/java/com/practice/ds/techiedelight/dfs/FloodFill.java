@@ -32,6 +32,7 @@ public class FloodFill {
     }
 
     private static void floodFill(char[][] matrix, int row, int col, char targetChar, char replacementChar) {
+
         matrix[row][col] = replacementChar;
         for(int i = 0; i < rows.length; i++) {
             if(isValid(matrix, row + rows[i], col + cols[i], targetChar)) {

@@ -15,16 +15,25 @@ public class FindDiameter {
     }
 
     private static int findDiameter(TreeNode<Integer> node, AtomicInteger diameter) {
-        return 0;
+        if(node == null)
+            return 0;
+
+        int leftHeight = findDiameter(node.left, diameter);
+        int rightHeight = findDiameter(node.right, diameter);
+
+        diameter.set(Math.max(diameter.get(), leftHeight + rightHeight + 1));
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 
     private static TreeNode<Integer> createTree() {
         TreeNode<Integer> root = new TreeNode(1);
-        root.left = new TreeNode(2);
+        //root.left = new TreeNode(2);
         root.right = new TreeNode(3);
-        root.left.right = new TreeNode(4);
+        //root.left.right = new TreeNode(4);
         root.right.left = new TreeNode(5);
         root.right.right = new TreeNode(6);
+        root.right.right.right = new TreeNode(61);
+        root.right.right.right.right = new TreeNode(611);
         root.right.left.left = new TreeNode(7);
         root.right.left.right = new TreeNode(8);
 

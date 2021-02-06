@@ -7,7 +7,23 @@ public class ReverseStackUsingRecursion {
     static Stack<Character> stack = new Stack<Character>();
 
     public static void reverse() {
+        if(stack.isEmpty())
+            return;
 
+        char poppedVal = stack.pop();
+        reverse();
+        insertReversed(poppedVal);
+    }
+
+    private static void insertReversed(char i) {
+        if(stack.isEmpty()) {
+            stack.push(i);
+            return;
+        }
+
+        char poppedVal = stack.pop();
+        insertReversed(i);
+        stack.push(poppedVal);
     }
 
     public static void main(String[] args) {

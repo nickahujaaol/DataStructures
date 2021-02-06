@@ -19,11 +19,11 @@ public class AreMirror {
         if (tree1 == null || tree2 == null) {
             return false;
         }
-        if (tree1.value == tree2.value) {
-            return true;
+        if (tree1.value != tree2.value) {
+            return false;
         }
 
-        return isMirror(tree1.left, tree2.right) && isMirror(tree1.right, tree2.right);
+        return isMirror(tree1.left, tree2.right) && isMirror(tree1.right, tree2.left);
     }
 
     public static BinaryTree create() {

@@ -11,9 +11,8 @@ public class L93_RestoreIPAddresses {
     }
 
     private static void restore(String inAddresses, int index, List<String> workingIp, List<String> finalIpAddresses) {
-        if(index > inAddresses.length()) {
+        if(index > inAddresses.length())
             return;
-        }
 
         if(workingIp.size() > 4)
             return;
@@ -33,14 +32,12 @@ public class L93_RestoreIPAddresses {
             int ipPart = -1;
             if(i < inAddresses.length())
                 ipPart = Integer.parseInt(inAddresses.substring(index, i + 1));
-            if(ipPart >= 0 && ipPart <= 256) {
-                workingIp.add(inAddresses.substring(index, i + 1));
+            if(ipPart >= 0 && ipPart < 256) {
+                workingIp.add(""+ipPart);
                 restore(inAddresses, i + 1, workingIp, finalIpAddresses);
-                if(workingIp.size() > 0)
-                    workingIp.remove(workingIp.size() - 1);
+                workingIp.remove(workingIp.size() - 1);
             }
         }
-
     }
 
 }

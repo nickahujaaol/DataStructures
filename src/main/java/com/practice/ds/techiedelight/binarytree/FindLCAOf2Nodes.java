@@ -14,8 +14,21 @@ public class FindLCAOf2Nodes {
         findLCA(createTree(), 7, 4);
     }
 
-    private static boolean findLCA(TreeNode<Integer> node, int node1, int node2) {
-        return false;
+    private static boolean findLCA(TreeNode<Integer> node, int num1, int num2) {
+        if(node == null)
+            return false;
+
+        if(node.value == num1 || node.value == num2)
+            return true;
+
+        boolean leftPresent = findLCA(node.left, num1, num2);
+        boolean rightPresent = findLCA(node.right, num1, num2);
+
+        if(leftPresent && rightPresent) {
+            System.out.println("LCA is : " + node.value);
+        }
+
+        return leftPresent || rightPresent;
     }
 
 

@@ -14,7 +14,15 @@ public class MaxSumPathBetween2Leaves {
     }
 
     private static int findMaxPath(TreeNode<Integer> node, AtomicInteger maxSum) {
-        return 0;
+        if(node == null)
+            return 0;
+
+        int leftSum = findMaxPath(node.left, maxSum);
+        int rightSum = findMaxPath(node.right, maxSum);
+
+        maxSum.set(Math.max(maxSum.get(), leftSum + rightSum + node.value));
+
+        return node.value + Math.max(leftSum, rightSum);
     }
 
 

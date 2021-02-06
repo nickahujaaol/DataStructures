@@ -2,7 +2,7 @@ package com.learning.ds.leetcode;
 
 public class L28_ImplementStrStr {
     public static void main(String[] args) {
-        int index = findIndex("helollo", "ll");
+        int index = findIndexNew("HellHelloWorld", "Hello");
         System.out.println(index);
     }
 

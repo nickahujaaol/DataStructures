@@ -1,4 +1,4 @@
-package com.practice.ds.geeksforgeeks.tree.check;
+package com.finalprep.binarytree;
 
 import com.learning.ds.BinaryTree;
 import com.learning.ds.TreeNode;

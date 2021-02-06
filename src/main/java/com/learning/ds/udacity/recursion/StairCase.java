@@ -2,7 +2,8 @@ package com.learning.ds.udacity.recursion;
 
 /*
 Problem Statement
-Suppose there is a staircase that you can climb in either 1 step, 2 steps, or 3 steps. In how many possible ways can you climb the staircase if the staircase has n steps? Write a recursive function to solve the problem.
+Suppose there is a staircase that you can climb in either 1 step, 2 steps, or 3 steps.
+ In how many possible ways can you climb the staircase if the staircase has n steps? Write a recursive function to solve the problem.
 
 Example:
 

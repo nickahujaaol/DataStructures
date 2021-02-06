@@ -10,16 +10,18 @@ public class L39_CombinationSum {
     }
 
     private static void findSubSets(int[] inArray, int index, int sumSoFar, List resultsList, int target) {
-        if(sumSoFar == target) {
+        if(target == sumSoFar) {
             System.out.println(resultsList);
+            return;
         }
+
         if(index >= inArray.length)
             return;
 
         resultsList.add(inArray[index]);
         findSubSets(inArray, index + 1, sumSoFar + inArray[index], resultsList, target);
-        if(resultsList.size() > 0)
-            resultsList.remove(resultsList.size() - 1);
+        resultsList.remove(resultsList.size() - 1);
+
         findSubSets(inArray, index + 1, sumSoFar, resultsList, target);
     }
 }
