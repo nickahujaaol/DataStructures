@@ -11,15 +11,16 @@ import com.learning.ds.TreeNode;
  */
 public class FindLCAOf2Nodes {
     public static void main(String[] args) {
-        findLCA(createTree(), 6, 7);
+        findLCA(createTree(), 3, 7);
     }
 
     private static boolean findLCA(TreeNode<Integer> node, int node1, int node2) {
         if (node == null) return false;
 
+        boolean currentNodeFound = node.value == node1 || node.value == node2 ? true : false;
         boolean leftFound = findLCA(node.left, node1, node2);
         boolean rightFound = findLCA(node.right, node1, node2);
-        boolean currentNodeFound = node.value == node1 || node.value == node2 ? true : false;
+        //boolean currentNodeFound = node.value == node1 || node.value == node2 ? true : false;
 
         if (leftFound && rightFound || ((leftFound || rightFound) && (currentNodeFound))) {
             System.out.println("LCA is: " + node.value);

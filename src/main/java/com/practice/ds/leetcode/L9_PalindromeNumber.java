@@ -1,9 +1,9 @@
 package com.practice.ds.leetcode;
 
-// ust reverse the number
+// just reverse the number
 public class L9_PalindromeNumber {
     public static void main(String[] args) {
-        int num = 121;
+        int num = 1331;
         boolean isPalindrome = isPalindrome(num);
         System.out.println(isPalindrome);
     }

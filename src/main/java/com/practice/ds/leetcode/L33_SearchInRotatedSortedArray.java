@@ -8,6 +8,16 @@ public class L33_SearchInRotatedSortedArray {
     }
 
     private static int findPivot(int[] nums, int low, int high) {
-       return 0;
+        if(low > high)
+            return -1;
+        int mid = (low + high) / 2;
+
+        if(nums[mid] > nums[mid +1])
+            return mid + 1;
+
+        if(nums[low] < nums[mid])
+            return findPivot(nums, mid, high);
+        else
+            return findPivot(nums, low, mid);
     }
 }

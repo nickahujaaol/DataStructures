@@ -14,6 +14,32 @@ public class L21_MergeTwoSortedLists {
     private static LinkedList<Integer> merge(Node<Integer> list1, Node<Integer> list2) {
         LinkedList<Integer> mergedList = new LinkedList<>();
 
+        while (list1 != null) {
+            if(list1.value <= list2.value) {
+                mergedList.add(list1.value);
+                list1 = list1.next;
+            }
+
+            if(list1 != null && list2 != null && list2.value < list1.value) {
+                mergedList.add(list2.value);
+                list2 = list2.next;
+            }
+        }
+
+        if(list1 != null) {
+            while (list1 != null) {
+                mergedList.add(list1.value);
+                list1 = list1.next;
+            }
+        }
+
+        if(list2 != null) {
+            while (list2 != null) {
+                mergedList.add(list2.value);
+                list2 = list2.next;
+            }
+        }
+
         return mergedList;
     }
 }

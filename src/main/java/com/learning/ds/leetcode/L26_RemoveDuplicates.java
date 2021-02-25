@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class L26_RemoveDuplicates {
     public static void main(String[] args) {
-        int[] nums = {0,1,1,1,2,2,3,3,4,4};
+        int[] nums = {0,1,1,1,2,2,3,3,4,4,5};
         removeDuplicates(nums);
     }
 

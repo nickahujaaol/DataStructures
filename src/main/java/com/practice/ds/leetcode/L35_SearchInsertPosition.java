@@ -9,6 +9,20 @@ public class L35_SearchInsertPosition {
     }
 
     private static int findPosition(int[] nums, int low, int high, int target) {
-       return 0;
+        if(low > high)
+            return -1;
+
+        int mid = (low + high) / 2;
+
+        if(nums[mid] == target)
+            return mid;
+
+        if(nums[mid] < target && nums[mid + 1] > target)
+            return mid;
+
+        if(nums[mid] < target)
+            return findPosition(nums, mid + 1, high, target);
+        else
+            return findPosition(nums, low, mid - 1, target);
     }
 }

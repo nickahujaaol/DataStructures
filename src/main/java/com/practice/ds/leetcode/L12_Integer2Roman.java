@@ -13,6 +13,13 @@ public class L12_Integer2Roman {
     private static String getRoman(int num) {
         String retString = "";
 
+        for(int i = values.length - 1; i >=0; i--) {
+            int times = num / values[i];
+            for(int j = 0; j < times; j++) {
+                retString += roman[i];
+            }
+            num = num % values[i];
+        }
 
         return retString;
     }

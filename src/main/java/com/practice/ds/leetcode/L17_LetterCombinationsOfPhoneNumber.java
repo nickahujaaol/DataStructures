@@ -13,7 +13,15 @@ public class L17_LetterCombinationsOfPhoneNumber {
     }
 
     private static void findCombinations(char inNumber[], int index, char[] tempArray, List<String> results) {
-
+        if(index == inNumber.length) {
+            results.add(new String(tempArray));
+            return;
+        }
+        char[] digitChars = getCharacters(Character.getNumericValue(inNumber[index])).toCharArray();
+        for(int i = 0; i < digitChars.length; i++) {
+            tempArray[index] = digitChars[i];
+            findCombinations(inNumber, index + 1, tempArray, results);
+        }
     }
 
     private static String getCharacters(int number) {
